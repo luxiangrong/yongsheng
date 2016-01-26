@@ -1,0 +1,288 @@
+html {
+    font-size: 9px
+}
+
+@media screen and (min-width:321px) and (max-width:375px) {
+    html {
+        font-size: 10px
+    }
+}
+
+@media screen and (min-width:376px) and (max-width:414px) {
+    html {
+        font-size: 12px
+    }
+}
+
+@media screen and (min-width:415px) and (max-width:639px) {
+    html {
+        font-size: 15px
+    }
+}
+
+//让页面最大宽度固定在414px
+@media (min-width: 640px) {
+    .container-fluid {
+        max-width: 640px;
+        margin: 0 auto;
+        position: relative;
+    }
+}
+
+body {
+    padding-bottom: 20px;
+}
+
+
+/**
+ * Note: I have omitted any vendor-prefixes for clarity.
+ * Adding them is left as an exercise for the reader.
+ */
+
+.headroom {
+    transition: transform 300ms linear;
+    transform: translateY(0%);
+}
+
+.headroom--pinned {
+    transform: translateY(0%);
+}
+
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
+
+//简洁表单控件样式
+.form-control-simple {
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid #e8e8e9;
+    color: #333;
+    padding-left: 0;
+    padding-right: 0;
+    &:focus {
+        box-shadow: none;
+        border-color: $main-brand-color;
+    }
+}
+
+.form-control-a {
+    border-radius: 0px;
+    border: none;
+    box-shadow: none;
+    background-color: #eeeeee;
+    color: #333;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    height: 45px;
+    &:focus {
+        box-shadow: none;
+        border-color: $main-brand-color;
+    }
+}
+
+//标题栏
+.title-bar {
+    position: relative;
+    border-bottom: 1px solid #dddddd;
+    .action-l {
+        position: absolute;
+        height: 100%;
+        left: 15px;
+        top: 0;
+        line-height: 40px;
+        .close {}
+        .action {
+            color: $main-brand-color;
+            font-size: 1.6rem;
+            i.glyphicon-chevron-left {
+                top: 2px;
+            }
+        }
+    }
+    .action-r {
+        position: absolute;
+        height: 100%;
+        right: 15px;
+        top: 0;
+        line-height: 40px;
+        font-size: 1.6rem;
+        //主动作按钮
+        .action {
+            color: $main-brand-color;
+            &:hover {
+                color: darken($main-brand-color, 15%);
+            }
+        }
+        //帮助按钮
+        .help {
+            color: #b2b2b2;
+            font-size: 1.45rem;
+            .icon {
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                line-height: 16px;
+                border: 1px solid $main-brand-color;
+                font-size: 1.3rem;
+                border-radius: 9px;
+                text-align: center;
+                color: $main-brand-color;
+                margin-left: 5px;
+            }
+        }
+    }
+    .title {
+        text-align: center;
+        color: #000;
+        line-height: 40px;
+        font-size: 18px;
+    }
+    &.title-bar-fix-top {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #e8eaec;
+    }
+}
+
+.search-bar {
+    position: relative;
+    padding-top: 5px;
+    .action-l {
+        position: absolute;
+        height: 100%;
+        left: 15px;
+        top: 0;
+        line-height: 40px;
+        .close {}
+        .action {
+            color: $main-brand-color;
+            font-size: 1.6rem;
+            i.glyphicon-chevron-left {
+                top: 2px;
+            }
+        }
+    }
+    .form-group-search {
+        margin-left: 32px;
+        .form-control {
+            border-radius: 16px;
+            background-color: #eeeeee;
+            border: none;
+            text-align: center;
+            &:focus {
+                text-align: left;
+            }
+        }
+    }
+    &.search-bar-fix-top {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+.with-fixed-title-bar {
+    padding-top: 40px;
+}
+
+
+.control-sidebar {
+    width: 80%;
+    height: 100%;
+    position: fixed;
+    top: 41px;
+    bottom: 0;
+    left: 100%;
+    transform: translateX(0%);
+    background-color: #fff;
+    z-index: 1041;
+    padding: 10px;
+    transition: transform 0.3s;
+
+    &.show {
+        transform: translateX(-100%);
+    }
+    &.spec {
+        border-left: 1px solid #eee;
+        .row {
+            margin-top: 20px;
+        }
+        .col-label {
+            padding-right: 0;
+            margin-top: 3px;
+            width: 7.5em;
+        }
+        .col-items {
+            padding-left: 5px;
+            margin-left: 7.5em;
+            float: none;
+            width: auto;
+            .btn {
+                margin-top: 3px;
+            }
+        }
+        .btn-d {
+            position: absolute;
+            bottom: 45px;
+            right: 0px;
+            left: 0px;
+        }
+        .media {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+        }
+        .media-left {
+            
+        }
+        .media-body {
+            h4 {
+                font-size: 1.4rem;
+                color: #515151;
+                font-weight: normal;
+                margin: 8px 0;
+                @media screen and (min-width: 376px) and (max-width: 414px) {
+                    margin: 5px 0;
+                }
+            }
+            .youhui-price {
+                color: $main-brand-color;
+                font-size: 1.4rem;
+                margin-right: 1rem;
+            }
+            .origin-price {
+                color: #c3b5a8;
+                font-size: 1.4rem;
+            }
+            .appraisal {
+                margin-top: 6px;
+                @media screen and (min-width: 376px) and (max-width: 414px) {
+                    margin-top: 0;
+                }
+                .stars {
+                    vertical-align: text-bottom;
+                    .iconfont {
+                        color: #faca51;
+                        margin-right: 4px;
+                    }
+                }
+                .text {
+                    color: #cbced0;
+                    font-size: 1.25rem;
+                    margin-top: 3px;
+                }
+            }
+        }
+    }
+}
+
+.modal-backdrop-control-sidebar {
+    top: 41px;
+}
