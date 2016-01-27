@@ -8,6 +8,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/fullpage.js/jquery.fullPage.css" />
+    <link rel="stylesheet" href="/bower_components/animate.css/animate.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -19,11 +20,35 @@
 </head>
 
 <body class="page-home">
+    <section class="site-header">
+        <img src="images/p03.png" alt="" class="logo">
+        <ul class="nav">
+            <li class="active ani" swiper-animate-effect="slideInDown" swiper-animate-duration="0.8s" swiper-animate-delay="0ms"><a href="#">金润首页</a></li>
+            <li class="ani" swiper-animate-effect="slideInDown" swiper-animate-duration="0.8s" swiper-animate-delay="100ms"><a href="#">案例展示</a></li>
+            <li class="ani" swiper-animate-effect="slideInDown" swiper-animate-duration="0.8s" swiper-animate-delay="200ms"><a href="#">服务优势</a></li>
+            <li class="ani" swiper-animate-effect="slideInDown" swiper-animate-duration="0.8s" swiper-animate-delay="300ms"><a href="#">新闻中心</a></li>
+            <li class="ani" swiper-animate-effect="slideInDown" swiper-animate-duration="0.8s" swiper-animate-delay="400ms"><a href="#">关于金润</a></li>
+            <li class="ani" swiper-animate-effect="slideInDown" swiper-animate-duration="0.8s" swiper-animate-delay="500ms"><a href="#">联系我们</a></li>
+        </ul>
+        <div class="pull-right tel"><i class="iconfont">&#xe600;</i>：010-88665268</div>
+    </section>
     <div id="fullpage">
         <div class="section banner">
-            <div class="container-fluid">
-                slide 1
+            <div class="slide slide-1">
+                <div class="container-fluid">
+                    <div class="layer-container">
+                        <div class="layer layer-1"><span class="cn">专业品牌网站建设</span><span class="en">JRUNWINS.COM</span></div>
+                        <div class="layer layer-2">金润勇胜</div>
+                    </div>
+                </div>
             </div>
+            <div class="slide slide-2"> Slide 2 </div>
+            <div class="slide slide-3"> Slide 3 </div>
+            <ul class="slide-nav">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
         <div class="section business">Some section</div>
         <div class="section">Some section</div>
