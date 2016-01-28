@@ -6,6 +6,9 @@
 // endbower
 //公共模块
 @import "common";
+
+@import "animate";
+
 .page-home {
     .section {
         &.banner {
@@ -76,12 +79,11 @@
                 overflow: hidden;
                 li {
                     float: left;
-                    width: 33.3333%;
                     height: 100%;
                     border-bottom: 6px solid #ffcf0d;
                     position: relative;
                     cursor: pointer;
-                    &:after {
+                    .split {
                         content: '';
                         position: absolute;
                         width: 2px;
@@ -89,15 +91,34 @@
                         right: 0px;
                         top: 1px;
                         background: #ffcf0d;
+                        z-index: 1;
                     }
-                    &.active {
+                    .bar {
+                        content: '';
+                        position: absolute;
+                        width: 0%;
+                        height: 100%;
+                        left: 0px;
+                        top: 6px;
+                        background: transparent;
+                        z-index: 2;
+                        // transform-origin: 0% 50%;
+                        // transform: scale(0,1);
+                        // border-bottom: 6px solid #005aab;
+                        // transition: width 3s linear;
+                        border-bottom: 6px solid #005aab;
+                    }
+                    &.ended {
                         border-bottom-color: #005aab;
-                        &:after {
+                        .split {
                             background-color: #005aab;
+                        }
+                        .bar {
+                            transform: scale(1,1);
                         }
                     }
                     &:last-child {
-                      &:after {
+                      .split {
                         width: 0px;
                         height: 0px;
                       }
