@@ -6,3 +6,39 @@
 		width: 100%;
 	}
 }
+
+@keyframes star-flash {
+	0% {
+		opacity: 0.5;
+	}
+	10% {
+		opacity: 0.9;
+	}
+	20% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 0.5;
+	}
+	40% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.7;
+	}
+	60% {
+		opacity: 0.4;
+	}
+	70% {
+		opacity: 0.9;
+	}
+	80% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 0.2;
+	}
+	100% {
+		opacity: 0.9;
+	}
+}

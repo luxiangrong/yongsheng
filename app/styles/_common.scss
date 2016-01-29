@@ -31,11 +31,27 @@
     .logo {
 
     }
-    .tel {
+    .tel,.menu {
         font-size: 20px;
         color: #ffcf0d;
+        position: relative;
+        z-index: 10;
         .iconfont {
             font-size: 24px;
+            transition: color 500ms;
+        }
+    }
+    .menu {
+        opacity: 0;
+        cursor: pointer;
+        margin-left: 10px;
+        .iconfont {
+            font-size: 28px;
+        }
+        &:hover {
+            .iconfont {
+                color: lighten(#ffcf0d, 20%);
+            }
         }
     }
     .nav {
@@ -45,6 +61,7 @@
         top: 0;
         left: 0;
         text-align: center;
+        z-index: 0;
         > li {
             float: none;
             display: inline-block;

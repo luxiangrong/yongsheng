@@ -91,7 +91,7 @@ Class.extend = function(prop) {
 
 window.Class = Class;
 
-function swiperAnimateCache() {
+function swiperAnimateCache(a) {
     for (var allBoxes = window.document.documentElement.querySelectorAll(".ani"), i = 0; i < allBoxes.length; i++) {
         if (allBoxes[i].attributes["style"]) {
             allBoxes[i].setAttribute("swiper-animate-style-cache", allBoxes[i].attributes["style"].value);
@@ -103,7 +103,7 @@ function swiperAnimateCache() {
 }
 
 function swiperAnimate(a) {
-    clearSwiperAnimate();
+    clearSwiperAnimate(a);
     var b = a.querySelectorAll(".ani");
     for (var i = 0; i < b.length; i++) {
         b[i].style.visibility = "visible";
@@ -124,8 +124,8 @@ function swiperAnimate(a) {
 
 }
 
-function clearSwiperAnimate() {
-    for (var allBoxes = window.document.documentElement.querySelectorAll(".ani"), i = 0; i < allBoxes.length; i++) {
+function clearSwiperAnimate(a) {
+    for (var allBoxes = a.querySelectorAll(".ani"), i = 0; i < allBoxes.length; i++) {
         if (!allBoxes[i].attributes["swiper-animate-style-cache"]) {
             continue;
         }
@@ -141,6 +141,19 @@ function clearSwiperAnimate() {
 
 var LXR = {};
 LXR.SlideIndicator = Class.extend({
+    'statics': {
+        'getCurrentAnchorLink': function() {
+            var value = window.location.hash.replace('#', '').split('/');
+            if(value[0]) {
+                return value[0];
+            }
+            return 1;
+        },
+        'getCurrentSlideIndex': function() {
+            var value = window.location.hash.replace('#', '').split('/');
+            return value[1] || 0;
+        }
+    },
     'ctor': function(duration, anchorLink) {
         this.duration = duration;
         this.anchorLink = anchorLink;
@@ -163,14 +176,14 @@ LXR.SlideIndicator = Class.extend({
                     _this.currentSlide.find('.bar').velocity("stop");
                 });
                 slideItem.on('mouseout', function() {
-                    
+
                     var barWidth = _this.currentSlide.find('.bar').width();
                     var totalWidth = _this.currentSlide.width();
                     _this.currentSlide.find('.bar').velocity("stop");
                     _this.currentSlide.find('.bar').velocity({
                         'width': '100%'
                     }, {
-                        duration: _this.duration * (1-barWidth / totalWidth),
+                        duration: _this.duration * (1 - barWidth / totalWidth),
                         easing: 'linear',
                         //动画结束时，往右移动滑块
                         complete: function(elements) {
@@ -195,19 +208,23 @@ LXR.SlideIndicator = Class.extend({
         if (!this.started) {
             return;
         }
+        var tempIndex = this.index;
         this.index = this.index % this.slideLength;
+        this.currentSlide = this.slideNav.find('li').eq(this.index);
+        var barWidth = this.currentSlide.find('.bar').width();
+        var totalWidth = this.currentSlide.width();
         //将当前slide之前的指示器标识为结束
         this.slideNav.find('li:lt(' + (this.index) + ')').addClass('ended');
-        if (this.index === 0) { //如果当前为第一个slide，则把指示器恢复到开始状态
+        if ((barWidth == 0 || barWidth == totalWidth) && tempIndex == 0) { //如果当前为第一个slide，则把指示器恢复到开始状态
             this.slideNav.find('li').removeClass('ended');
             this.slideNav.find('li .bar').css('width', '0%');
         }
         var _this = this;
-        this.currentSlide = this.slideNav.find('li').eq(this.index);
+
         this.currentSlide.find('.bar').velocity({
             'width': '100%'
         }, {
-            duration: _this.duration,
+            duration: _this.duration * (1 - barWidth / totalWidth),
             easing: 'linear',
             //动画结束时，往右移动滑块
             complete: function(elements) {
@@ -236,44 +253,132 @@ LXR.SlideIndicator = Class.extend({
             this._progress(this.index);
         }
     },
-    'stop': function(){
-        this.currentSlide.find('.bar').velocity("stop");
+    'stop': function() {
+        if(this.currentSlide) {
+            this.currentSlide.find('.bar').velocity("stop");
+        }
+    }
+});
+
+//层跟随鼠标进行移动
+LXR.LayerMove = Class.extend({
+    'ctor': function(layer, rate, container) {
+        this.container = container;
+        this.layer = layer;
+        this.rate = rate;
+    },
+    '_moveHandler': function(e, _this) {
+        var x = e.clientX || e.pageX;
+        var y = e.clientY || e.pageY;
+        var w = $(window).width();
+        var h = $(window).height();
+
+        var moveX = (x - w / 2) / w * _this.rate * w;
+        var moveY = (y - h / 2) / h * _this.rate * h;
+
+        $(this.layer).css('transform', 'translate3d(' + moveX + 'px, ' + moveY + 'px, 0px)');
+    },
+    'stop': function() {
+        $(this.container).off('mousemove.layermove');
+        return this;
+    },
+    'start': function() {
+        var _this = this;
+        $(this.container).on('mousemove.layermove', function(e){
+            _this._moveHandler(e, _this);
+        });
+        return this;
+    }
+});
+
+
+LXR.Animate = Class.extend({
+    'ctor': function(){
+        // var _this = this;
+        $('.menu').click(function(){
+            if($('.nav li').css('opacity') != 1) {
+                $('.nav li').velocity('transition.slideRightIn', { duration: 500,  stagger: 150 , display:  'inline-block', backwards: true });
+            } else {
+                $('.nav li').velocity('transition.slideRightBigOut', { duration: 500,  stagger: 150 , display:  'inline-block', backwards: true });
+            }
+        });
+    },
+    //导航菜单顶部依次落下
+    'navSlideDownIn': function(){
+        $('.nav li').velocity('transition.slideDownBigIn', { duration: 800,  stagger: 250 , display: 'inline-block' });
+        $('.menu').velocity('transition.fadeOut', {delay: 0, display: 'block'});
+    },
+    //导航菜单往右侧消失
+    'navRightOut': function(){
+        $('.nav li, .tel').velocity('transition.slideRightBigOut', { duration: 500,  stagger: 150 , display:  'inline-block', backwards: true });
+        $('.menu').velocity('transition.fadeIn', {delay: 500, display: 'block'});
+    },
+    //导航菜单从右侧进入
+    'navRightIn': function(hideMenu){
+        // if(!hideMenu) {
+            $('.menu').velocity('transition.fadeOut', {delay: 0, display: 'block'});
+        // }
+        $('.nav li, .tel').velocity('transition.slideRightIn', { duration: 500,  stagger: 150 , display:  'inline-block', backwards: true });
     }
 });
 
 jQuery(function($) {
-    var slideIndicator = undefined;
+    var slideIndicator = undefined, layerMove1, layerMove2, layerMove3;
+    var animateManager = new LXR.Animate();
     var fp = $('#fullpage').fullpage({
         controlArrows: false,
-        slidesNavigation: true,
+        slidesNavigation: false,
         animateAnchor: false,
         anchors: ['banner', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
         afterRender: function() {
             console.log('afterRender');
-            if (slideIndicator === undefined) {
-                slideIndicator = new LXR.SlideIndicator(10000, 'banner');
+
+            slideIndicator = new LXR.SlideIndicator(10000, 'banner');
+
+            console.log(LXR.SlideIndicator.getCurrentAnchorLink());
+
+            if(LXR.SlideIndicator.getCurrentAnchorLink() == 'banner' || LXR.SlideIndicator.getCurrentAnchorLink() == 1) {
+                console.log();
+                slideIndicator.start(LXR.SlideIndicator.getCurrentSlideIndex());
+                animateManager.navSlideDownIn();
             }
+
+            //创建层移动
+            layerMove1 = new LXR.LayerMove($('.layer-1')[0], -0.15, document).start();
+            layerMove2 = new LXR.LayerMove($('.layer-2')[0], -0.10, document).start();
+            layerMove3 = new LXR.LayerMove($('.layer-3')[0], -0.05, document).start();
         },
         afterLoad: function(anchorLink, index) {
             console.log('afterLoad:' + anchorLink + '-' + index);
             var loadedSection = $(this);
             if (anchorLink == 'banner') {
-                swiperAnimateCache($('.nav')[0]); //隐藏动画元素 
-                swiperAnimate($('.nav')[0]); //初始化完成开始动画
-                if (slideIndicator === undefined) {
-                    slideIndicator = new LXR.SlideIndicator(10000, 'banner');
+                if(slideIndicator) {
+                    slideIndicator.start(LXR.SlideIndicator.getCurrentSlideIndex());
                 }
-                var value =  window.location.hash.replace('#', '').split('/');
-                var slide = value[1];
-                slideIndicator.start(slide || 0);
             } else {
-                if (slideIndicator) {
-                    slideIndicator.stop();
-                }
+                $('.tel').hide();
             }
         },
         onLeave: function(index, nextIndex, direction) {
             console.log('onleave:' + index + '-' + nextIndex + '-' + direction);
+            //离开第一屏时，结束层移动句柄，减少不必要的性能开销
+            if(index == 1) {
+                layerMove1.stop();
+                layerMove2.stop();
+                layerMove3.stop();
+                animateManager.navRightOut();
+                if (slideIndicator) {
+                    slideIndicator.stop();
+                }
+            } 
+            //进入第一屏时
+            if(nextIndex == 1) {
+                layerMove1.start();
+                layerMove2.start();
+                layerMove3.start();
+
+                animateManager.navRightIn();
+            }
         },
         onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {
             console.log('onSlideLeave:' + anchorLink + '-' + index + '-' + slideIndex + '-' + direction + '-' + nextSlideIndex);

@@ -31,6 +31,7 @@
                     position: relative;
                     .layer-container {
                         display: inline-block;
+                        position: relative;
                         .layer {
                             text-align: right;
                             color: #ffcf0d;
@@ -48,9 +49,108 @@
                                 }
                             }
                             &.layer-2 {
-                                font-size: 150px;
+                                font-size: 145px;
                                 letter-spacing: 55px;
                                 margin-top: -20px;
+                            }
+                            &.layer-3 {
+                                position: absolute;
+                                background: url(../images/p05.png) no-repeat -30px 64px;;
+                                width: 1035px;
+                                height: 472px;
+                                top: 50%;
+                                margin-top: -236px;
+                                left: 50%;
+                                margin-left: -517.5px;
+                                .star {
+                                    position: absolute;
+                                    width: 11px;
+                                    height: 11px;
+                                    background: url(../images/p06.png) no-repeat center center;
+                                    animation-name: flash;
+                                    animation-duration: 5s;
+                                    animation-iteration-count: infinite;
+                                    &.star-1 {
+                                        left: 104px;
+                                        top: 194px; 
+                                        animation-duration: 5s;
+                                    }
+                                    &.star-2 {
+                                        left: 248px;
+                                        top: 194px; 
+                                        animation-duration: 6s;
+                                    }
+                                    &.star-3 {
+                                        left: 309px;
+                                        top: 194px; 
+                                        animation-duration: 8s;
+                                    }
+                                    &.star-4 {
+                                        left: 455px;
+                                        top: 194px; 
+                                        animation-duration: 8.2s;
+                                    }
+                                    &.star-5 {
+                                        left: 510px;
+                                        top: 194px; 
+                                        animation-duration: 12s;
+                                    }
+                                    &.star-6 {
+                                        left: 658px;
+                                        top: 194px; 
+                                        animation-duration: 9s;
+                                    }
+                                    &.star-7 {
+                                        left: 713px;
+                                        top: 194px; 
+                                        animation-duration: 6s;
+                                    }
+                                    &.star-8 {
+                                        left: 860px;
+                                        top: 194px; 
+                                        animation-duration: 5s;
+                                    }
+                                    &.star-9 {
+                                        left: 104px;
+                                        top: 340px; 
+                                        animation-duration: 7060ms;
+                                    }
+                                    &.star-10 {
+                                        left: 248px;
+                                        top: 340px; 
+                                        animation-duration: 6020ms;
+                                    }
+                                    &.star-11 {
+                                        left: 309px;
+                                        top: 340px; 
+                                        animation-duration: 7s;
+                                    }
+                                    &.star-12 {
+                                        left: 455px;
+                                        top: 340px; 
+                                        animation-duration: 8s;
+                                    }
+                                    &.star-13 {
+                                        left: 510px;
+                                        top: 340px; 
+                                        animation-duration: 6000ms;
+                                    }
+                                    &.star-14 {
+                                        left: 658px;
+                                        top: 340px; 
+                                        animation-duration: 6600ms;
+                                    }
+                                    &.star-15 {
+                                        left: 713px;
+                                        top: 340px; 
+                                        animation-duration: 5400ms;
+                                    }
+                                    &.star-16 {
+                                        left: 860px;
+                                        top: 340px; 
+                                        animation-duration: 8800ms;
+                                    }
+                                }
                             }
                         }
                     }
@@ -128,7 +228,7 @@
         }
         &.business {
             background: url(../images/j02.jpg) no-repeat center center;
-            background-size: 100% 100%;
+            background-size: cover;
         }
     }
 }
