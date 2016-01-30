@@ -6,7 +6,8 @@
     "modernizr": "~2.8.3",
     "fullpage.js": "~2.7.7",
     "animate.css": "~3.5.1",
-    "velocity": "~1.2.3"
+    "velocity": "~1.2.3",
+    "svg-morpheus": "~0.1.8"
   },
   "overrides": {
     "bootstrap-sass": {

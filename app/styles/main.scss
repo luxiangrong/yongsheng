@@ -6,15 +6,15 @@
 // endbower
 //公共模块
 @import "common";
-
 @import "animate";
-
 .page-home {
     .section {
         &.banner {
             .slide {
                 .container-fluid {
                     text-align: center;
+                    width: 100%;
+                    height: 100%;
                 }
                 &:after {
                     content: '';
@@ -25,135 +25,162 @@
                     top: 0;
                     background: url(../images/p02.png) left top;
                 }
-                &.slide-1 {
-                    background: url(../images/j01.jpg) no-repeat center center;
-                    background-size: cover;
+                .layer-container {
+                    display: inline-block;
                     position: relative;
-                    .layer-container {
-                        display: inline-block;
-                        position: relative;
-                        .layer {
-                            text-align: right;
-                            color: #ffcf0d;
-                            &.layer-1 {
-                                padding-right: 55px;
-                                margin-bottom: -20px;
-                                .en {
-                                    font-size: 46px;
-                                    display: block;
-                                }
-                                .cn {
-                                    font-size: 20px;
-                                    display: block;
-                                    margin-bottom: -10px;
-                                }
+                    width: 100%;
+                    height: 100%;
+                    .layer {
+                        text-align: right;
+                        color: #ffcf0d;
+                        display: none;
+                        position: absolute;
+                        &.layer-1 {
+                            left: 50%;
+                            top: 50%;
+                            margin-top: -125px;
+                            margin-left: -30px;
+                            .en {
+                                font-size: 46px;
+                                display: block;
                             }
-                            &.layer-2 {
-                                font-size: 145px;
-                                letter-spacing: 55px;
-                                margin-top: -20px;
+                            .cn {
+                                font-size: 20px;
+                                display: block;
+                                margin-bottom: -10px;
                             }
-                            &.layer-3 {
+                        }
+                        &.layer-2 {
+                            left: 50%;
+                            top: 50%;
+                            margin-top: -75px;
+                            margin-left: -400px;
+                            font-size: 145px;
+                            letter-spacing: 55px;
+                        }
+                        &.layer-3 {
+                            position: absolute;
+                            background: url(../images/p05.png) no-repeat -30px 64px;
+                            ;
+                            width: 1035px;
+                            height: 472px;
+                            top: 50%;
+                            margin-top: -236px;
+                            left: 50%;
+                            margin-left: -517.5px;
+                            .star {
                                 position: absolute;
-                                background: url(../images/p05.png) no-repeat -30px 64px;;
-                                width: 1035px;
-                                height: 472px;
-                                top: 50%;
-                                margin-top: -236px;
-                                left: 50%;
-                                margin-left: -517.5px;
-                                .star {
-                                    position: absolute;
-                                    width: 11px;
-                                    height: 11px;
-                                    background: url(../images/p06.png) no-repeat center center;
-                                    animation-name: flash;
+                                width: 11px;
+                                height: 11px;
+                                background: url(../images/p06.png) no-repeat center center;
+                                animation-name: flash;
+                                animation-duration: 5s;
+                                animation-iteration-count: infinite;
+                                &.star-1 {
+                                    left: 104px;
+                                    top: 194px;
                                     animation-duration: 5s;
-                                    animation-iteration-count: infinite;
-                                    &.star-1 {
-                                        left: 104px;
-                                        top: 194px; 
-                                        animation-duration: 5s;
-                                    }
-                                    &.star-2 {
-                                        left: 248px;
-                                        top: 194px; 
-                                        animation-duration: 6s;
-                                    }
-                                    &.star-3 {
-                                        left: 309px;
-                                        top: 194px; 
-                                        animation-duration: 8s;
-                                    }
-                                    &.star-4 {
-                                        left: 455px;
-                                        top: 194px; 
-                                        animation-duration: 8.2s;
-                                    }
-                                    &.star-5 {
-                                        left: 510px;
-                                        top: 194px; 
-                                        animation-duration: 12s;
-                                    }
-                                    &.star-6 {
-                                        left: 658px;
-                                        top: 194px; 
-                                        animation-duration: 9s;
-                                    }
-                                    &.star-7 {
-                                        left: 713px;
-                                        top: 194px; 
-                                        animation-duration: 6s;
-                                    }
-                                    &.star-8 {
-                                        left: 860px;
-                                        top: 194px; 
-                                        animation-duration: 5s;
-                                    }
-                                    &.star-9 {
-                                        left: 104px;
-                                        top: 340px; 
-                                        animation-duration: 7060ms;
-                                    }
-                                    &.star-10 {
-                                        left: 248px;
-                                        top: 340px; 
-                                        animation-duration: 6020ms;
-                                    }
-                                    &.star-11 {
-                                        left: 309px;
-                                        top: 340px; 
-                                        animation-duration: 7s;
-                                    }
-                                    &.star-12 {
-                                        left: 455px;
-                                        top: 340px; 
-                                        animation-duration: 8s;
-                                    }
-                                    &.star-13 {
-                                        left: 510px;
-                                        top: 340px; 
-                                        animation-duration: 6000ms;
-                                    }
-                                    &.star-14 {
-                                        left: 658px;
-                                        top: 340px; 
-                                        animation-duration: 6600ms;
-                                    }
-                                    &.star-15 {
-                                        left: 713px;
-                                        top: 340px; 
-                                        animation-duration: 5400ms;
-                                    }
-                                    &.star-16 {
-                                        left: 860px;
-                                        top: 340px; 
-                                        animation-duration: 8800ms;
-                                    }
+                                }
+                                &.star-2 {
+                                    left: 248px;
+                                    top: 194px;
+                                    animation-duration: 6s;
+                                }
+                                &.star-3 {
+                                    left: 309px;
+                                    top: 194px;
+                                    animation-duration: 8s;
+                                }
+                                &.star-4 {
+                                    left: 455px;
+                                    top: 194px;
+                                    animation-duration: 8.2s;
+                                }
+                                &.star-5 {
+                                    left: 510px;
+                                    top: 194px;
+                                    animation-duration: 12s;
+                                }
+                                &.star-6 {
+                                    left: 658px;
+                                    top: 194px;
+                                    animation-duration: 9s;
+                                }
+                                &.star-7 {
+                                    left: 713px;
+                                    top: 194px;
+                                    animation-duration: 6s;
+                                }
+                                &.star-8 {
+                                    left: 860px;
+                                    top: 194px;
+                                    animation-duration: 5s;
+                                }
+                                &.star-9 {
+                                    left: 104px;
+                                    top: 340px;
+                                    animation-duration: 7060ms;
+                                }
+                                &.star-10 {
+                                    left: 248px;
+                                    top: 340px;
+                                    animation-duration: 6020ms;
+                                }
+                                &.star-11 {
+                                    left: 309px;
+                                    top: 340px;
+                                    animation-duration: 7s;
+                                }
+                                &.star-12 {
+                                    left: 455px;
+                                    top: 340px;
+                                    animation-duration: 8s;
+                                }
+                                &.star-13 {
+                                    left: 510px;
+                                    top: 340px;
+                                    animation-duration: 6000ms;
+                                }
+                                &.star-14 {
+                                    left: 658px;
+                                    top: 340px;
+                                    animation-duration: 6600ms;
+                                }
+                                &.star-15 {
+                                    left: 713px;
+                                    top: 340px;
+                                    animation-duration: 5400ms;
+                                }
+                                &.star-16 {
+                                    left: 860px;
+                                    top: 340px;
+                                    animation-duration: 8800ms;
                                 }
                             }
                         }
                     }
+                }
+                .brand {
+                    &.brand-1 {
+                        h1 {
+                            font-size: 72px;
+                            color: #fff;
+                            margin: 0;
+                            text-align: center;
+                            font-weight: normal;
+                            small {
+                                margin-top: 10px;
+                                display: block;
+                                font-size: 26px;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+                &.slide-1 {
+                    background: url(../images/j01.jpg) no-repeat center center;
+                    background-size: cover;
+                    position: relative;
                 }
                 &.slide-2 {
                     background: url(../images/j03.jpg) no-repeat center center;
@@ -214,21 +241,73 @@
                             background-color: #005aab;
                         }
                         .bar {
-                            transform: scale(1,1);
+                            transform: scale(1, 1);
                         }
                     }
                     &:last-child {
-                      .split {
-                        width: 0px;
-                        height: 0px;
-                      }
+                        .split {
+                            width: 0px;
+                            height: 0px;
+                        }
                     }
+                }
+            }
+            .arrow {
+                &.arrow-down {
+                    width: 95px;
+                    height: 33px;
+                    background: url(../images/p08.png) no-repeat center center;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -47.5px;
+                    bottom: 70px;
+                    z-index: 2;
+                    animation: slideOutDown 2s infinite, fadeIn 2s infinite;
                 }
             }
         }
         &.business {
             background: url(../images/j02.jpg) no-repeat center center;
             background-size: cover;
+            .title {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: url(../images/p09.png) no-repeat center top;
+                left: 0;
+                top: 0px;
+                transform: translate3d(0, -20%, 0);
+                transition: transform 1s;
+            }
+            &.active {
+                .title {
+                    transform: translate3d(0, 20%, 0px);
+                }
+            }
+            .business-item {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0px;
+                top: 0px;
+                transform: translate3d(0, 100%, 0);
+                transition: transform 1s;
+                .line {
+                    width: 100%;
+                    height: 3px;
+                    background: #ffcf0d;
+                    clip-path: polygon(0px 0px, 0px 3px, 10px 3px, 10px 0px, 0px 0px, 20px 0px, 20px 3px, 30px 3px, 30px 0px, 20px 0px);
+                    transition: clip-path 0.5s;
+                    &:hover {
+                        clip-path: polygon(-5px 0px, -5px 3px, 5px 3px, 5px 0px, -5px 0px, 15px 0px, 15px 3px, 25px 3px, 25px 0px, 15px 0px);
+                    }
+                }
+            }
+            &.active {
+                .business-item {
+                    transform: translate3d(0, 50%, 0px);
+                }
+            }
         }
     }
 }

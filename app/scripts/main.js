@@ -144,7 +144,7 @@ LXR.SlideIndicator = Class.extend({
     'statics': {
         'getCurrentAnchorLink': function() {
             var value = window.location.hash.replace('#', '').split('/');
-            if(value[0]) {
+            if (value[0]) {
                 return value[0];
             }
             return 1;
@@ -254,7 +254,7 @@ LXR.SlideIndicator = Class.extend({
         }
     },
     'stop': function() {
-        if(this.currentSlide) {
+        if (this.currentSlide) {
             this.currentSlide.find('.bar').velocity("stop");
         }
     }
@@ -284,7 +284,7 @@ LXR.LayerMove = Class.extend({
     },
     'start': function() {
         var _this = this;
-        $(this.container).on('mousemove.layermove', function(e){
+        $(this.container).on('mousemove.layermove', function(e) {
             _this._moveHandler(e, _this);
         });
         return this;
@@ -293,68 +293,114 @@ LXR.LayerMove = Class.extend({
 
 
 LXR.Animate = Class.extend({
-    'ctor': function(){
+    'ctor': function() {
         // var _this = this;
-        $('.menu').click(function(){
-            if($('.nav li').css('opacity') != 1) {
-                $('.nav li').velocity('transition.slideRightIn', { duration: 500,  stagger: 150 , display:  'inline-block', backwards: true });
+        $('.menu').click(function() {
+            if ($('.nav li').css('opacity') != 1) {
+                $('.nav li').velocity('transition.slideRightIn', {
+                    duration: 500,
+                    stagger: 150,
+                    display: 'inline-block',
+                    backwards: true
+                });
             } else {
-                $('.nav li').velocity('transition.slideRightBigOut', { duration: 500,  stagger: 150 , display:  'inline-block', backwards: true });
+                $('.nav li').velocity('transition.slideRightBigOut', {
+                    duration: 500,
+                    stagger: 150,
+                    display: 'inline-block',
+                    backwards: true
+                });
             }
         });
     },
     //导航菜单顶部依次落下
-    'navSlideDownIn': function(){
-        $('.nav li').velocity('transition.slideDownBigIn', { duration: 800,  stagger: 250 , display: 'inline-block' });
-        $('.menu').velocity('transition.fadeOut', {delay: 0, display: 'block'});
+    'navSlideDownIn': function() {
+        $('.nav li').velocity('transition.slideDownBigIn', {
+            duration: 800,
+            stagger: 250,
+            display: 'inline-block'
+        });
+        $('.menu').velocity('transition.fadeOut', {
+            delay: 0,
+            display: 'block'
+        });
     },
     //导航菜单往右侧消失
-    'navRightOut': function(){
-        $('.nav li, .tel').velocity('transition.slideRightBigOut', { duration: 500,  stagger: 150 , display:  'inline-block', backwards: true });
-        $('.menu').velocity('transition.fadeIn', {delay: 500, display: 'block'});
+    'navRightOut': function() {
+        $('.nav li, .tel').velocity('transition.slideRightBigOut', {
+            duration: 500,
+            stagger: 150,
+            display: 'inline-block',
+            backwards: true
+        });
+        $('.menu').velocity('transition.fadeIn', {
+            delay: 500,
+            display: 'block'
+        });
     },
     //导航菜单从右侧进入
-    'navRightIn': function(hideMenu){
+    'navRightIn': function(hideMenu) {
         // if(!hideMenu) {
-            $('.menu').velocity('transition.fadeOut', {delay: 0, display: 'block'});
+        $('.menu').velocity('transition.fadeOut', {
+            delay: 0,
+            display: 'block'
+        });
         // }
-        $('.nav li, .tel').velocity('transition.slideRightIn', { duration: 500,  stagger: 150 , display:  'inline-block', backwards: true });
+        $('.nav li, .tel').velocity('transition.slideRightIn', {
+            duration: 500,
+            stagger: 150,
+            display: 'inline-block',
+            backwards: true
+        });
     }
 });
 
 jQuery(function($) {
-    var slideIndicator = undefined, layerMove1, layerMove2, layerMove3;
+    var slideIndicator = undefined,
+        layerMove1, layerMove2, layerMove3;
     var animateManager = new LXR.Animate();
     var fp = $('#fullpage').fullpage({
         controlArrows: false,
         slidesNavigation: false,
         animateAnchor: false,
+        verticalCentered: false,
+        scrollingSpeed: 1200,
         anchors: ['banner', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
         afterRender: function() {
             console.log('afterRender');
 
-            slideIndicator = new LXR.SlideIndicator(10000, 'banner');
+            slideIndicator = new LXR.SlideIndicator(1110000, 'banner');
 
             console.log(LXR.SlideIndicator.getCurrentAnchorLink());
 
-            if(LXR.SlideIndicator.getCurrentAnchorLink() == 'banner' || LXR.SlideIndicator.getCurrentAnchorLink() == 1) {
+            if (LXR.SlideIndicator.getCurrentAnchorLink() == 'banner' || LXR.SlideIndicator.getCurrentAnchorLink() == 1) {
                 console.log();
                 slideIndicator.start(LXR.SlideIndicator.getCurrentSlideIndex());
                 animateManager.navSlideDownIn();
             }
 
             //创建层移动
-            layerMove1 = new LXR.LayerMove($('.layer-1')[0], -0.15, document).start();
-            layerMove2 = new LXR.LayerMove($('.layer-2')[0], -0.10, document).start();
-            layerMove3 = new LXR.LayerMove($('.layer-3')[0], -0.05, document).start();
+            layerMove1 = new LXR.LayerMove($('.layer-1'), -0.15, document).start();
+            layerMove2 = new LXR.LayerMove($('.layer-2'), -0.10, document).start();
+            layerMove3 = new LXR.LayerMove($('.layer-3'), -0.05, document).start();
+
+            $('.layer').velocity('transition.bounceIn', {
+                duration: 1000,
+                stagger: 200,
+                delay: 1200,
+                display: 'none',
+                backwards: true
+            });
         },
         afterLoad: function(anchorLink, index) {
             console.log('afterLoad:' + anchorLink + '-' + index);
             var loadedSection = $(this);
             if (anchorLink == 'banner') {
-                if(slideIndicator) {
+                if (slideIndicator) {
                     slideIndicator.start(LXR.SlideIndicator.getCurrentSlideIndex());
                 }
+                
+
             } else {
                 $('.tel').hide();
             }
@@ -362,7 +408,7 @@ jQuery(function($) {
         onLeave: function(index, nextIndex, direction) {
             console.log('onleave:' + index + '-' + nextIndex + '-' + direction);
             //离开第一屏时，结束层移动句柄，减少不必要的性能开销
-            if(index == 1) {
+            if (index == 1) {
                 layerMove1.stop();
                 layerMove2.stop();
                 layerMove3.stop();
@@ -370,14 +416,27 @@ jQuery(function($) {
                 if (slideIndicator) {
                     slideIndicator.stop();
                 }
-            } 
+                // $('.layer').velocity('transition.bounceOut', {
+                //     duration: 1000,
+                //     stagger: 200,
+                //     display: 'none',
+                //     backwards: true
+                // });
+            }
             //进入第一屏时
-            if(nextIndex == 1) {
+            if (nextIndex == 1) {
                 layerMove1.start();
                 layerMove2.start();
                 layerMove3.start();
 
                 animateManager.navRightIn();
+
+                $('.layer').velocity('transition.bounceIn', {
+                    duration: 1000,
+                    stagger: 200,
+                    display: 'none',
+                    backwards: true
+                });
             }
         },
         onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {
