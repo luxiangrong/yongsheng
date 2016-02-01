@@ -292,16 +292,24 @@
                 top: 0px;
                 transform: translate3d(0, 100%, 0);
                 transition: transform 1s;
-                .line {
-                    width: 100%;
-                    height: 3px;
-                    background: #ffcf0d;
-                    clip-path: polygon(0px 0px, 0px 3px, 10px 3px, 10px 0px, 0px 0px, 20px 0px, 20px 3px, 30px 3px, 30px 0px, 20px 0px);
-                    transition: clip-path 0.5s;
-                    &:hover {
-                        clip-path: polygon(-5px 0px, -5px 3px, 5px 3px, 5px 0px, -5px 0px, 15px 0px, 15px 3px, 25px 3px, 25px 0px, 15px 0px);
+                svg {
+                    &.icon {
+                        width: 156px;
+                        height: 156px;
+                        display: inline-block;
+                        .arc-a {
+                            fill: transparent;
+                            stroke-width: 3;
+                            stroke: #ffcf10;
+                        }
+                        .arc-b {
+                            fill: transparent;
+                            stroke-width: 3;
+                            stroke: #fff;
+                        }
                     }
                 }
+                
             }
             &.active {
                 .business-item {

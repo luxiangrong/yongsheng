@@ -355,7 +355,37 @@ LXR.Animate = Class.extend({
     }
 });
 
+LXR.SvgIcon = Class.extend({
+    'ctor': function() {
+        var icon1 = new Snap("#svg-icon-1");
+        var arcStr = 'M2 76 A76 76,0 0 1 76 2';
+        var arc1 = icon1.paper.path(arcStr).attr('class', 'arc-a');
+        var arc2 = icon1.paper.path(arcStr).attr('class', 'arc-b');
+        var arc3 = icon1.paper.path(arcStr).attr('class', 'arc-a');
+        var arc4 = icon1.paper.path(arcStr).attr('class', 'arc-b');
+
+        Snap.animate(0, 45, function(value) {
+            arc1.transform(new Snap.Matrix().rotate(value, 78, 78));
+        }, 1500);
+
+        Snap.animate(45, 135, function(value) {
+            arc2.transform(new Snap.Matrix().rotate(value, 78, 78));
+        }, 1500);
+
+        Snap.animate(135, 225, function(value) {
+            arc3.transform(new Snap.Matrix().rotate(value, 78, 78));
+        }, 1500);
+
+        Snap.animate(225, 315, function(value) {
+            arc4.transform(new Snap.Matrix().rotate(value, 78, 78));
+        }, 1500);
+    }
+});
+
 jQuery(function($) {
+    new LXR.SvgIcon();
+
+
     var slideIndicator = undefined,
         layerMove1, layerMove2, layerMove3;
     var animateManager = new LXR.Animate();
@@ -399,7 +429,7 @@ jQuery(function($) {
                 if (slideIndicator) {
                     slideIndicator.start(LXR.SlideIndicator.getCurrentSlideIndex());
                 }
-                
+
 
             } else {
                 $('.tel').hide();
