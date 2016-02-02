@@ -42,3 +42,9 @@
 		opacity: 0.9;
 	}
 }
+
+@keyframes line-dash {
+	to {
+		stroke-dashoffset: 0;
+	}
+}

@@ -292,24 +292,90 @@
                 top: 0px;
                 transform: translate3d(0, 100%, 0);
                 transition: transform 1s;
-                svg {
-                    &.icon {
-                        width: 156px;
-                        height: 156px;
-                        display: inline-block;
-                        .arc-a {
-                            fill: transparent;
-                            stroke-width: 3;
-                            stroke: #ffcf10;
+                .svg-wrap {
+                    width: 156px;
+                    height: 156px;
+                    display: inline-block;
+                    position: relative;
+                    cursor: pointer;
+                    img.icon {
+                        width: 65px;
+                        height: 65px;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        margin-left: -32.5px;
+                        margin-top: -32.5px;
+                    }
+                    svg {
+                        &.icon {
+                            width: 100%;
+                            height: 100%;
+                            transition: transform 0.5s;
+                            .arc-a {
+                                fill: transparent;
+                                stroke-width: 3;
+                                stroke: #ffcf10;
+                            }
+                            .arc-b {
+                                fill: transparent;
+                                stroke-width: 3;
+                                stroke: #fff;
+                            }
+                            line {
+                                stroke: #ffcf10;
+                                stroke-width: 2;
+                                visibility: hidden;
+                            }
                         }
-                        .arc-b {
-                            fill: transparent;
-                            stroke-width: 3;
-                            stroke: #fff;
+                    }
+                    &:hover {
+                        svg.icon {
+                            transform: scale(1.2, 1.2);
+                            line {
+                                visibility: visible;
+                                stroke-dashoffset: -1500;
+                                animation: line-dash 10s linear infinite;
+                                &:nth-child(1) {
+                                    animation-duration: 15s;
+                                }
+                                &:nth-child(2) {
+                                    animation-duration: 13s;
+                                }
+                                &:nth-child(3) {
+                                    animation-duration: 12s;
+                                }
+                                &:nth-child(4) {
+                                    animation-duration: 21s;
+                                }
+                                &:nth-child(5) {
+                                    animation-duration: 17s;
+                                }
+                                &:nth-child(6) {
+                                    animation-duration: 18s;
+                                }
+                                &:nth-child(7) {
+                                    animation-duration: 19s;
+                                }
+                                &:nth-child(8) {
+                                    animation-duration: 23s;
+                                }
+                                &:nth-child(9) {
+                                    animation-duration: 12s;
+                                }
+                            }
                         }
                     }
                 }
-                
+                h2 {
+                    font-size: 24px;
+                    color: #fff;
+                }
+                p {
+                    font-size: 14px;
+                    color: #fff;
+                    line-height: 1.8;
+                }
             }
             &.active {
                 .business-item {
