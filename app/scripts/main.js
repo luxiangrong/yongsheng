@@ -377,7 +377,6 @@ LXR.SvgIcon = Class.extend({
         var circle1 = icon1.paper.path(circlePath1).attr('stroke', 'black').attr('fill', 'red');
 
         var clip = icon1.paper.el('clipPath',{'id': 'circleClip'});
-        // var circle1 = icon1.paper.circle(78, 78, 70);
         clip.add(circle1);
         clip.toDefs();
 
@@ -398,6 +397,28 @@ LXR.SvgIcon = Class.extend({
         // Snap.animate(225, 315, function(value) {
         //     arc4.transform(new Snap.Matrix().rotate(value, 78, 78));
         // }, 1500);
+        
+        var icon2 = new Snap("#svg-icon-2");
+        var arcStr = 'M2 76 A76 76,0 0 1 76 2';
+        var arc1 = icon2.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(45, 78, 78));
+        var arc2 = icon2.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(135, 78, 78));
+        var arc3 = icon2.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(225, 78, 78));
+        var arc4 = icon2.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(315, 78, 78));
+
+        var icon3 = new Snap("#svg-icon-3");
+        var arcStr = 'M2 76 A76 76,0 0 1 76 2';
+        var arc1 = icon3.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(45, 78, 78));
+        var arc2 = icon3.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(135, 78, 78));
+        var arc3 = icon3.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(225, 78, 78));
+        var arc4 = icon3.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(315, 78, 78));
+
+        var icon4 = new Snap("#svg-icon-4");
+        var arcStr = 'M2 76 A76 76,0 0 1 76 2';
+        var arc1 = icon4.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(45, 78, 78));
+        var arc2 = icon4.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(135, 78, 78));
+        var arc3 = icon4.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(225, 78, 78));
+        var arc4 = icon4.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(315, 78, 78));
+
     }
 });
 
@@ -433,13 +454,13 @@ jQuery(function($) {
             layerMove2 = new LXR.LayerMove($('.layer-2'), -0.10, document).start();
             layerMove3 = new LXR.LayerMove($('.layer-3'), -0.05, document).start();
 
-            $('.layer').velocity('transition.bounceIn', {
-                duration: 1000,
-                stagger: 200,
-                delay: 1200,
-                display: 'none',
-                backwards: true
-            });
+            // $('.layer').velocity('transition.bounceIn', {
+            //     duration: 1000,
+            //     stagger: 200,
+            //     delay: 1200,
+            //     display: 'none',
+            //     backwards: true
+            // });
         },
         afterLoad: function(anchorLink, index) {
             console.log('afterLoad:' + anchorLink + '-' + index);
@@ -480,12 +501,12 @@ jQuery(function($) {
 
                 animateManager.navRightIn();
 
-                $('.layer').velocity('transition.bounceIn', {
-                    duration: 1000,
-                    stagger: 200,
-                    display: 'none',
-                    backwards: true
-                });
+                // $('.layer').velocity('transition.bounceIn', {
+                //     duration: 1000,
+                //     stagger: 200,
+                //     display: 'none',
+                //     backwards: true
+                // });
             }
         },
         onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {
