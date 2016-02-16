@@ -439,7 +439,7 @@ jQuery(function($) {
         afterRender: function() {
             console.log('afterRender');
 
-            slideIndicator = new LXR.SlideIndicator(1110000, 'banner');
+            slideIndicator = new LXR.SlideIndicator(5000, 'banner');
 
             console.log(LXR.SlideIndicator.getCurrentAnchorLink());
 
@@ -507,6 +507,11 @@ jQuery(function($) {
                 //     display: 'none',
                 //     backwards: true
                 // });
+            }
+            if(nextIndex == 3 || nextIndex == 5){
+                $('.site-header').addClass('gray');
+            } else {
+                $('.site-header').removeClass('gray');
             }
         },
         onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {

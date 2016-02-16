@@ -82,4 +82,26 @@
             }
         }
     }
+    &.gray {
+        .nav {
+            > li {
+                > a {
+                    color: #333;
+                    &:hover {
+                        background: transparent;
+                        color: #ffcf0d;
+                    }
+                }
+                &.active {
+                    > a {
+                        color: #ffcf0d;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.btn-a {
+    @include button-variant(#896e02, #ffcf0d, #ffcf0d);
 }

@@ -553,5 +553,98 @@
                 }
             }
         }
+        &.contactus {
+            padding-top: 80px;
+            background: url(../images/j18.jpg) no-repeat center center;
+            background-size: cover;
+            overflow: hidden;
+            position: relative;
+            .col-left,
+            .col-right {
+                padding: 30px;
+                opacity: 0;
+                transition: transform 1s 0.8s, opacity 1s 0.5s;
+            }
+            .col-left {
+                transform: translate3d(-200%, 0, 0);
+            }
+            .col-right {
+                transform: translate3d(200%, 0, 0);
+            }
+            .bl {
+                border-left: 1px solid #d9d9d9;
+            }
+            .address-wrap {
+                padding-top: 15%;
+                h3.address {
+                    font-size: 32px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                    strong {
+                        color: #005aab;
+                    }
+                }
+                p {
+                    line-height: 2;
+                }
+                .list-inline {
+                    li {
+                        p {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+            .contactus-wrap {
+                padding-top: 15%;
+                .control-label {
+                    font-weight: normal;
+                }
+                .form-control {
+                    border-radius: 0px;
+                }
+            }
+            &.active {
+                .col-left,
+                .col-right {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+            .footer {
+                background-color: #1e1c01;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                padding: 10px 0;
+                .list-inline {
+                    margin-bottom: 0;
+                }
+                .tools {
+                    padding-right: 20px;
+                    a {
+                        color: #fff;
+                        .iconfont {
+                            font-size: 28px;
+                            font-weight: normal;
+                        }
+                        &:hover {
+                            color: #ffcf0d;
+                        }
+                    }
+                }
+                .links {
+                    a {
+                        color: #ffffff;
+                    }
+                }
+                .copyright-wrap {
+                    color: #747474;
+                    margin-top: 10px;
+                    margin-bottom: 0;
+                }
+            }
+        }
     }
 }
