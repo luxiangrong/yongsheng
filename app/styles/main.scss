@@ -346,11 +346,17 @@
                                 visibility: hidden;
                             }
                         }
+                        .dot {
+                            stroke: #ffcf10;
+                            fill: none;
+                            stroke-width: 2;
+                            opacity: 0;
+                        }
                     }
                     &:hover {
                         img.icon {
                             &.scale {
-                                transform: scale(0.9, 0.9);
+                                transform: scale(0.95, 0.95);
                             }
                         }
                         .translate-wrap {
@@ -358,28 +364,35 @@
                             animation: icon-translate 1s linear infinite both;
                         }
                         svg.icon {
-                            transform: scale(1.2, 1.2);
+                            transform: scale(1.1, 1.1);
                             line {
+                                stroke-width: 2;
                                 visibility: visible;
                                 stroke-dashoffset: -1500;
                                 animation: line-dash 10s linear infinite;
                                 &:nth-child(1) {
-                                    animation-duration: 15s;
+                                    stroke-dashoffset: -195;
+                                    animation: line-dash 0.5s linear infinite;
                                 }
                                 &:nth-child(2) {
-                                    animation-duration: 13s;
+                                    stroke-dashoffset: -202.8;
+                                    animation: line-dash 0.6s linear infinite;
                                 }
                                 &:nth-child(3) {
-                                    animation-duration: 12s;
+                                    stroke-dashoffset: -179.4;
+                                    animation: line-dash 0.6s linear infinite;
                                 }
                                 &:nth-child(4) {
-                                    animation-duration: 21s;
+                                    stroke-dashoffset: -210.6;
+                                    animation: line-dash 0.8s linear infinite;
                                 }
                                 &:nth-child(5) {
-                                    animation-duration: 17s;
+                                    stroke-dashoffset: -226.8;
+                                    animation: line-dash 0.7s linear infinite;
                                 }
                                 &:nth-child(6) {
-                                    animation-duration: 18s;
+                                    stroke-dashoffset: -174.8;
+                                    animation: line-dash 0.5s linear infinite;
                                 }
                                 &:nth-child(7) {
                                     animation-duration: 19s;
@@ -389,6 +402,30 @@
                                 }
                                 &:nth-child(9) {
                                     animation-duration: 12s;
+                                }
+                            }
+                            .dot {
+                                animation: circle-wave 4s infinite;
+                                stroke: #ffcf10;
+                                fill: none;
+                                stroke-width: 1.5;
+                                &.dot-1 {
+                                    animation-delay: 0s;
+                                }
+                                &.dot-2 {
+                                    animation-delay: 0.7s;
+                                }
+                                &.dot-3 {
+                                    animation-delay: 1.3s;
+                                }
+                                &.dot-4 {
+                                    animation-delay: 1.9s;
+                                }
+                                &.dot-5 {
+                                    animation-delay: 2.3s;
+                                }
+                                &.dot-6 {
+                                    animation-delay: 3.0s;
                                 }
                             }
                         }

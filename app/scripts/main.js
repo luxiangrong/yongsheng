@@ -365,12 +365,12 @@ LXR.SvgIcon = Class.extend({
         var arc4 = icon1.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(315, 78, 78));
         
         var lineGroup = icon1.paper.g();
-        var l1 = icon1.paper.line(0,15, 156, 15).attr('stroke-dasharray', '20,40');
-        var l2 = icon1.paper.line(0,35, 156, 35).attr('stroke-dasharray', '34,50');
-        var l3 = icon1.paper.line(0,60, 156, 60).attr('stroke-dasharray', '31,50');
-        var l4 = icon1.paper.line(0,85, 156, 85).attr('stroke-dasharray', '28,50');
-        var l5 = icon1.paper.line(0,112, 156, 112).attr('stroke-dasharray', '24.5,50');
-        var l6 = icon1.paper.line(0,140, 156, 140).attr('stroke-dasharray', '27,50');
+        var l1 = icon1.paper.line(0,15, 156, 15).attr('stroke-dasharray', '25%, 100%');
+        var l2 = icon1.paper.line(0,25, 156, 25).attr('stroke-dasharray', '30%, 100%');
+        var l3 = icon1.paper.line(0,60, 156, 60).attr('stroke-dasharray', '15%, 100%');
+        var l4 = icon1.paper.line(0,75, 156, 75).attr('stroke-dasharray', '35%, 100%');
+        var l5 = icon1.paper.line(0,102, 156, 102).attr('stroke-dasharray', '45%, 100%');
+        var l6 = icon1.paper.line(0,130, 156, 130).attr('stroke-dasharray', '12%, 100%');
         lineGroup.add(l1,l2,l3,l4,l5,l6);
 
         var circlePath1 = 'M5 78 A73 73,0 1 0 5 77M110 78A33 33, 0 1 1 110 77Z';
@@ -412,13 +412,22 @@ LXR.SvgIcon = Class.extend({
         var arc3 = icon3.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(225, 78, 78));
         var arc4 = icon3.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(315, 78, 78));
 
+        var single1 = icon3.paper.path('M78 65A13 13,0 0 1 91 78').attr('class', 'arc-a').transform(new Snap.Matrix().translate(1, -8));
+        var single2 = icon3.paper.path('M78 58A20 20,0 0 1 98 78').attr('class', 'arc-a').transform(new Snap.Matrix().translate(1, -8));
+
+
         var icon4 = new Snap("#svg-icon-4");
         var arcStr = 'M2 76 A76 76,0 0 1 76 2';
         var arc1 = icon4.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(45, 78, 78));
         var arc2 = icon4.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(135, 78, 78));
         var arc3 = icon4.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(225, 78, 78));
         var arc4 = icon4.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(315, 78, 78));
-
+        var dot1 = icon4.paper.circle(70, 20, 0).attr('class', 'dot dot-1');
+        var dot2 = icon4.paper.circle(120, 30, 0).attr('class', 'dot dot-2');
+        var dot3 = icon4.paper.circle(30, 70, 0).attr('class', 'dot dot-3');
+        var dot4 = icon4.paper.circle(35, 100, 0).attr('class', 'dot dot-4');
+        var dot4 = icon4.paper.circle(75, 140, 0).attr('class', 'dot dot-5');
+        var dot4 = icon4.paper.circle(130, 110, 0).attr('class', 'dot dot-6');
     }
 });
 
