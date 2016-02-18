@@ -412,8 +412,31 @@ LXR.SvgIcon = Class.extend({
         var arc3 = icon3.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(225, 78, 78));
         var arc4 = icon3.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(315, 78, 78));
 
-        var single1 = icon3.paper.path('M78 65A13 13,0 0 1 91 78').attr('class', 'arc-a').transform(new Snap.Matrix().translate(1, -8));
-        var single2 = icon3.paper.path('M78 58A20 20,0 0 1 98 78').attr('class', 'arc-a').transform(new Snap.Matrix().translate(1, -8));
+        // var single1 = icon3.paper.path('M78 65A13 13,0 0 1 91 78').attr('class', 'single').transform(new Snap.Matrix().translate(1, -8));
+        // var single2 = icon3.paper.path('M78 58A20 20,0 0 1 98 78').attr('class', 'single').transform(new Snap.Matrix().translate(1, -8));
+        var single1 = icon3.paper.circle(78, 78, 16).attr('class', 'single single-1');
+        var rect2 = icon3.paper.rect(78,53,24,24).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
+        var clip = icon3.paper.el('clipPath',{'id': 'sigleClip'});
+        clip.add(rect2);
+        clip.toDefs();
+        single1.attr('clip-path', 'url(#sigleClip)');
+
+        var single2 = icon3.paper.circle(78, 78, 16).attr('class', 'single single-2');
+        single2.attr('clip-path', 'url(#sigleClip)');
+
+        var singleStatic1 = icon3.paper.circle(78, 78, 16).attr('class', 'single single-static');
+        var rect2 = icon3.paper.rect(78,53,24,24).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
+        var clip = icon3.paper.el('clipPath',{'id': 'sigleClipStatic1'});
+        clip.add(rect2);
+        clip.toDefs();
+        singleStatic1.attr('clip-path', 'url(#sigleClipStatic1)');
+
+        var singleStatic2 = icon3.paper.circle(78, 78, 25).attr('class', 'single single-static');
+        var rect2 = icon3.paper.rect(78,43,34,34).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
+        var clip = icon3.paper.el('clipPath',{'id': 'sigleClipStatic2'});
+        clip.add(rect2);
+        clip.toDefs();
+        singleStatic2.attr('clip-path', 'url(#sigleClipStatic2)');
 
 
         var icon4 = new Snap("#svg-icon-4");

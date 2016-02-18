@@ -49,6 +49,42 @@
 	}
 }
 
+@keyframes single-wave {
+	0% {
+		r: 5;
+		opacity: 0;
+		transform: translate(1px, -7px);
+	}
+
+	50% {
+		r: 20;
+		opacity: 1;
+		transform: translate(1px, -7px);
+	}
+
+	100% {
+		r: 35;
+		opacity: 0;
+		transform: translate(1px, -7px);
+	}
+}
+
+
+@keyframes single-clip {
+	0% {
+		x: 78px;
+		y: 53px;
+		width: 24px;
+		height: 24px;
+	}
+	100% {
+		x: 78px;
+		y: 33px;
+		width: 44px;
+		height: 44px;
+	}
+}
+
 @keyframes circle-wave {
 	0% {
 		opacity: 0;

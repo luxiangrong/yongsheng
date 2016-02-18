@@ -345,6 +345,37 @@
                                 stroke-width: 2;
                                 visibility: hidden;
                             }
+                            .single {
+                                fill: transparent;
+                                stroke-width: 3;
+                                stroke: #ffcf10;
+                                animation: single-wave 2s linear infinite;
+                                display: none;
+                                transform: translate(1px, -7px);
+                                &.single-1 {
+                                    animation-delay: 0s;
+                                    opacity: 0;
+                                }
+                                &.single-2 {
+                                    animation-delay: 1s;
+                                    opacity: 0;
+                                }
+                                &.single-static {
+                                    display: block;
+                                    animation: none;
+                                    transform: translate(1px, -7px);
+                                }
+                            }
+                            #sigleMask {
+                                rect.mask {
+                                    animation: single-mask 2s linear infinite;
+                                }
+                            }
+                            #sigleClip {
+                                rect.clip {
+                                    animation: single-clip 2s linear infinite;
+                                }
+                            }
                         }
                         .dot {
                             stroke: #ffcf10;
@@ -352,6 +383,7 @@
                             stroke-width: 2;
                             opacity: 0;
                         }
+
                     }
                     &:hover {
                         img.icon {
@@ -426,6 +458,12 @@
                                 }
                                 &.dot-6 {
                                     animation-delay: 3.0s;
+                                }
+                            }
+                            .single {
+                                display: block;
+                                &.single-static {
+                                    display: none;
                                 }
                             }
                         }
