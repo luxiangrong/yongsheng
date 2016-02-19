@@ -97,7 +97,7 @@
             <div class="btn-wrap text-center">
                 <a href="" class="btn btn-b">浏览网站</a>
             </div>
-            <div class="pic-wrap text-center">
+            <div id="waypoint-1" class="pic-wrap text-center">
                 <img src="images/p17.png" alt="">
             </div>
             <div class="content content-a">
@@ -109,35 +109,38 @@
     </section>
     <section class="main-content main-content-2">
         <div class="container container-2">
-            <div class="row">
-                <div class="col-lg-6 text-center">
+            <div class="row" id="waypoint-2">
+                <div class="col-lg-6 text-center slide-left-in">
                     <img class="img-responsive" src="images/p18.png" alt="">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 slide-right-in">
                     <div class="content content-b">
                         <h2 class="">设计亮点<small>Design highlights</small></h2>
                         <p class="">海聚集团是上市之前从新整合集团形象，品牌定位更加清晰明了，用最好的形象面对上市后市场所以高计方面我们更加重视企业形象整体性，用VI的标准色为整个网站的主色调，用大背景为基础整屏网站的冲击办更加强大，再加上现代互联见网的互动效果。</p>
                     </div>
                 </div>
             </div>
-            <div class="row row-3">
-                <div class="col-lg-6">
+            <div class="row row-3" id="waypoint-3">
+                <div class="col-lg-6 slide-left-in">
                     <div class="content content-c">
                         <h2 class="">项目收获<small>Project harvest</small></h2>
                         <p class="">海聚集团是上市之前从新整合集团形象，品牌定位更加清晰明了，用最好的形象面对上市后市场所以高计方面我们更加重视企业形象整体性，用VI的标准色为整个网站的主色调，用大背景为基础整屏网站的冲击办更加强大，再加上现代互联见网的互动效果。</p>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center">
+                <div class="col-lg-6 text-center slide-right-in">
                     <img class="img-responsive" src="images/p19.png" alt="">
                 </div>
             </div>
         </div>
     </section>
+    
     <div class="site-footer">
         <div class="container">
             <ul class="list-inline pull-right tools">
                 <li>
-                    <a href=""><i class="iconfont">&#xe603;</i></a>
+                    <!-- 解决bootstrap的popover插件在显示图片时的错位问题，如果图片已经加载完成则不会出现问题 -->
+                    <img src='images/j19.jpg' class="hidden"/>
+                    <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top"  data-content="<img src='images/j19.jpg' />"><i class="iconfont">&#xe603;</i></a>
                 </li>
                 <li>
                     <a href=""><i class="iconfont">&#xe602;</i></a>
@@ -173,6 +176,7 @@
     <script src="/bower_components/velocity/velocity.ui.js"></script>
     <script src="/bower_components/svg-morpheus/compile/minified/svg-morpheus.js"></script>
     <script src="/bower_components/Snap.svg/dist/snap.svg-min.js"></script>
+    <script src="/bower_components/waypoints/lib/jquery.waypoints.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.) scripts/plugins.js -->
@@ -192,6 +196,42 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+    <script>
+    jQuery(function($) {
+        $('#waypoint-1').waypoint(function(direction) {
+            $(this.element).addClass('inview');
+        }, {
+            offset: '50%'
+        });
+
+        $('#waypoint-2, #waypoint-3').waypoint(function(direction) {
+            $(this.element).addClass('inview');
+        }, {
+            offset: '50%'
+        });
+        $('#waypoint-2, #waypoint-3').waypoint(function(direction) {
+            $(this.element).addClass('inview');
+        }, {
+            offset: 'bottom-in-view'
+        });
+        $('#waypoint-2, #waypoint-3').waypoint(function(direction){
+            if(direction === 'down') {
+                $(this.element).removeClass('inview');
+            }
+        }, {
+            offset: function(){
+                return $(this.element).height() * -1;
+            }
+        });
+        $('#waypoint-2, #waypoint-3').waypoint(function(direction){
+            if(direction === 'up') {
+                $(this.element).removeClass('inview');
+            }
+        }, {
+            offset: '100%'
+        });
+    });
+    </script>
 </body>
 
 </html>

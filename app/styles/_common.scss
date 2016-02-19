@@ -196,6 +196,7 @@
 .site-footer {
     background-color: #1e1c01;
     padding: 10px 0;
+    position: relative;
     .list-inline {
         margin-bottom: 0;
     }
@@ -203,11 +204,15 @@
         padding-right: 20px;
         a {
             color: #fff;
+            display: block;
+            cursor: pointer;
             .iconfont {
                 font-size: 28px;
                 font-weight: normal;
             }
-            &:hover {
+            &:hover,
+            &:focus {
+                outline: none;
                 color: #ffcf0d;
             }
         }
@@ -230,4 +235,6 @@
 
 .btn-b {
     @include button-variant(#fff, transparent, #fff);
+    padding: 10px 40px;
+    font-size: 18px;
 }

@@ -1,69 +1,112 @@
 .page-case-detail {
-	.container-2 {
-		width: 100%;
-		max-width: 1400px;
-	}
-	.main-content {
-		&.main-content-1 {
-			background: url(../images/j22.jpg) no-repeat center top;
-		}
-		&.main-content-2 {
-			background: url(../images/j21.jpg) no-repeat center top;
-			padding-top: 200px;
-		}
-		.logo-wrap {
-			margin: 20px 0 30px;
-		}
-		.btn-wrap {
-			margin-bottom: 30px;
-		}
-		.content {
-			&.content-a {
-				width: 940px;
-				margin: 30px auto;
-				margin-bottom: 0;
-				h2 {
-					font-size: 36px;
-					small {
-						font-size: 18px;
-						margin-left: 10px;
-					}
-				}
-			}
-			&.content-b,
-			&.content-c {
-				width: 590px;
-				color: #fff;
-				margin: 250px auto;				
-				h2 {
-					font-size: 36px;
-					small {
-						font-size: 18px;
-						margin-left: 10px;
-						color: #fff;
-					}
-				}
-			}
-			&.content-c {
-				margin-top: 200px;
-				color: #333;
-				text-align: right;
-				h2 {
-					text-align: left;
-					small {
-						text-align: left;
-						color: #333;
-					}
-				}
-				p {
-					text-align: left;
-				}
-			}
-		}
-		.row {
-			&.row-3 {
-				margin-top: 150px;
-			}
-		}
-	}
+    .container-2 {
+        width: 100%;
+        max-width: 1400px;
+    }
+    .main-content {
+        &.main-content-1 {
+            background: url(../images/j22.jpg) no-repeat center top;
+        }
+        &.main-content-2 {
+            background: url(../images/j21.jpg) no-repeat center top;
+            padding-top: 200px;
+            overflow: hidden;
+        }
+        .logo-wrap {
+            margin: 20px 0 30px;
+        }
+        .btn-wrap {
+            margin-bottom: 30px;
+        }
+        #waypoint-1 {
+        	overflow: hidden;
+            img {
+                transform: translate3d(0, 100%, 0);
+                @include opacity(0);
+                transition: transform 1s, opacity 0.8s;
+            }
+            &.inview {
+                img {
+                	@include opacity(1);
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+        #waypoint-2,
+        #waypoint-3 {
+            .slide-left-in {
+                transform: translate3d(-200%, 0, 0);
+                @include opacity(0);
+                transition: transform 1s, opacity 0.8s;
+            }
+            &.inview {
+                .slide-left-in {
+                	@include opacity(1);
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+            .slide-right-in {
+                transform: translate3d(200%, 0, 0);
+                @include opacity(0);
+                transition: transform 1s, opacity 0.8s;
+            }
+            &.inview {
+                .slide-right-in {
+                	@include opacity(1);
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+        .content {
+            p {
+                line-height: 1.8;
+            }
+            &.content-a {
+                width: 940px;
+                margin: 30px auto;
+                margin-bottom: 0;
+                h2 {
+                    font-size: 36px;
+                    small {
+                        font-size: 18px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+            &.content-b,
+            &.content-c {
+                width: 590px;
+                color: #fff;
+                margin: 250px auto;
+                h2 {
+                    font-size: 36px;
+                    small {
+                        font-size: 18px;
+                        margin-left: 10px;
+                        color: #fff;
+                    }
+                }
+            }
+            &.content-c {
+                margin-top: 200px;
+                color: #333;
+                text-align: right;
+                h2 {
+                    text-align: left;
+                    small {
+                        text-align: left;
+                        color: #333;
+                    }
+                }
+                p {
+                    text-align: left;
+                }
+            }
+        }
+        .row {
+            &.row-3 {
+                margin-top: 150px;
+            }
+        }
+    }
 }

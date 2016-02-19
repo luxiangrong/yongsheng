@@ -453,3 +453,10 @@ LXR.SvgIcon = Class.extend({
         var dot4 = icon4.paper.circle(130, 110, 0).attr('class', 'dot dot-6');
     }
 });
+
+jQuery(function($){
+    $('[data-toggle="popover"]').popover({
+        html: true,
+        container: 'body'
+    });
+});
