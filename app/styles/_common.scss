@@ -1,25 +1,21 @@
 // html {
 //     font-size: 9px
 // }
-
 // @media screen and (min-width:321px) and (max-width:375px) {
 //     html {
 //         font-size: 10px
 //     }
 // }
-
 // @media screen and (min-width:376px) and (max-width:414px) {
 //     html {
 //         font-size: 12px
 //     }
 // }
-
 // @media screen and (min-width:415px) and (max-width:639px) {
 //     html {
 //         font-size: 15px
 //     }
 // }
-
 .site-header {
     position: fixed;
     width: 100%;
@@ -28,10 +24,9 @@
     left: 0;
     z-index: 1;
     padding: 0 50px;
-    .logo {
-
-    }
-    .tel,.menu {
+    .logo {}
+    .tel,
+    .menu {
         font-size: 20px;
         color: #ffcf0d;
         position: relative;
@@ -70,7 +65,8 @@
                 font-size: 16px;
                 color: #ffffff;
                 transition: color .5s;
-                &:hover {
+                &:hover,
+                &:focus {
                     background: transparent;
                     color: #ffcf0d;
                 }
@@ -102,6 +98,136 @@
     }
 }
 
+.site-header-other {
+    line-height: 78px;
+    z-index: 1;
+    padding: 0 50px;
+    position: relative;
+    .tel,
+    .menu {
+        font-size: 20px;
+        color: #333333;
+        position: relative;
+        z-index: 10;
+        .iconfont {
+            font-size: 24px;
+            transition: color 500ms;
+        }
+    }
+    .nav {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        text-align: center;
+        z-index: 0;
+        > li {
+            float: none;
+            display: inline-block;
+            margin-left: -3px;
+            > a {
+                padding: 0 20px;
+                font-size: 16px;
+                color: #333333;
+                transition: color .2s, background-color .5s;
+                &:hover,
+                &:focus {
+                    background-color: #ffcf0d;
+                    color: #ffffff;
+                }
+            }
+            &.active {
+                > a {
+                    background-color: #ffcf0d;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+.sub-nav {
+    background: url(../images/j20.jpg) no-repeat center center;
+    height: 106px;
+    background-size: cover;
+    line-height: 106px;
+    .col {
+        float: left;
+        width: 20%;
+        line-height: 106px;
+        text-align: center;
+        .icon {
+            width: 60px;
+            height: 60px;
+            background-color: #ffcf0d;
+            line-height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            .iconfont {
+                font-size: 28px;
+                color: #9f7400;
+            }
+        }
+        .title {
+            color: #ffcf0d;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+            text-align: left;
+            .count {
+                font-size: 26px;
+            }
+            super {
+                vertical-align: top;
+                margin-left: 3px;
+            }
+            p {
+                color: #fff;
+                margin: 5px 0 0 0;
+            }
+        }
+    }
+}
+
+.site-footer {
+    background-color: #1e1c01;
+    padding: 10px 0;
+    .list-inline {
+        margin-bottom: 0;
+    }
+    .tools {
+        padding-right: 20px;
+        a {
+            color: #fff;
+            .iconfont {
+                font-size: 28px;
+                font-weight: normal;
+            }
+            &:hover {
+                color: #ffcf0d;
+            }
+        }
+    }
+    .links {
+        a {
+            color: #ffffff;
+        }
+    }
+    .copyright-wrap {
+        color: #747474;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+}
+
 .btn-a {
     @include button-variant(#896e02, #ffcf0d, #ffcf0d);
+}
+
+.btn-b {
+    @include button-variant(#fff, transparent, #fff);
 }
