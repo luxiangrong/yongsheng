@@ -238,3 +238,9 @@
     padding: 10px 40px;
     font-size: 18px;
 }
+
+.btn-c {
+    @include button-variant(#305588, transparent, #305588);
+    padding: 10px 40px;
+    font-size: 18px;
+}

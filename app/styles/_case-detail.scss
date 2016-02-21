@@ -3,6 +3,9 @@
         width: 100%;
         max-width: 1400px;
     }
+    &.page-case-detail-1 {
+        background: url(../images/p22.png) center top;
+    }
     .main-content {
         &.main-content-1 {
             background: url(../images/j22.jpg) no-repeat center top;
@@ -11,6 +14,23 @@
             background: url(../images/j21.jpg) no-repeat center top;
             padding-top: 200px;
             overflow: hidden;
+        }
+        &.main-content-3 {
+            position: relative;
+            .container {
+                position: relative;
+                z-index: 20;
+            }
+            .logo-wrap {
+                margin-top: 60px;
+            }
+            .brand {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
         }
         .logo-wrap {
             margin: 20px 0 30px;
