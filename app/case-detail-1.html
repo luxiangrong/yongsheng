@@ -19,7 +19,7 @@
     <!-- endbuild -->
 </head>
 
-<body class="page-case-detail page-case-detail-1">
+<body class="page-case-detail page-case-detail-a">
     <section class="site-header-other">
         <img src="images/p14.png" alt="" class="logo">
         <ul class="nav">
@@ -89,36 +89,42 @@
             </div>
         </div>
     </section>
-    <section class="main-content main-content-3">
-        <img src="images/j23.jpg" alt="" class="brand" />
-        <div class="container">
+    <section class="main-content">
+        <div class="container-fluid with-feature-pic">
             <div class="logo-wrap text-center">
-                <img src="images/p20.png" alt="">
+                <img class="logo" src="images/p20.png" alt="">
             </div>
             <div class="btn-wrap text-center">
                 <a href="" class="btn btn-c">浏览网站</a>
             </div>
-            <div id="waypoint-1" class="pic-wrap text-center">
-                <img src="images/p21.png" alt="">
+            <p class="description">介绍：作为中国领先男装休闲鞋企业及多品牌运营商的动感集团是一家以研发、生产、销售男装休闲鞋及服饰等为主业的集团企业。本集团成功在2011年9月28日于香港联合交易所有限公司主板成功上市（香港上市公司股票编号：1096）不仅代表本集团踏进国际资本市场的重要一步, 也为我们致力实现成为中国男装休闲鞋市场领导者的目标提供了一个良好平台, 专注于中端至中高端消费者的快速高增长市场。 </p>
+            <div class="feature feature-background">
+                <div id="waypoint-1" class="pic-wrap text-center waypoint">
+                    <img class="slideInUp" src="images/p21.png" alt="">
+                </div>
+                <div class="content content-a">
+                    <h2 class="text-center">项目背景<small>Project background </small></h2>
+                    <p class="text-center">海聚集团是上市之前从新整合集团形象，品牌定位更加清晰明了，用最好的形象面对上市后市场，所以高计方面我们更加重视企业形象整体性，用VI的 标准色为整个网站的主色调，用大背景为基础整屏网站的冲击办更加强大，再加上现代互联见网的互动效果。
+                    </p>
+                </div>
             </div>
-            <div class="content content-a">
-                <h2 class="text-center">项目背景<small>Project background </small></h2>
-                <p class="text-center">海聚集团是上市之前从新整合集团形象，品牌定位更加清晰明了，用最好的形象面对上市后市场，所以高计方面我们更加重视企业形象整体性，用VI的 标准色为整个网站的主色调，用大背景为基础整屏网站的冲击办更加强大，再加上现代互联见网的互动效果。
-                </p>
+            <div class="feature">
+                <div class="content content-a">
+                    <h2 class="text-center">设计亮点<small>Design highlights</small></h2>
+                    <p class="text-center">海聚集团是上市之前从新整合集团形象，品牌定位更加清晰明了，用最好的形象面对上市后市场所以高计方面我们更加重视企业形象整体性，用VI的标准色为整个网站的主色调，用大背景为基础整屏网站的冲击办更加强大，再加上现代互联见网的互动效果。</p>
+                </div>
+                <div id="waypoint-2" class="pic-wrap text-center waypoint">
+                    <img class="slideInUp" src="images/p23.png" alt="">
+                </div>
             </div>
-            <div class="content content-a">
-                <h2 class="text-center">设计亮点<small>Design highlights</small></h2>
-                <p class="text-center">海聚集团是上市之前从新整合集团形象，品牌定位更加清晰明了，用最好的形象面对上市后市场所以高计方面我们更加重视企业形象整体性，用VI的标准色为整个网站的主色调，用大背景为基础整屏网站的冲击办更加强大，再加上现代互联见网的互动效果。</p>
-            </div>
-            <div class="pic-wrap text-center">
-                <img src="images/p23.png" alt="">
-            </div>
-            <div class="content content-a">
-                <h2 class="text-center">项目收获<small>Project harvest</small></h2>
-                <p class="text-center">海聚集团是上市之前从新整合集团形象，品牌定位更加清晰明了，用最好的形象面对上市后市场所以高计方面我们更加重视企业形象整体性，用VI的标准色为整个网站的主色调，用大背景为基础整屏网站的冲击办更加强大，再加上现代互联见网的互动效果。</p>
-            </div>
-            <div class="pic-wrap text-center">
-                <img src="images/p24.png" alt="">
+            <div class="feature">
+                <div class="content content-a">
+                    <h2 class="text-center">项目收获<small>Project harvest</small></h2>
+                    <p class="text-center">海聚集团是上市之前从新整合集团形象，品牌定位更加清晰明了，用最好的形象面对上市后市场所以高计方面我们更加重视企业形象整体性，用VI的标准色为整个网站的主色调，用大背景为基础整屏网站的冲击办更加强大，再加上现代互联见网的互动效果。</p>
+                </div>
+                <div id="waypoint-3" class="pic-wrap text-center waypoint">
+                    <img class="slideInUp" src="images/p24.png" alt="">
+                </div>
             </div>
         </div>
     </section>
@@ -186,38 +192,12 @@
     <!-- endbuild -->
     <script>
     jQuery(function($) {
-        $('#waypoint-1').waypoint(function(direction) {
+        $('#waypoint-1,#waypoint-2,#waypoint-3').waypoint(function(direction) {
             $(this.element).addClass('inview');
         }, {
             offset: '50%'
         });
 
-        $('#waypoint-2, #waypoint-3').waypoint(function(direction) {
-            $(this.element).addClass('inview');
-        }, {
-            offset: '50%'
-        });
-        $('#waypoint-2, #waypoint-3').waypoint(function(direction) {
-            $(this.element).addClass('inview');
-        }, {
-            offset: 'bottom-in-view'
-        });
-        $('#waypoint-2, #waypoint-3').waypoint(function(direction) {
-            if (direction === 'down') {
-                $(this.element).removeClass('inview');
-            }
-        }, {
-            offset: function() {
-                return $(this.element).height() * -1;
-            }
-        });
-        $('#waypoint-2, #waypoint-3').waypoint(function(direction) {
-            if (direction === 'up') {
-                $(this.element).removeClass('inview');
-            }
-        }, {
-            offset: '100%'
-        });
     });
     </script>
 </body>

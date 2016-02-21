@@ -19,7 +19,7 @@
     <!-- endbuild -->
 </head>
 
-<body class="page-case-detail">
+<body class="page-case-detail page-case-detail-b">
     <section class="site-header-other">
         <img src="images/p14.png" alt="" class="logo">
         <ul class="nav">
@@ -97,8 +97,8 @@
             <div class="btn-wrap text-center">
                 <a href="" class="btn btn-b">浏览网站</a>
             </div>
-            <div id="waypoint-1" class="pic-wrap text-center">
-                <img src="images/p17.png" alt="">
+            <div id="waypoint-1" class="pic-wrap text-center waypoint">
+                <img class="slideInUp" src="images/p17.png" alt="">
             </div>
             <div class="content content-a">
                 <h2 class="text-center">项目背景<small>Project background </small></h2>
@@ -108,27 +108,27 @@
         </div>
     </section>
     <section class="main-content main-content-2">
-        <div class="container container-2">
-            <div class="row" id="waypoint-2">
-                <div class="col-lg-6 text-center slide-left-in">
-                    <img class="img-responsive" src="images/p18.png" alt="">
+        <div class="container-fluid">
+            <div class="row waypoint" id="waypoint-2">
+                <div class="col-lg-6 text-center slideInLeft">
+                    <img class="img-responsive pull-right" src="images/p18.png" alt="">
                 </div>
-                <div class="col-lg-6 slide-right-in">
-                    <div class="content content-b">
+                <div class="col-lg-6 slideInRight">
+                    <div class="content content-b pull-left">
                         <h2 class="">设计亮点<small>Design highlights</small></h2>
                         <p class="">海聚集团是上市之前从新整合集团形象，品牌定位更加清晰明了，用最好的形象面对上市后市场所以高计方面我们更加重视企业形象整体性，用VI的标准色为整个网站的主色调，用大背景为基础整屏网站的冲击办更加强大，再加上现代互联见网的互动效果。</p>
                     </div>
                 </div>
             </div>
-            <div class="row row-3" id="waypoint-3">
-                <div class="col-lg-6 slide-left-in">
-                    <div class="content content-c">
+            <div class="row row-3 waypoint" id="waypoint-3">
+                <div class="col-lg-6 slideInLeft">
+                    <div class="content content-c pull-right">
                         <h2 class="">项目收获<small>Project harvest</small></h2>
                         <p class="">海聚集团是上市之前从新整合集团形象，品牌定位更加清晰明了，用最好的形象面对上市后市场所以高计方面我们更加重视企业形象整体性，用VI的标准色为整个网站的主色调，用大背景为基础整屏网站的冲击办更加强大，再加上现代互联见网的互动效果。</p>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center slide-right-in">
-                    <img class="img-responsive" src="images/p19.png" alt="">
+                <div class="col-lg-6 text-center slideInRight">
+                    <img class="img-responsive pull-left" src="images/p19.png" alt="">
                 </div>
             </div>
         </div>
@@ -209,27 +209,27 @@
         }, {
             offset: '50%'
         });
-        $('#waypoint-2, #waypoint-3').waypoint(function(direction) {
-            $(this.element).addClass('inview');
-        }, {
-            offset: 'bottom-in-view'
-        });
-        $('#waypoint-2, #waypoint-3').waypoint(function(direction){
-            if(direction === 'down') {
-                $(this.element).removeClass('inview');
-            }
-        }, {
-            offset: function(){
-                return $(this.element).height() * -1;
-            }
-        });
-        $('#waypoint-2, #waypoint-3').waypoint(function(direction){
-            if(direction === 'up') {
-                $(this.element).removeClass('inview');
-            }
-        }, {
-            offset: '100%'
-        });
+        // $('#waypoint-2, #waypoint-3').waypoint(function(direction) {
+        //     $(this.element).addClass('inview');
+        // }, {
+        //     offset: 'bottom-in-view'
+        // });
+        // $('#waypoint-2, #waypoint-3').waypoint(function(direction){
+        //     if(direction === 'down') {
+        //         $(this.element).removeClass('inview');
+        //     }
+        // }, {
+        //     offset: function(){
+        //         return $(this.element).height() * -1;
+        //     }
+        // });
+        // $('#waypoint-2, #waypoint-3').waypoint(function(direction){
+        //     if(direction === 'up') {
+        //         $(this.element).removeClass('inview');
+        //     }
+        // }, {
+        //     offset: '100%'
+        // });
     });
     </script>
 </body>

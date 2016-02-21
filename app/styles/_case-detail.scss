@@ -3,86 +3,28 @@
         width: 100%;
         max-width: 1400px;
     }
-    &.page-case-detail-1 {
-        background: url(../images/p22.png) center top;
+    .logo-wrap {
+        margin: 20px 0 30px;
+    }
+    .btn-wrap {
+        margin-bottom: 30px;
+    }
+    .feature {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 120px;
+        .pic-wrap {
+            margin-top: 40px;
+        }
     }
     .main-content {
-        &.main-content-1 {
-            background: url(../images/j22.jpg) no-repeat center top;
-        }
-        &.main-content-2 {
-            background: url(../images/j21.jpg) no-repeat center top;
-            padding-top: 200px;
-            overflow: hidden;
-        }
-        &.main-content-3 {
-            position: relative;
-            .container {
-                position: relative;
-                z-index: 20;
-            }
-            .logo-wrap {
-                margin-top: 60px;
-            }
-            .brand {
-                position: absolute;
-                width: 100%;
-                top: 0;
-                left: 0;
-                z-index: 1;
-            }
-        }
-        .logo-wrap {
-            margin: 20px 0 30px;
-        }
-        .btn-wrap {
-            margin-bottom: 30px;
-        }
-        #waypoint-1 {
-        	overflow: hidden;
-            img {
-                transform: translate3d(0, 100%, 0);
-                @include opacity(0);
-                transition: transform 1s, opacity 0.8s;
-            }
-            &.inview {
-                img {
-                	@include opacity(1);
-                    transform: translate3d(0, 0, 0);
-                }
-            }
-        }
-        #waypoint-2,
-        #waypoint-3 {
-            .slide-left-in {
-                transform: translate3d(-200%, 0, 0);
-                @include opacity(0);
-                transition: transform 1s, opacity 0.8s;
-            }
-            &.inview {
-                .slide-left-in {
-                	@include opacity(1);
-                    transform: translate3d(0, 0, 0);
-                }
-            }
-            .slide-right-in {
-                transform: translate3d(200%, 0, 0);
-                @include opacity(0);
-                transition: transform 1s, opacity 0.8s;
-            }
-            &.inview {
-                .slide-right-in {
-                	@include opacity(1);
-                    transform: translate3d(0, 0, 0);
-                }
-            }
-        }
         .content {
             p {
                 line-height: 1.8;
             }
             &.content-a {
-                width: 940px;
+                //A类描述，最大940宽度，居中显示
+                max-width: 940px;
                 margin: 30px auto;
                 margin-bottom: 0;
                 h2 {
@@ -95,7 +37,7 @@
             }
             &.content-b,
             &.content-c {
-                width: 590px;
+                max-width: 590px;
                 color: #fff;
                 margin: 250px auto;
                 h2 {
@@ -126,6 +68,78 @@
         .row {
             &.row-3 {
                 margin-top: 150px;
+            }
+        }
+    }
+    //视口进入后的效果
+    .waypoint {
+        overflow: hidden;
+        .slideInUp {
+            transform: translate3d(0, 100%, 0);
+            @include opacity(0);
+            transition: transform 1s, opacity 0.8s;
+        }
+        .slideInLeft {
+            transform: translate3d(-200%, 0, 0);
+            @include opacity(0);
+            transition: transform 1s, opacity 0.8s;
+        }
+        .slideInRight {
+            transform: translate3d(200%, 0, 0);
+            @include opacity(0);
+            transition: transform 1s, opacity 0.8s;
+        }
+        &.inview {
+            .slideInUp,
+            .slideInLeft,
+            .slideInRight {
+                @include opacity(1);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+    //A类风格的案例详情模板
+    &.page-case-detail-a {
+        background: url(../images/p22.png) center top;
+        .container-fluid {
+            &.with-feature-pic {
+                background: url(../images/j23.jpg) no-repeat center top;
+            }
+        }
+        //网站的logo
+        .logo-wrap {
+            position: relative;
+            z-index: 2;
+            margin-top: 65px;
+        }
+        .btn-wrap {
+            position: relative;
+            margin-top: 20px;
+            z-index: 2;
+        }
+        .description {
+            position: relative;
+            color: #305588;
+            max-width: 900px;
+            z-index: 2;
+            margin: 0 auto;
+        }
+    }
+    //B类风格的案例详情模板
+    &.page-case-detail-b {
+        .main-content-1 {
+            background: url(../images/j22.jpg) no-repeat center top;
+        }
+        .main-content-2 {
+            background: url(../images/j21.jpg) no-repeat center top;
+            padding-top: 200px;
+            overflow: hidden;
+            padding-bottom: 50px;
+            .slideInLeft {
+                padding-right: 5%;
+            }
+            .slideInRight {
+                padding-left: 5%;
             }
         }
     }
