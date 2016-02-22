@@ -1,0 +1,86 @@
+.page-service {
+    .title {
+        background: url(../images/j24.jpg) no-repeat center center;
+        h1 {
+            line-height: 400px;
+            text-align: center;
+            font-size: 36px;
+            color: #ffcf0d;
+            margin: 0;
+        }
+    }
+    .service {
+        max-height: 550px;
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            small {
+                font-size: 30px;
+                margin-left: 1em;
+                margin-right: 1em;
+                color: #ffcf0d;
+            }
+        }
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        p {
+            line-height: 1.8;
+            margin: 30px 0;
+        }
+        .vm {
+            width: 100%;
+            text-align: right;
+        }
+    }
+    .service-1,
+    .service-3 {
+        background: url(../images/j27.jpg) no-repeat center center;
+    }
+    .service-2,
+    .service-4 {
+        background: url(../images/j25.jpg) no-repeat center center;
+        h2,h3,p {
+        	color: #fff;
+        }
+        .list-inline {
+        	color: rgba(255,255,255,0.5);
+        	li {
+        		text-align: center;
+        	}
+        	.iconfont {
+        		display: block;
+        		color: rgba(255,255,255,0.5);
+        		font-size: 36px;
+        	}
+        }
+    }
+    .service-4 {
+    	background: url(../images/j26.jpg) no-repeat center center;
+    }
+    //垂直居中,通过透明图片的方式
+    .vma {
+        height: 550px;
+        font-size: 0;
+        width: 100%;
+        img {
+            vertical-align: middle;
+            &.alpha {
+                height: 100%;
+                width: 1px;
+            }
+        }
+    }
+    //垂直居中，通过table-cell的方式
+    .vmt-wrap {
+    	display: table;
+    	width: 100%;
+    }
+    .vmt {
+        display: table-cell;
+        vertical-align: middle;
+        height: 550px;
+        width: 100%;
+    }
+}

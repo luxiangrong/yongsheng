@@ -96,6 +96,9 @@
             }
         }
     }
+    &.black {
+        background-color: #000;
+    }
 }
 
 .site-header-other {
@@ -141,6 +144,41 @@
                 > a {
                     background-color: #ffcf0d;
                     color: #ffffff;
+                }
+            }
+        }
+    }
+    &.black {
+        background-color: #000000;
+        .tel,
+        .menu {
+            color: #ffcf0d;
+            .iconfont {
+                font-size: 24px;
+                transition: color 500ms;
+            }
+        }
+        .nav {
+            > li {
+                float: none;
+                display: inline-block;
+                margin-left: -3px;
+                > a {
+                    padding: 0 20px;
+                    font-size: 16px;
+                    color: #ffffff;
+                    transition: color .2s, background-color .5s;
+                    &:hover,
+                    &:focus {
+                        background-color: transparent;
+                        color: #ffcf0d;
+                    }
+                }
+                &.active {
+                    > a {
+                        background-color: transparent;
+                        color: #ffcf0d;
+                    }
                 }
             }
         }
@@ -193,6 +231,41 @@
     }
 }
 
+.footer {
+    background-color: #1e1c01;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 10px 0;
+    .list-inline {
+        margin-bottom: 0;
+    }
+    .tools {
+        padding-right: 20px;
+        a {
+            color: #fff;
+            .iconfont {
+                font-size: 28px;
+                font-weight: normal;
+            }
+            &:hover {
+                color: #ffcf0d;
+            }
+        }
+    }
+    .links {
+        a {
+            color: #ffffff;
+        }
+    }
+    .copyright-wrap {
+        color: #747474;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+}
+
 .site-footer {
     background-color: #1e1c01;
     padding: 10px 0;
@@ -226,6 +299,29 @@
         color: #747474;
         margin-top: 10px;
         margin-bottom: 0;
+    }
+    &.white {
+        background-color: #fff;
+        .links {
+            a {
+                color: #333;
+            }
+        }
+        .tools {
+            a {
+                .iconfont {
+                    color: #b2b2b2;
+                }
+                &:hover,
+                &:focus {
+                    outline: none;
+                    color: #ffcf0d;
+                    .iconfont {
+                        color: #ffcf0d;
+                    }
+                }
+            }
+        }
     }
 }
 
