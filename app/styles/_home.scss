@@ -354,7 +354,12 @@
                                 &.single-static {
                                     display: block;
                                     animation: none;
-                                    transform: translate(1px, -7px);
+                                    &.single-static-1 {
+                                        animation-delay: 0s;
+                                    }
+                                    &.single-static-2 {
+                                        animation-delay: 1s;
+                                    }
                                 }
                             }
                             #sigleMask {
@@ -362,7 +367,12 @@
                                     animation: single-mask 2s linear infinite;
                                 }
                             }
-                            #sigleClip {
+                            #sigleClip1 {
+                                rect.clip {
+                                    animation: single-clip 2s linear infinite;
+                                }
+                            }
+                            #sigleClip1 {
                                 rect.clip {
                                     animation: single-clip 2s linear infinite;
                                 }
@@ -374,10 +384,10 @@
                             stroke-width: 2;
                             opacity: 0;
                         }
-
                     }
                     &:hover {
                         img.icon {
+                            pointer-events: none;
                             &.scale {
                                 transform: scale(0.95, 0.95);
                             }
@@ -395,27 +405,27 @@
                                 animation: line-dash 10s linear infinite;
                                 &:nth-child(1) {
                                     stroke-dashoffset: -195;
-                                    animation: line-dash 0.5s linear infinite;
+                                    animation: line-dash 1s linear infinite;
                                 }
                                 &:nth-child(2) {
                                     stroke-dashoffset: -202.8;
-                                    animation: line-dash 0.6s linear infinite;
+                                    animation: line-dash 1.2s linear infinite;
                                 }
                                 &:nth-child(3) {
                                     stroke-dashoffset: -179.4;
-                                    animation: line-dash 0.6s linear infinite;
+                                    animation: line-dash 1.2s linear infinite;
                                 }
                                 &:nth-child(4) {
                                     stroke-dashoffset: -210.6;
-                                    animation: line-dash 0.8s linear infinite;
+                                    animation: line-dash 1.6s linear infinite;
                                 }
                                 &:nth-child(5) {
                                     stroke-dashoffset: -226.8;
-                                    animation: line-dash 0.7s linear infinite;
+                                    animation: line-dash 1.4s linear infinite;
                                 }
                                 &:nth-child(6) {
                                     stroke-dashoffset: -174.8;
-                                    animation: line-dash 0.5s linear infinite;
+                                    animation: line-dash 1s linear infinite;
                                 }
                                 &:nth-child(7) {
                                     animation-duration: 19s;
@@ -428,10 +438,11 @@
                                 }
                             }
                             .dot {
-                                animation: circle-wave 4s infinite;
+                                // animation: circle-wave 4s infinite;
                                 stroke: #ffcf10;
                                 fill: none;
                                 stroke-width: 1.5;
+                                opacity: 1;
                                 &.dot-1 {
                                     animation-delay: 0s;
                                 }
@@ -543,10 +554,9 @@
                 padding: 0 15px;
                 text-align: right;
                 cursor: pointer;
-                transition: background-color 0.5s;
                 overflow: hidden;
                 opacity: 0;
-                transition: transform 1.2s 1s, opacity 1s 0.8s;
+                transition: transform 1.2s 1s, opacity 1s 0.8s, background-color 0.5s;
                 &:nth-child(5n + 1) {
                     border-right: none;
                 }
@@ -555,14 +565,14 @@
                 &:nth-of-type(10n + 3),
                 &:nth-of-type(10n + 4),
                 &:nth-of-type(10n + 5) {
-                    transform: translate3d(-200%, 0, 0);
+                    transform: translate3d(-100%, 0, 0);
                 }
                 &:nth-of-type(10n + 6),
                 &:nth-of-type(10n + 7),
                 &:nth-of-type(10n + 8),
                 &:nth-of-type(10n + 9),
                 &:nth-of-type(10n + 10) {
-                    transform: translate3d(200%, 0, 0);
+                    transform: translate3d(100%, 0, 0);
                 }
                 &.title {
                     background-color: #ffcf0d;
@@ -570,7 +580,7 @@
                     text-align: center;
                     font-size: 120px;
                     font-family: sans-serif;
-                    transition: transform 1.2s 1s, opacity 1s 0.8s, color 0.5s;
+                    transition: transform 1.2s 1s, opacity 1s 0.8s, color 0.5s, background-color 0.5s;;
                     .vmc {
                         display: table;
                         width: 100%;
@@ -629,7 +639,7 @@
             .col-right {
                 padding: 30px;
                 opacity: 0;
-                transition: transform 1s 0.8s, opacity 1s 0.5s;
+                transition: transform 1.5s 0.8s, opacity 1s 0.5s;
             }
             .col-left {
                 transform: translate3d(-200%, 0, 0);
@@ -709,6 +719,19 @@
                     color: #747474;
                     margin-top: 10px;
                     margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.no-cssreflections {
+    .svg-wrap {
+        &:hover {
+            .single {
+                display: none !important;
+                &.single-static {
+                    display: block !important;
                 }
             }
         }

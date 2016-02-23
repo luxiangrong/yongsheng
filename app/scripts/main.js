@@ -415,28 +415,59 @@ LXR.SvgIcon = Class.extend({
         // var single1 = icon3.paper.path('M78 65A13 13,0 0 1 91 78').attr('class', 'single').transform(new Snap.Matrix().translate(1, -8));
         // var single2 = icon3.paper.path('M78 58A20 20,0 0 1 98 78').attr('class', 'single').transform(new Snap.Matrix().translate(1, -8));
         var single1 = icon3.paper.circle(78, 78, 16).attr('class', 'single single-1');
-        var rect2 = icon3.paper.rect(78,53,24,24).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
-        var clip = icon3.paper.el('clipPath',{'id': 'sigleClip'});
+        var animate1 = icon3.paper.el('animate', {
+            attributeName: 'r',
+            begin: '0s',
+            dur: '2s',
+            repeatCount: 'indefinite',
+            from: '5',
+            to: '35'
+        });
+        var animate2 = icon3.paper.el('animate', {
+            attributeName: 'r',
+            begin: '1s',
+            dur: '2s',
+            repeatCount: 'indefinite',
+            from: '5',
+            to: '35'
+        });
+        var rect2 = icon3.paper.rect(78,40,35,35).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
+        var clip = icon3.paper.el('clipPath',{'id': 'sigleClip1'});
         clip.add(rect2);
         clip.toDefs();
-        single1.attr('clip-path', 'url(#sigleClip)');
+        single1.attr('clip-path', 'url(#sigleClip1)');
 
         var single2 = icon3.paper.circle(78, 78, 16).attr('class', 'single single-2');
-        single2.attr('clip-path', 'url(#sigleClip)');
+        var rect2 = icon3.paper.rect(78,40,35,35).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
+        var clip = icon3.paper.el('clipPath',{'id': 'sigleClip2'});
+        clip.add(rect2);
+        clip.toDefs();
+        single2.attr('clip-path', 'url(#sigleClip2)');
 
-        var singleStatic1 = icon3.paper.circle(78, 78, 16).attr('class', 'single single-static');
-        var rect2 = icon3.paper.rect(78,53,24,24).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
+        var singleStatic1 = icon3.paper.circle(78, 78, 16).attr('class', 'single single-static single-static-1');
+        // singleStatic1.add(animate1);
+        var rect2 = icon3.paper.rect(78,40,35,35).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
         var clip = icon3.paper.el('clipPath',{'id': 'sigleClipStatic1'});
         clip.add(rect2);
         clip.toDefs();
         singleStatic1.attr('clip-path', 'url(#sigleClipStatic1)');
 
-        var singleStatic2 = icon3.paper.circle(78, 78, 25).attr('class', 'single single-static');
-        var rect2 = icon3.paper.rect(78,43,34,34).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
+        var singleStatic2 = icon3.paper.circle(78, 78, 25).attr('class', 'single single-static single-static-2');
+        // singleStatic2.add(animate2);
+        var rect2 = icon3.paper.rect(78,40,35,35).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
         var clip = icon3.paper.el('clipPath',{'id': 'sigleClipStatic2'});
         clip.add(rect2);
         clip.toDefs();
         singleStatic2.attr('clip-path', 'url(#sigleClipStatic2)');
+
+        icon3.mouseover(function(){
+            singleStatic1.add(animate1);
+            singleStatic2.add(animate2);
+        });
+        icon3.mouseout(function(){
+            animate1.remove();
+            animate2.remove();
+        });
 
 
         var icon4 = new Snap("#svg-icon-4");
@@ -449,8 +480,75 @@ LXR.SvgIcon = Class.extend({
         var dot2 = icon4.paper.circle(120, 30, 0).attr('class', 'dot dot-2');
         var dot3 = icon4.paper.circle(30, 70, 0).attr('class', 'dot dot-3');
         var dot4 = icon4.paper.circle(35, 100, 0).attr('class', 'dot dot-4');
-        var dot4 = icon4.paper.circle(75, 140, 0).attr('class', 'dot dot-5');
-        var dot4 = icon4.paper.circle(130, 110, 0).attr('class', 'dot dot-6');
+        var dot5 = icon4.paper.circle(75, 140, 0).attr('class', 'dot dot-5');
+        var dot6 = icon4.paper.circle(130, 110, 0).attr('class', 'dot dot-6');
+
+        var dot1Ani = icon3.paper.el('animate', {
+            attributeName: 'r',
+            begin: '0s',
+            dur: '4s',
+            repeatCount: 'indefinite',
+            values: "0; 5; 0; 0",
+            from: '0',
+            keyTimes: "0; 0.2; 0.21; 1",
+            to: '5'
+        });
+        var dot2Ani = icon3.paper.el('animate', {
+            attributeName: 'r',
+            begin: '0.7s',
+            dur: '4s',
+            repeatCount: 'indefinite',
+            values: "0; 5; 0; 0",
+            from: '0',
+            keyTimes: "0; 0.2; 0.21; 1",
+            to: '5'
+        });
+        var dot3Ani = icon3.paper.el('animate', {
+            attributeName: 'r',
+            begin: '1.3s',
+            dur: '4s',
+            repeatCount: 'indefinite',
+            values: "0; 5; 0; 0",
+            from: '0',
+            keyTimes: "0; 0.2; 0.21; 1",
+            to: '5'
+        });
+        var dot4Ani = icon3.paper.el('animate', {
+            attributeName: 'r',
+            begin: '1.9s',
+            dur: '4s',
+            repeatCount: 'indefinite',
+            values: "0; 5; 0; 0",
+            from: '0',
+            keyTimes: "0; 0.2; 0.21; 1",
+            to: '5'
+        });
+        var dot5Ani = icon3.paper.el('animate', {
+            attributeName: 'r',
+            begin: '2.3s',
+            dur: '4s',
+            repeatCount: 'indefinite',
+            values: "0; 5; 0; 0",
+            from: '0',
+            keyTimes: "0; 0.2; 0.21; 1",
+            to: '5'
+        });
+        var dot6Ani = icon3.paper.el('animate', {
+            attributeName: 'r',
+            begin: '3.0s',
+            dur: '4s',
+            repeatCount: 'indefinite',
+            values: "0; 5; 0; 0",
+            from: '0',
+            keyTimes: "0; 0.2; 0.21; 1",
+            to: '5'
+        });
+        dot1.add(dot1Ani);
+        dot2.add(dot2Ani);
+        dot3.add(dot3Ani);
+        dot4.add(dot4Ani);
+        dot5.add(dot5Ani);
+        dot6.add(dot6Ani);
     }
 });
 
