@@ -41,7 +41,7 @@
                         <i class="iconfont">&#xe606;</i>
                     </div>
                     <div class="title">
-                        <span class="count">100</span>
+                        <span class="count" data-from="0" data-to="100" data-duration="3000">0</span>
                         <super>+</super>
                         <p>国内上市公司</p>
                     </div>
@@ -51,7 +51,7 @@
                         <i class="iconfont">&#xe609;</i>
                     </div>
                     <div class="title">
-                        <span class="count">200</span>
+                        <span class="count" data-from="0" data-to="200" data-duration="3000">0</span>
                         <super>+</super>
                         <p>政府事业单位</p>
                     </div>
@@ -61,7 +61,7 @@
                         <i class="iconfont">&#xe607;</i>
                     </div>
                     <div class="title">
-                        <span class="count">300</span>
+                        <span class="count" data-from="0" data-to="300" data-duration="3500">0</span>
                         <super>+</super>
                         <p>品牌客户</p>
                     </div>
@@ -71,7 +71,7 @@
                         <i class="iconfont">&#xe605;</i>
                     </div>
                     <div class="title">
-                        <span class="count">500</span>
+                        <span class="count" data-from="0" data-to="500" data-duration="4000">0</span>
                         <super>+</super>
                         <p>电商金融客户</p>
                     </div>
@@ -81,7 +81,7 @@
                         <i class="iconfont">&#xe608;</i>
                     </div>
                     <div class="title">
-                        <span class="count">1000</span>
+                        <span class="count" data-from="0" data-to="1000" data-duration="4500">0</span>
                         <super>+</super>
                         <p>精品网站案例</p>
                     </div>
@@ -133,14 +133,13 @@
             </div>
         </div>
     </section>
-    
     <div class="site-footer">
         <div class="container">
             <ul class="list-inline pull-right tools">
                 <li>
                     <!-- 解决bootstrap的popover插件在显示图片时的错位问题，如果图片已经加载完成则不会出现问题 -->
-                    <img src='images/j19.jpg' class="hidden"/>
-                    <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top"  data-content="<img src='images/j19.jpg' />"><i class="iconfont">&#xe603;</i></a>
+                    <img src='images/j19.jpg' class="hidden" />
+                    <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="<img src='images/j19.jpg' />"><i class="iconfont">&#xe603;</i></a>
                 </li>
                 <li>
                     <a href=""><i class="iconfont">&#xe602;</i></a>
@@ -198,6 +197,13 @@
     <!-- endbuild -->
     <script>
     jQuery(function($) {
+        jQuery(function($) {
+            $('.count').each(function(i, item) {
+                new LXR.CountUp(item);
+            });
+
+        });
+
         $('#waypoint-1').waypoint(function(direction) {
             $(this.element).addClass('inview');
         }, {

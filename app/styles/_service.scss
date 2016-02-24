@@ -1,16 +1,19 @@
 .page-service {
     .title {
-        background: url(../images/j24.jpg) no-repeat center center;
+        background: url(../images/j24.jpg) no-repeat center 0px;
+        background-attachment: fixed; 
         h1 {
-            line-height: 400px;
+            line-height: 322px;
             text-align: center;
             font-size: 36px;
             color: #ffcf0d;
             margin: 0;
+            opacity: 0;
         }
     }
     .service {
         max-height: 550px;
+        overflow: hidden;
         h2 {
             font-size: 36px;
             font-weight: bold;
@@ -36,11 +39,12 @@
     }
     .service-1,
     .service-3 {
-        background: url(../images/j27.jpg) no-repeat center center;
+        background: url(../images/j27.jpg) no-repeat center top fixed;
     }
+    
     .service-2,
     .service-4 {
-        background: url(../images/j25.jpg) no-repeat center center;
+        background: url(../images/j25.jpg) center top fixed;
         h2,h3,p {
         	color: #fff;
         }
@@ -57,11 +61,11 @@
         }
     }
     .service-4 {
-    	background: url(../images/j26.jpg) no-repeat center center;
+    	background: url(../images/j26.jpg) center 1481px fixed;
     }
     //垂直居中,通过透明图片的方式
     .vma {
-        height: 550px;
+        height: 500px;
         font-size: 0;
         width: 100%;
         img {
@@ -80,7 +84,7 @@
     .vmt {
         display: table-cell;
         vertical-align: middle;
-        height: 550px;
+        height: 500px;
         width: 100%;
     }
 }

@@ -552,6 +552,33 @@ LXR.SvgIcon = Class.extend({
     }
 });
 
+
+LXR.CountUp = Class.extend({
+    'ctor': function(container){
+        this.container = container;
+
+        var from = parseInt($(container).attr('data-from')) || 0;
+        var to = parseInt($(container).attr('data-to')) || 100;
+        var duration = parseInt($(container).attr('data-duration')) || 1000;
+
+        var start = Date.now();
+        $(container).text(from);
+        var self = this;
+        var intervalHandler = window.setInterval(function(){
+            var num = Math.ceil((self.easeInOutQuad(null, Date.now()-start, from, to-from, duration)));
+            if(num >= to) {
+                clearInterval(intervalHandler);
+            } 
+            $(container).text(num);
+        }, 16);
+    },
+    // t: current time, b: begInnIng value, c: change In value, d: duration
+    'easeInOutQuad': function (x, t, b, c, d) {
+        if ((t/=d/2) < 1) return c/2*t*t + b;
+        return -c/2 * ((--t)*(t-2) - 1) + b;
+    }
+});
+
 jQuery(function($){
     $('[data-toggle="popover"]').popover({
         html: true,

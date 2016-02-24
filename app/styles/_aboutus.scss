@@ -1,53 +1,72 @@
 .page-aboutus {
-	background-color: #1f2429;
-	.section-1 {
-		background: url(../images/j28.jpg) no-repeat center top;
-	}
-	.section-2 {
-		color: #fff;
-		.logo {
-			margin-right: 50px;
-		}
-		h2 {
-			font-size: 30px;
-			margin-bottom: 20px;
-			margin-top: 10px;
-		}
-		p {
-			color: #a8a9aa;
-			line-height: 1.8;
-		}
-		.list-inline {
-			li {
-				margin-right: 20px;
-			}
-			strong {
-				color: #ffcf0d;
-				font-size: 40px;
-				font-weight: normal;
-			}
-			p {
-				text-align: center;
-				color: #fff;
-			}
-		}
-	}
-	.section-3 {
-		color: #fff;
-		h1 {
-			font-size: 72px;
-			margin-top: 0;
-			margin-bottom: 0;
-			color: #ffcf0d;
-		}
-		h2 {
-			font-size: 30px;
-			margin-bottom: 20px;
-			margin-top: 10px;
-		}
-		p {
-			color: #a8a9aa;
-			line-height: 1.8;
-		}
-	}
+    background-color: #1f2429;
+    .section-1 {
+        background: url(../images/j28.jpg) no-repeat center top;
+        .arrow {
+            &.arrow-down {
+                width: 95px;
+                height: 33px;
+                background: url(../images/p08.png) no-repeat center center;
+                position: absolute;
+                left: 50%;
+                margin-left: -47.5px;
+                bottom: 70px;
+                z-index: 2;
+                animation: slideOutDown 2s infinite, fadeIn 2s infinite;
+            }
+        }
+    }
+    .section-2 {
+        color: #fff;
+        padding: 50px 0;
+        background-image: none;
+        margin-top: 100px;
+        .logo {
+            margin-right: 50px;
+        }
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+        p {
+            color: #a8a9aa;
+            line-height: 1.8;
+        }
+        .list-inline {
+            li {
+                margin-right: 20px;
+            }
+            strong {
+                color: #ffcf0d;
+                font-size: 40px;
+                font-weight: normal;
+            }
+            p {
+                text-align: center;
+                color: #fff;
+            }
+        }
+    }
+    .section-3 {
+        color: #fff;
+        padding: 50px 0;
+        background-image: none;
+        margin-bottom: 100px;
+        h1 {
+            font-size: 72px;
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #ffcf0d;
+        }
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+        p {
+            color: #a8a9aa;
+            line-height: 1.8;
+        }
+    }
 }

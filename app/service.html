@@ -33,17 +33,17 @@
         <!-- <div class="pull-right menu"><i class="iconfont">&#xe601;</i></div> -->
         <div class="pull-right tel"><i class="iconfont">&#xe600;</i>：010-88665268</div>
     </section>
-    <section class="main-content title">
+    <section id="waypoint-1" class="main-content title">
         <div class="container-fluid ">
             <div class="row">
-                <h1 class="col-xs-12">金润 — 全平台企业网络形象传播专家</h1>
+                <h1 class="col-xs-12 animated">金润 — 全平台企业网络形象传播专家</h1>
             </div>
         </div>
     </section>
     <section class="service service-1">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6 animated waypoint" ani="fadeInLeftBig">
                     <div class="vmt">
                         <h2>定制网站<small>CUSTOM WEBSITE </small></h2>
                         <h3>HTML5多终端响应式网站建设服务商</h3>
@@ -55,7 +55,7 @@
                         <p>实现了从创意到数字品牌的一站式网站建设服务</p>
                     </div>
                 </div>
-                <div class="col-lg-6 text-right">
+                <div class="col-lg-6 text-right animated waypoint" ani="fadeInRightBig">
                     <div class="vma">
                         <img class="alpha" src="images/alpha.png" />
                         <img src="images/p25.png" alt="" />
@@ -67,13 +67,13 @@
     <section class="service service-2">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 text-left">
+                <div class="col-lg-5 text-left animated waypoint" ani="fadeInLeftBig">
                     <div class="vma">
                         <img class="alpha" src="images/alpha.png" />
                         <img src="images/p26.png" alt="" />
                     </div>
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-7 animated waypoint" ani="fadeInRightBig">
                 	<div class="vmt-wrap">
                     <div class="vmt text-right">
                         <h2><small>H5 REACTIVE SITES</small>H5响应式网站</h2>
@@ -107,7 +107,7 @@
     <section class="service service-3">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6 animated waypoint"  ani="fadeInLeftBig">
                     <div class="vmt">
                         <h2>微端应用<small>APPLICATION</small></h2>
                         <h3>HTML5多终端响应式网站建设服务商</h3>
@@ -119,7 +119,7 @@
                         <p>实现了从创意到数字品牌的一站式网站建设服务</p>
                     </div>
                 </div>
-                <div class="col-lg-6 text-right">
+                <div class="col-lg-6 text-right animated waypoint"  ani="fadeInRightBig">
                     <div class="vma">
                         <img class="alpha" src="images/alpha.png" />
                         <img src="images/p27.png" alt="" />
@@ -131,7 +131,7 @@
     <section class="service service-4">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 text-left">
+                <div class="col-lg-5 text-left animated waypoint"  ani="fadeInLeftBig">
                     <div class="vma">
                         <img class="alpha" src="images/alpha.png" />
                         <img src="images/p28.png" alt="" />
@@ -139,7 +139,7 @@
                 </div>
                 <div class="col-lg-7">
                 	<div class="vmt-wrap">
-                    <div class="vmt text-right">
+                    <div class="vmt text-right animated waypoint"  ani="fadeInRightBig">
                         <h2><small>APP DEVELOPMENT</small>APP开发</h2>
                         <h3>HTML5多终端响应式网站建设服务商</h3>
                         <p>站在品牌的角度，一对一的思考和规划
@@ -232,6 +232,19 @@
     <!-- endbuild -->
     <script>
     jQuery(function($) {
+        $('#waypoint-1').waypoint(function(direction) {
+            $(this.element).find('.animated').addClass('fadeIn');
+        }, {
+            offset: '50%'
+        });
+
+        $('.waypoint').waypoint(function(direction) {
+            var ani = $(this.element).attr('ani');
+            console.log(ani);
+            $(this.element).addClass(ani);
+        }, {
+            offset: '90%'
+        });
 
     });
     </script>

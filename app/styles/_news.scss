@@ -150,9 +150,24 @@
         .hot {
             li {
                 border-bottom: 1px dotted #a8a8a8;
-                padding: 10px 0;
+                line-height: 40px;
+                height: 40px;
+                overflow: hidden;
                 a {
                     color: #666666;
+                    display: block;
+                    transition: transform 0.5s;
+                    span {
+                        display: block;
+                    }
+                }
+                &:hover {
+                    a {
+                        transform: translate3d(0, -50%, 0);
+                        span:nth-child(2) {
+                            color: #ffcf0d;
+                        }
+                    }
                 }
             }
         }
