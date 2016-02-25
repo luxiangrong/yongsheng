@@ -9,7 +9,8 @@
     "velocity": "~1.2.3",
     "svg-morpheus": "~0.1.8",
     "Snap.svg": "snap.svg#~0.4.1",
-    "waypoints": "~4.0.0"
+    "waypoints": "~4.0.0",
+    "Swiper": "swiper#~3.3.1"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -22,7 +23,7 @@
     "waypoints": {
       "main": [
         "lib/jquery.waypoints.js"
-      ] 
+      ]
     }
   }
 }

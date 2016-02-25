@@ -16,6 +16,12 @@
 //         font-size: 15px
 //     }
 // }
+
+.fp-slidesContainer {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d; 
+}
+
 .site-header {
     position: fixed;
     width: 100%;
@@ -31,9 +37,13 @@
         color: #ffcf0d;
         position: relative;
         z-index: 10;
+        opacity: 0;
         .iconfont {
             font-size: 24px;
             transition: color 500ms;
+        }
+        @media (min-width: $screen-lg-min) {
+            opacity: 1;
         }
     }
     .menu {
@@ -48,6 +58,9 @@
                 color: lighten(#ffcf0d, 20%);
             }
         }
+        @media (max-width: $screen-lg-min) {
+            opacity: 1;
+        }
     }
     .nav {
         position: absolute;
@@ -57,11 +70,20 @@
         left: 0;
         text-align: center;
         z-index: 0;
+        @media (max-width: $screen-lg-min) {
+            left: 10%;
+        }
         > li {
             float: none;
             display: inline-block;
+            @media (max-width: $screen-lg-min) {
+                opacity: 0;
+            }
             > a {
                 padding: 0 20px;
+                @media (max-width: $screen-lg-min) {
+                    padding: 0 10px;
+                }
                 font-size: 16px;
                 color: #ffffff;
                 transition: color .5s;
@@ -77,6 +99,7 @@
                 }
             }
         }
+        
     }
     &.gray {
         .nav {

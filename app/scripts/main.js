@@ -315,15 +315,18 @@ LXR.Animate = Class.extend({
     },
     //导航菜单顶部依次落下
     'navSlideDownIn': function() {
+        if ($(window).width() >= 1200) {
         $('.nav li').velocity('transition.slideDownBigIn', {
             duration: 800,
             stagger: 250,
             display: 'inline-block'
         });
-        $('.menu').velocity('transition.fadeOut', {
-            delay: 0,
-            display: 'block'
-        });
+        
+            $('.menu').velocity('transition.fadeOut', {
+                delay: 0,
+                display: 'block'
+            });
+        }
     },
     //导航菜单往右侧消失
     'navRightOut': function() {
@@ -341,10 +344,12 @@ LXR.Animate = Class.extend({
     //导航菜单从右侧进入
     'navRightIn': function(hideMenu) {
         // if(!hideMenu) {
-        $('.menu').velocity('transition.fadeOut', {
-            delay: 0,
-            display: 'block'
-        });
+        if ($(window).width() >= 1200) {
+            $('.menu').velocity('transition.fadeOut', {
+                delay: 0,
+                display: 'block'
+            });
+        }
         // }
         $('.nav li, .tel').velocity('transition.slideRightIn', {
             duration: 500,
@@ -363,20 +368,20 @@ LXR.SvgIcon = Class.extend({
         var arc2 = icon1.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(135, 78, 78));
         var arc3 = icon1.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(225, 78, 78));
         var arc4 = icon1.paper.path(arcStr).attr('class', 'arc-b').transform(new Snap.Matrix().rotate(315, 78, 78));
-        
+
         var lineGroup = icon1.paper.g();
-        var l1 = icon1.paper.line(0,15, 156, 15).attr('stroke-dasharray', '25%, 100%');
-        var l2 = icon1.paper.line(0,25, 156, 25).attr('stroke-dasharray', '30%, 100%');
-        var l3 = icon1.paper.line(0,60, 156, 60).attr('stroke-dasharray', '15%, 100%');
-        var l4 = icon1.paper.line(0,75, 156, 75).attr('stroke-dasharray', '35%, 100%');
-        var l5 = icon1.paper.line(0,102, 156, 102).attr('stroke-dasharray', '45%, 100%');
-        var l6 = icon1.paper.line(0,130, 156, 130).attr('stroke-dasharray', '12%, 100%');
-        lineGroup.add(l1,l2,l3,l4,l5,l6);
+        var l1 = icon1.paper.line(0, 15, 156, 15).attr('stroke-dasharray', '25%, 100%');
+        var l2 = icon1.paper.line(0, 25, 156, 25).attr('stroke-dasharray', '30%, 100%');
+        var l3 = icon1.paper.line(0, 60, 156, 60).attr('stroke-dasharray', '15%, 100%');
+        var l4 = icon1.paper.line(0, 75, 156, 75).attr('stroke-dasharray', '35%, 100%');
+        var l5 = icon1.paper.line(0, 102, 156, 102).attr('stroke-dasharray', '45%, 100%');
+        var l6 = icon1.paper.line(0, 130, 156, 130).attr('stroke-dasharray', '12%, 100%');
+        lineGroup.add(l1, l2, l3, l4, l5, l6);
 
         var circlePath1 = 'M5 78 A73 73,0 1 0 5 77M110 78A33 33, 0 1 1 110 77Z';
         var circle1 = icon1.paper.path(circlePath1).attr('stroke', 'black').attr('fill', 'red');
 
-        var clip = icon1.paper.el('clipPath',{'id': 'circleClip'});
+        var clip = icon1.paper.el('clipPath', { 'id': 'circleClip' });
         clip.add(circle1);
         clip.toDefs();
 
@@ -397,7 +402,7 @@ LXR.SvgIcon = Class.extend({
         // Snap.animate(225, 315, function(value) {
         //     arc4.transform(new Snap.Matrix().rotate(value, 78, 78));
         // }, 1500);
-        
+
         var icon2 = new Snap("#svg-icon-2");
         var arcStr = 'M2 76 A76 76,0 0 1 76 2';
         var arc1 = icon2.paper.path(arcStr).attr('class', 'arc-a').transform(new Snap.Matrix().rotate(45, 78, 78));
@@ -431,40 +436,40 @@ LXR.SvgIcon = Class.extend({
             from: '5',
             to: '35'
         });
-        var rect2 = icon3.paper.rect(78,40,35,35).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
-        var clip = icon3.paper.el('clipPath',{'id': 'sigleClip1'});
+        var rect2 = icon3.paper.rect(78, 40, 35, 35).attr('class', 'clip').attr('stroke', 'black').attr('fill', 'red');
+        var clip = icon3.paper.el('clipPath', { 'id': 'sigleClip1' });
         clip.add(rect2);
         clip.toDefs();
         single1.attr('clip-path', 'url(#sigleClip1)');
 
         var single2 = icon3.paper.circle(78, 78, 16).attr('class', 'single single-2');
-        var rect2 = icon3.paper.rect(78,40,35,35).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
-        var clip = icon3.paper.el('clipPath',{'id': 'sigleClip2'});
+        var rect2 = icon3.paper.rect(78, 40, 35, 35).attr('class', 'clip').attr('stroke', 'black').attr('fill', 'red');
+        var clip = icon3.paper.el('clipPath', { 'id': 'sigleClip2' });
         clip.add(rect2);
         clip.toDefs();
         single2.attr('clip-path', 'url(#sigleClip2)');
 
         var singleStatic1 = icon3.paper.circle(78, 78, 16).attr('class', 'single single-static single-static-1');
         // singleStatic1.add(animate1);
-        var rect2 = icon3.paper.rect(78,40,35,35).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
-        var clip = icon3.paper.el('clipPath',{'id': 'sigleClipStatic1'});
+        var rect2 = icon3.paper.rect(78, 40, 35, 35).attr('class', 'clip').attr('stroke', 'black').attr('fill', 'red');
+        var clip = icon3.paper.el('clipPath', { 'id': 'sigleClipStatic1' });
         clip.add(rect2);
         clip.toDefs();
         singleStatic1.attr('clip-path', 'url(#sigleClipStatic1)');
 
         var singleStatic2 = icon3.paper.circle(78, 78, 25).attr('class', 'single single-static single-static-2');
         // singleStatic2.add(animate2);
-        var rect2 = icon3.paper.rect(78,40,35,35).attr('class','clip').attr('stroke', 'black').attr('fill', 'red');
-        var clip = icon3.paper.el('clipPath',{'id': 'sigleClipStatic2'});
+        var rect2 = icon3.paper.rect(78, 40, 35, 35).attr('class', 'clip').attr('stroke', 'black').attr('fill', 'red');
+        var clip = icon3.paper.el('clipPath', { 'id': 'sigleClipStatic2' });
         clip.add(rect2);
         clip.toDefs();
         singleStatic2.attr('clip-path', 'url(#sigleClipStatic2)');
 
-        icon3.mouseover(function(){
+        icon3.mouseover(function() {
             singleStatic1.add(animate1);
             singleStatic2.add(animate2);
         });
-        icon3.mouseout(function(){
+        icon3.mouseout(function() {
             animate1.remove();
             animate2.remove();
         });
@@ -554,7 +559,7 @@ LXR.SvgIcon = Class.extend({
 
 
 LXR.CountUp = Class.extend({
-    'ctor': function(container){
+    'ctor': function(container) {
         this.container = container;
 
         var from = parseInt($(container).attr('data-from')) || 0;
@@ -564,22 +569,22 @@ LXR.CountUp = Class.extend({
         var start = Date.now();
         $(container).text(from);
         var self = this;
-        var intervalHandler = window.setInterval(function(){
-            var num = Math.ceil((self.easeInOutQuad(null, Date.now()-start, from, to-from, duration)));
-            if(num >= to) {
+        var intervalHandler = window.setInterval(function() {
+            var num = Math.ceil((self.easeInOutQuad(null, Date.now() - start, from, to - from, duration)));
+            if (num >= to) {
                 clearInterval(intervalHandler);
-            } 
+            }
             $(container).text(num);
         }, 16);
     },
     // t: current time, b: begInnIng value, c: change In value, d: duration
-    'easeInOutQuad': function (x, t, b, c, d) {
-        if ((t/=d/2) < 1) return c/2*t*t + b;
-        return -c/2 * ((--t)*(t-2) - 1) + b;
+    'easeInOutQuad': function(x, t, b, c, d) {
+        if ((t /= d / 2) < 1) return c / 2 * t * t + b;
+        return -c / 2 * ((--t) * (t - 2) - 1) + b;
     }
 });
 
-jQuery(function($){
+jQuery(function($) {
     $('[data-toggle="popover"]').popover({
         html: true,
         container: 'body'
