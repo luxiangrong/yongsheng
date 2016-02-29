@@ -1,283 +1,286 @@
 .page-home {
     //在full-page显示模式下的样式
-    .section {
-        &.banner {
-            background: url(../images/j02.jpg) no-repeat center center;
-        }
-        &.business {
-            background: url(../images/j32.jpg) no-repeat center center;
-            background-size: cover;
-            padding-top: 50px;
-            .title {
-                width: 220px;
-                height: 28px;
-                background: url(../images/p09.png) no-repeat center top;
-                background-size: 100%;
-                margin: 0 auto ;
+    @media (max-width: $screen-xs-min) {
+        .section {
+            &.banner {
+                background: url(../images/j02.jpg) no-repeat center center;
             }
-            .business-item {
-                width: 100%;
-                transition: transform 1s, opacity 1s;
-                opacity: 1; 
-                margin-top: 30px;
-                .col-xs-6 {
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                    padding: 5px;
-                }
-                .svg-wrap {
-                    width: 156px;
-                    height: 156px;
-                    position: relative;
-                    cursor: pointer;
-                    overflow: visible;
+            &.business {
+                background: url(../images/j32.jpg) no-repeat center center;
+                background-size: cover;
+                padding-top: 50px;
+                .title {
+                    width: 220px;
+                    height: 28px;
+                    background: url(../images/p09.png) no-repeat center top;
+                    background-size: 100%;
                     margin: 0 auto;
-                    .translate-wrap {
-                        background: url(../images/p11.png) repeat-x;
-                        background-position: 50% 50%;
-                        width: 65px;
-                        height: 65px;
-                        position: absolute;
-                        left: 50%;
-                        top: 50%;
-                        margin-left: -32.5px;
-                        margin-top: -32.5px;
-                        transition: background-position 0.5s linear;
-                        animation: icon-translate-leave 1s linear both;
+                }
+                .business-item {
+                    width: 100%;
+                    transition: transform 1s, opacity 1s;
+                    opacity: 1;
+                    margin-top: 30px;
+                    .col-xs-6 {
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        padding: 5px;
                     }
-                    img.icon {
-                        width: 65px;
-                        height: 65px;
-                        position: absolute;
-                        left: 50%;
-                        top: 50%;
-                        margin-left: -32.5px;
-                        margin-top: -32.5px;
-                        transition: transform 0.5s;
+                    .svg-wrap {
+                        width: 156px;
+                        height: 156px;
+                        position: relative;
+                        cursor: pointer;
+                        overflow: visible;
+                        margin: 0 auto;
+                        .translate-wrap {
+                            background: url(../images/p11.png) repeat-x;
+                            background-position: 50% 50%;
+                            width: 65px;
+                            height: 65px;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            margin-left: -32.5px;
+                            margin-top: -32.5px;
+                            transition: background-position 0.5s linear;
+                            animation: icon-translate-leave 1s linear both;
+                        }
+                        img.icon {
+                            width: 65px;
+                            height: 65px;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            margin-left: -32.5px;
+                            margin-top: -32.5px;
+                            transition: transform 0.5s;
+                        }
+                        svg {
+                            transform: scale(0.9, 0.9);
+                            display: block;
+                            &.icon {
+                                width: 100%;
+                                height: 100%;
+                                transition: transform 0.5s;
+                                .arc-a {
+                                    fill: transparent;
+                                    stroke-width: 3;
+                                    stroke: #ffcf10;
+                                }
+                                .arc-b {
+                                    fill: transparent;
+                                    stroke-width: 3;
+                                    stroke: #fff;
+                                }
+                                .single {
+                                    fill: transparent;
+                                    stroke-width: 3;
+                                    stroke: #ffcf10;
+                                    animation: single-wave 2s linear infinite;
+                                    display: none;
+                                    transform: translate(1px, -7px);
+                                    &.single-1 {
+                                        animation-delay: 0s;
+                                        opacity: 0;
+                                    }
+                                    &.single-2 {
+                                        animation-delay: 1s;
+                                        opacity: 0;
+                                    }
+                                    &.single-static {
+                                        display: block;
+                                        animation: none;
+                                        &.single-static-1 {
+                                            animation-delay: 0s;
+                                        }
+                                        &.single-static-2 {
+                                            animation-delay: 1s;
+                                        }
+                                    }
+                                }
+                                #sigleMask {
+                                    rect.mask {
+                                        animation: single-mask 2s linear infinite;
+                                    }
+                                }
+                                #sigleClip1 {
+                                    rect.clip {
+                                        animation: single-clip 2s linear infinite;
+                                    }
+                                }
+                                #sigleClip1 {
+                                    rect.clip {
+                                        animation: single-clip 2s linear infinite;
+                                    }
+                                }
+                            }
+                        }
                     }
-                    svg {
-                        transform: scale(0.9, 0.9);
-                        display: block;
-                        &.icon {
+                    h2 {
+                        font-size: 18px;
+                        color: #fff;
+                    }
+                    p {
+                        font-size: 12px;
+                        color: #fff;
+                        line-height: 1.8;
+                    }
+                }
+                &.active {
+                    .business-item {
+                        opacity: 1;
+                        transform: translate3d(0, 25%, 0px);
+                        @media (min-width: $screen-md-min) {
+                            transform: translate3d(0, 40%, 0px);
+                        }
+                    }
+                }
+            }
+            &.cases {
+                @include clearfix();
+                .case {
+                    padding: 0;
+                }
+            }
+            &.news {
+                background: url(../images/j17.jpg) no-repeat center center;
+                background-size: cover;
+                background-color: #fff;
+                @include clearfix();
+                .col-news {
+                    float: left;
+                    width: 50%;
+                    max-height: 240px;
+                    min-height: 240px;
+                    position: relative;
+                    background: rgba(0, 0, 0, 0.75);
+                    border-right: 1px solid rgba(255, 255, 255, 0.4);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+                    padding: 0 15px 20px;
+                    text-align: right;
+                    cursor: pointer;
+                    overflow: hidden;
+                    &.title {
+                        background-color: #ffcf0d;
+                        color: #fff;
+                        text-align: center;
+                        font-size: 64px;
+                        font-family: sans-serif;
+                        line-height: 260px;
+                        transition: transform 1.2s 1s, opacity 1s 0.8s, color 0.5s, background-color 0.5s;
+                        overflow: hidden;
+                        .vmc {
+                            display: table;
                             width: 100%;
                             height: 100%;
-                            transition: transform 0.5s;
-                            .arc-a {
-                                fill: transparent;
-                                stroke-width: 3;
-                                stroke: #ffcf10;
-                            }
-                            .arc-b {
-                                fill: transparent;
-                                stroke-width: 3;
-                                stroke: #fff;
-                            }
-                            .single {
-                                fill: transparent;
-                                stroke-width: 3;
-                                stroke: #ffcf10;
-                                animation: single-wave 2s linear infinite;
-                                display: none;
-                                transform: translate(1px, -7px);
-                                &.single-1 {
-                                    animation-delay: 0s;
-                                    opacity: 0;
-                                }
-                                &.single-2 {
-                                    animation-delay: 1s;
-                                    opacity: 0;
-                                }
-                                &.single-static {
-                                    display: block;
-                                    animation: none;
-                                    &.single-static-1 {
-                                        animation-delay: 0s;
-                                    }
-                                    &.single-static-2 {
-                                        animation-delay: 1s;
-                                    }
-                                }
-                            }
-                            #sigleMask {
-                                rect.mask {
-                                    animation: single-mask 2s linear infinite;
-                                }
-                            }
-                            #sigleClip1 {
-                                rect.clip {
-                                    animation: single-clip 2s linear infinite;
-                                }
-                            }
-                            #sigleClip1 {
-                                rect.clip {
-                                    animation: single-clip 2s linear infinite;
-                                }
+                            .vm {
+                                display: table-cell;
+                                vertical-align: middle;
                             }
                         }
                     }
-                }
-                h2 {
-                    font-size: 18px;
-                    color: #fff;
-                }
-                p {
-                    font-size: 12px;
-                    color: #fff;
-                    line-height: 1.8;
-                }
-            }
-            &.active {
-                .business-item {
-                    opacity: 1;
-                    transform: translate3d(0, 25%, 0px);
-                    @media (min-width: $screen-md-min) {
-                        transform: translate3d(0, 40%, 0px);
+                    .day {
+                        color: rgba(255, 255, 255, 0.3);
+                        font-size: 80px;
+                        transition: color 0.5s;
+                    }
+                    .year-month,
+                    .detail {
+                        color: rgba(255, 255, 255, 0.4);
+                        font-size: 16px;
+                        margin-top: -20px;
+                        transition: color 0.5s;
+                    }
+                    .title {
+                        color: #fff;
+                        font-size: 16px;
+                        transition: color 0.5s;
+                    }
+                    .detail {
+                        margin-top: 10px;
+                        transition: color 0.5s;
                     }
                 }
             }
-        }
-        &.cases {
-            @include clearfix();
-            .case {
-                padding: 0;
-            }
-        }
-        &.news {
-            background: url(../images/j17.jpg) no-repeat center center;
-            background-size: cover;
-            background-color: #fff;
-            @include clearfix(); 
-            .col-news {
-                float: left;
-                width: 50%;
-                max-height: 240px;
-                min-height: 240px;
-                position: relative;
-                background: rgba(0, 0, 0, 0.75);
-                border-right: 1px solid rgba(255, 255, 255, 0.4);
-                border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-                padding: 0 15px 20px;
-                text-align: right;
-                cursor: pointer;
+            &.contactus {
+                background: url(../images/j18.jpg) no-repeat center center;
+                background-size: cover;
                 overflow: hidden;
-                &.title {
-                    background-color: #ffcf0d;
-                    color: #fff;
-                    text-align: center;
-                    font-size: 64px;
-                    font-family: sans-serif;
-                    line-height: 260px;
-                    transition: transform 1.2s 1s, opacity 1s 0.8s, color 0.5s, background-color 0.5s;
-                    overflow: hidden;
-                    .vmc {
-                        display: table;
-                        width: 100%;
-                        height: 100%;
-                        .vm {
-                            display: table-cell;
-                            vertical-align: middle;
-                        }
-                    }
-                }
-                .day {
-                    color: rgba(255, 255, 255, 0.3);
-                    font-size: 80px;
-                    transition: color 0.5s;
-                }
-                .year-month,
-                .detail {
-                    color: rgba(255, 255, 255, 0.4);
-                    font-size: 16px;
-                    margin-top: -20px;
-                    transition: color 0.5s;
-                }
-                .title {
-                    color: #fff;
-                    font-size: 16px;
-                    transition: color 0.5s;
-                }
-                .detail {
-                    margin-top: 10px;
-                    transition: color 0.5s;
-                }
-            }
-        }
-        &.contactus {
-            background: url(../images/j18.jpg) no-repeat center center;
-            background-size: cover;
-            overflow: hidden;
-            position: relative;
-            .col-left,
-            .col-right {
-                padding: 10px;
-                @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
-                    padding-top: 0px;
-                }
-                @media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
-                    text-align: center;
-                }
-                transition: transform 1.5s 0.8s, opacity 1s 0.5s;
-            }
-            .bl {
-                border-top: 1px solid #d9d9d9;
-            }
-            .address-wrap {
-                padding-top: 5%;
-                h3.address {
-                    font-size: 18px;
-                    font-weight: bold;
-                    margin-bottom: 20px;
-                    strong {
-                        color: #005aab;
-                    }
-                }
-                p {
-                    line-height: 1.5;
-                }
-                .list-inline {
-                    li {
-                        p {
-                            text-align: center;
-                        }
-                    }
-                }
-            }
-            .contactus-wrap {
-                padding-top: 5%;
-                .control-label {
-                    font-weight: normal;
-                }
-                .form-control {
-                    border-radius: 0px;
-                }
-            }
-            &.active {
+                position: relative;
                 .col-left,
                 .col-right {
-                    opacity: 1;
-                    transform: translate3d(0, 0, 0);
+                    padding: 10px;
+                    @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+                        padding-top: 0px;
+                    }
+                    @media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+                        text-align: center;
+                    }
+                    transition: transform 1.5s 0.8s,
+                    opacity 1s 0.5s;
                 }
-            }
-            .footer {
-                background-color: #1e1c01;
-                width: 100%;
-                padding: 10px 0;
-                .list-inline {
-                    margin-bottom: 0;
+                .bl {
+                    border-top: 1px solid #d9d9d9;
                 }
-                .tools {
-                    padding-right: 20px;
-                    display: none;
-                }
-                .links {
-                    a {
-                        color: #ffffff;
+                .address-wrap {
+                    padding-top: 5%;
+                    h3.address {
+                        font-size: 18px;
+                        font-weight: bold;
+                        margin-bottom: 20px;
+                        strong {
+                            color: #005aab;
+                        }
+                    }
+                    p {
+                        line-height: 1.5;
+                    }
+                    .list-inline {
+                        li {
+                            p {
+                                text-align: center;
+                            }
+                        }
                     }
                 }
-                .copyright-wrap {
-                    color: #747474;
-                    margin-top: 10px;
-                    margin-bottom: 0;
+                .contactus-wrap {
+                    padding-top: 5%;
+                    .control-label {
+                        font-weight: normal;
+                    }
+                    .form-control {
+                        border-radius: 0px;
+                    }
+                }
+                &.active {
+                    .col-left,
+                    .col-right {
+                        opacity: 1;
+                        transform: translate3d(0, 0, 0);
+                    }
+                }
+                .footer {
+                    background-color: #1e1c01;
+                    width: 100%;
+                    padding: 10px 0;
+                    .list-inline {
+                        margin-bottom: 0;
+                    }
+                    .tools {
+                        padding-right: 20px;
+                        display: none;
+                    }
+                    .links {
+                        a {
+                            color: #ffffff;
+                        }
+                    }
+                    .copyright-wrap {
+                        color: #747474;
+                        margin-top: 10px;
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
@@ -805,6 +808,25 @@
                 img {
                     transition: transform 0.5s;
                 }
+                @media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+                    &:nth-child(2n) {
+                        transform: translate3d(0, -100%, 0);
+                    }
+                    &:nth-child(2n+1) {
+                        transform: translate3d(0, 100%, 0);
+                    }
+                }
+                @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+                    &:nth-child(3n) {
+                        transform: translate3d(0, -100%, 0);
+                    }
+                    &:nth-child(3n+1) {
+                        transform: translate3d(0, -100%, 0);
+                    }
+                    &:nth-child(3n+2) {
+                        transform: translate3d(0, 100%, 0);
+                    }
+                }
                 @media (min-width: $screen-lg-min) {
                     &:nth-child(even) {
                         transform: translate3d(0, -100%, 0);
@@ -819,29 +841,13 @@
                         }
                     }
                 }
-                @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
-                    &:nth-child(3n) {
-                        transform: translate3d(0, -100%, 0);
-                    }
-                    &:nth-child(3n+1) {
-                        transform: translate3d(0, -100%, 0);
-                    }
-                    &:nth-child(3n+2) {
-                        transform: translate3d(0, 100%, 0);
-                    }
-                }
-                @media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
-                    &:nth-child(2n) {
-                        transform: translate3d(0, -100%, 0);
-                    }
-                    &:nth-child(2n+1) {
-                        transform: translate3d(0, 100%, 0);
-                    }
-                }
             }
             div[class*="col-"] {
                 padding: 0;
                 height: 33.333%;
+                @media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+                    height: 25%;
+                }
                 img {
                     width: 100%;
                     height: 100%;
@@ -881,11 +887,11 @@
                         border-right: none;
                     }
                     &:nth-of-type(4n + 1),
-                    &:nth-of-type(4n + 2){
+                    &:nth-of-type(4n + 2) {
                         transform: translate3d(-100%, 0, 0);
                     }
                     &:nth-of-type(4n + 3),
-                    &:nth-of-type(4n + 4){
+                    &:nth-of-type(4n + 4) {
                         transform: translate3d(100%, 0, 0);
                     }
                 }
@@ -1024,7 +1030,8 @@
                     text-align: center;
                 }
                 opacity: 0;
-                transition: transform 1.5s 0.8s, opacity 1s 0.5s;
+                transition: transform 1.5s 0.8s,
+                opacity 1s 0.5s;
             }
             .col-left {
                 transform: translate3d(-200%, 0, 0);
@@ -1041,7 +1048,6 @@
             }
             .address-wrap {
                 padding-top: 15%;
-                
                 @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
                     padding-top: 5%;
                 }

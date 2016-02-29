@@ -295,32 +295,41 @@ LXR.LayerMove = Class.extend({
 LXR.Animate = Class.extend({
     'ctor': function() {
         // var _this = this;
+        this.menuIcon = new SVGMorpheus('#icon-menu');
+        var self = this;
         $('.menu').click(function() {
             if ($('.nav li').css('opacity') != 1) {
+                self.menuIcon.to('icon-menu-1');
+                $('.site-header').addClass('active');
                 $('.nav li').velocity('transition.slideRightIn', {
                     duration: 500,
                     stagger: 150,
-                    display: 'inline-block',
-                    backwards: true
+                    display: $(window).width() >= 992 ? 'inline-block' : 'table',
+                    backwards: $(window).width() >= 992
                 });
             } else {
+                self.menuIcon.to('icon-menu-2');
                 $('.nav li').velocity('transition.slideRightBigOut', {
                     duration: 500,
                     stagger: 150,
-                    display: 'inline-block',
-                    backwards: true
+                    display: $(window).width() >= 992 ? 'inline-block' : 'table',
+                    backwards: $(window).width() >= 992,
+                    complete: function() {
+                        $('.site-header').toggleClass('active');
+                    }
                 });
             }
         });
     },
     //导航菜单顶部依次落下
     'navSlideDownIn': function() {
-        if ($(window).width() >= 1200) {
-        $('.nav li').velocity('transition.slideDownBigIn', {
-            duration: 800,
-            stagger: 250,
-            display: 'inline-block'
-        });
+        if ($(window).width() >= 992) {
+            this.menuIcon.to('icon-menu-2');
+            $('.nav li').velocity('transition.slideDownBigIn', {
+                duration: 800,
+                stagger: 250,
+                display: 'inline-block'
+            });
         
             $('.menu').velocity('transition.fadeOut', {
                 delay: 0,
@@ -330,6 +339,7 @@ LXR.Animate = Class.extend({
     },
     //导航菜单往右侧消失
     'navRightOut': function() {
+        this.menuIcon.to('icon-menu-2');
         $('.nav li, .tel').velocity('transition.slideRightBigOut', {
             duration: 500,
             stagger: 150,
@@ -343,8 +353,9 @@ LXR.Animate = Class.extend({
     },
     //导航菜单从右侧进入
     'navRightIn': function(hideMenu) {
+        this.menuIcon.to('icon-menu-1');
         // if(!hideMenu) {
-        if ($(window).width() >= 1200) {
+        if ($(window).width() >= 992) {
             $('.menu').velocity('transition.fadeOut', {
                 delay: 0,
                 display: 'block'
@@ -589,4 +600,6 @@ jQuery(function($) {
         html: true,
         container: 'body'
     });
+
+    
 });
