@@ -1,18 +1,31 @@
 .page-aboutus {
-    background-color: #1f2429;
+    background-color: #1d2227;
     .section-1 {
+        padding: 20vw 5vw;
         background: url(../images/j28.jpg) no-repeat center top;
-        .arrow {
-            &.arrow-down {
-                width: 95px;
-                height: 33px;
-                background: url(../images/p08.png) no-repeat center center;
-                position: absolute;
-                left: 50%;
-                margin-left: -47.5px;
-                bottom: 70px;
-                z-index: 2;
-                animation: slideOutDown 2s infinite, fadeIn 2s infinite;
+        background-size: contain;
+        .img-responsive {
+            margin: 0 auto;
+        }
+        &.fp-section {
+            background: url(../images/j28.jpg) no-repeat center top;
+            background-size: contain;
+            padding: 0;
+            @media (min-width: $screen-lg-min) {
+                background-size: inherit;
+            }
+            .arrow {
+                &.arrow-down {
+                    width: 95px;
+                    height: 33px;
+                    background: url(../images/p08.png) no-repeat center center;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -47.5px;
+                    bottom: 70px;
+                    z-index: 2;
+                    animation: slideOutDown 2s infinite, fadeIn 2s infinite;
+                }
             }
         }
     }
@@ -20,9 +33,37 @@
         color: #fff;
         padding: 50px 0;
         background-image: none;
-        margin-top: 100px;
+        margin-top: -15vw;
+        @media (min-width: $screen-lg-min) {
+            margin-top: 100px;
+        }
+        .col-logo {
+            text-align: center;
+            @media (min-width: $screen-lg-min) {
+                margin-top: 0px;
+            }
+        }
+        .col-company-info {
+            margin-top: 50px;
+            @media (min-width: $screen-lg-min) {
+                margin-top: 0px;
+            }
+        }
         .logo {
-            margin-right: 50px;
+            max-width: 100%;
+            width: 100px;
+            @media (min-width: $screen-xs-min) and (max-width: $screen-sm-min) {
+                width: 150px;
+            }
+            @media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
+                width: 200px;
+            }
+            @media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+                width: auto;
+            }
+            @media (min-width: $screen-lg-min) {
+                margin-right: 50px;
+            }
         }
         h2 {
             font-size: 30px;
@@ -35,7 +76,10 @@
         }
         .list-inline {
             li {
-                margin-right: 20px;
+                margin-right: 10px;
+                @media (min-width: $screen-sm-min) {
+                    margin-right: 20px;
+                }
             }
             strong {
                 color: #ffcf0d;
@@ -54,10 +98,13 @@
         background-image: none;
         margin-bottom: 100px;
         h1 {
-            font-size: 72px;
+            font-size: 48px;
             margin-top: 0;
             margin-bottom: 0;
             color: #ffcf0d;
+            @media (min-width: $screen-sm-min) {
+                font-size: 72px;
+            }
         }
         h2 {
             font-size: 30px;

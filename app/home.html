@@ -45,7 +45,7 @@
             <!-- <i class="iconfont">&#xe601;</i> --></div>
         <div class="pull-right tel visible-lg-block"><i class="iconfont">&#xe600;</i>：010-88665268</div>
     </section>
-    <div id="fullpage">
+    <div id="fullpage" class="fp-destroyed">
         <div class="section banner">
             <div class="swiper-container visible-xs-block">
                 <div class="swiper-wrapper">
@@ -187,12 +187,12 @@
                     <img src="images/j10.jpg" class="img-responsive" alt="">
                 </a>
             </div>
-            <div class="case col-lg-3 col-md-4 col-sm-6 visible-sm-block visible-md-block visible-lg-block">
+            <div class="case col-lg-3 col-md-4 col-sm-6 col-xs-6">
                 <a href="">
                     <img src="images/j11.jpg" class="img-responsive" alt="">
                 </a>
             </div>
-            <div class="case col-lg-3 col-md-4 col-sm-6 visible-sm-block visible-md-block visible-lg-block">
+            <div class="case col-lg-3 col-md-4 col-sm-6 col-xs-6">
                 <a href="">
                     <img src="images/j12.jpg" class="img-responsive" alt="">
                 </a>
@@ -506,111 +506,122 @@
         var slideIndicator = undefined,
             layerMove1, layerMove2, layerMove3;
         var animateManager = new LXR.Animate();
-        if ($(window).width() >= 768) {
-            var fp = $('#fullpage').fullpage({
-                controlArrows: false,
-                slidesNavigation: false,
-                animateAnchor: false,
-                verticalCentered: false,
-                scrollingSpeed: 1200,
-                anchors: ['banner', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
-                afterRender: function() {
-                    console.log('afterRender');
 
-                    slideIndicator = new LXR.SlideIndicator(500000, 'banner');
+        function fpRebuild() {
+            if ($("#fullpage").hasClass('fp-destroyed')) {
+                var fp = $('#fullpage').fullpage({
+                    controlArrows: false,
+                    slidesNavigation: false,
+                    animateAnchor: false,
+                    verticalCentered: false,
+                    scrollingSpeed: 1200,
+                    anchors: ['banner', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+                    afterRender: function() {
+                        console.log('afterRender');
 
-                    console.log(LXR.SlideIndicator.getCurrentAnchorLink());
+                        slideIndicator = new LXR.SlideIndicator(500000, 'banner');
 
-                    if (LXR.SlideIndicator.getCurrentAnchorLink() == 'banner' || LXR.SlideIndicator.getCurrentAnchorLink() == 1) {
-                        slideIndicator.start(LXR.SlideIndicator.getCurrentSlideIndex());
-                        animateManager.navSlideDownIn();
-                    }
+                        console.log(LXR.SlideIndicator.getCurrentAnchorLink());
 
-                    //创建层移动
-                    layerMove1 = new LXR.LayerMove($('.layer-1'), -0.15, document).start();
-                    layerMove2 = new LXR.LayerMove($('.layer-2'), -0.10, document).start();
-                    layerMove3 = new LXR.LayerMove($('.layer-3'), -0.05, document).start();
-
-                    // $('.layer').velocity('transition.bounceIn', {
-                    //     duration: 1000,
-                    //     stagger: 200,
-                    //     delay: 1200,
-                    //     display: 'none',
-                    //     backwards: true
-                    // });
-                },
-                afterLoad: function(anchorLink, index) {
-                    console.log('afterLoad:' + anchorLink + '-' + index);
-                    var loadedSection = $(this);
-                    if (anchorLink == 'banner') {
-                        if (slideIndicator) {
+                        if (LXR.SlideIndicator.getCurrentAnchorLink() == 'banner' || LXR.SlideIndicator.getCurrentAnchorLink() == 1) {
                             slideIndicator.start(LXR.SlideIndicator.getCurrentSlideIndex());
+                            animateManager.navSlideDownIn();
                         }
 
-
-                    } else {
-                        $('.tel').hide();
-                    }
-                },
-                onLeave: function(index, nextIndex, direction) {
-                    console.log('onleave:' + index + '-' + nextIndex + '-' + direction);
-                    //离开第一屏时，结束层移动句柄，减少不必要的性能开销
-                    if (index == 1) {
-                        layerMove1.stop();
-                        layerMove2.stop();
-                        layerMove3.stop();
-                        animateManager.navRightOut();
-                        if (slideIndicator) {
-                            slideIndicator.stop();
-                        }
-                        // $('.layer').velocity('transition.bounceOut', {
-                        //     duration: 1000,
-                        //     stagger: 200,
-                        //     display: 'none',
-                        //     backwards: true
-                        // });
-                    }
-                    //进入第一屏时
-                    if (nextIndex == 1) {
-                        layerMove1.start();
-                        layerMove2.start();
-                        layerMove3.start();
-
-                        animateManager.navRightIn();
+                        //创建层移动
+                        layerMove1 = new LXR.LayerMove($('.layer-1'), -0.15, document).start();
+                        layerMove2 = new LXR.LayerMove($('.layer-2'), -0.10, document).start();
+                        layerMove3 = new LXR.LayerMove($('.layer-3'), -0.05, document).start();
 
                         // $('.layer').velocity('transition.bounceIn', {
                         //     duration: 1000,
                         //     stagger: 200,
+                        //     delay: 1200,
                         //     display: 'none',
                         //     backwards: true
                         // });
-                    }
-                    if (nextIndex == 3 || nextIndex == 5) {
-                        $('.site-header').addClass('gray');
-                    } else {
-                        $('.site-header').removeClass('gray');
-                    }
-                },
-                onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {
-                    console.log('onSlideLeave:' + anchorLink + '-' + index + '-' + slideIndex + '-' + direction + '-' + nextSlideIndex);
-                    slideIndicator.setIndex(nextSlideIndex);
-                },
-                afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
-                    console.log('afterSlideLoad:' + anchorLink + '-' + index + '-' + slideAnchor + '-' + slideIndex);
-                    // slideIndicator.setIndex(slideIndex);
-                },
+                    },
+                    afterLoad: function(anchorLink, index) {
+                        console.log('afterLoad:' + anchorLink + '-' + index);
+                        var loadedSection = $(this);
+                        if (anchorLink == 'banner') {
+                            if (slideIndicator) {
+                                slideIndicator.start(LXR.SlideIndicator.getCurrentSlideIndex());
+                            }
 
 
-            });
-        } else {
+                        } else {
+                            $('.tel').hide();
+                        }
+                    },
+                    onLeave: function(index, nextIndex, direction) {
+                        console.log('onleave:' + index + '-' + nextIndex + '-' + direction);
+                        //离开第一屏时，结束层移动句柄，减少不必要的性能开销
+                        if (index == 1) {
+                            layerMove1.stop();
+                            layerMove2.stop();
+                            layerMove3.stop();
+                            animateManager.navRightOut();
+                            if (slideIndicator) {
+                                slideIndicator.stop();
+                            }
+                            // $('.layer').velocity('transition.bounceOut', {
+                            //     duration: 1000,
+                            //     stagger: 200,
+                            //     display: 'none',
+                            //     backwards: true
+                            // });
+                        }
+                        //进入第一屏时
+                        if (nextIndex == 1) {
+                            layerMove1.start();
+                            layerMove2.start();
+                            layerMove3.start();
 
-            var swiper = new Swiper('.swiper-container', {
-                pagination: '.swiper-pagination',
-                paginationClickable: true
-            });
+                            animateManager.navRightIn();
 
+                            // $('.layer').velocity('transition.bounceIn', {
+                            //     duration: 1000,
+                            //     stagger: 200,
+                            //     display: 'none',
+                            //     backwards: true
+                            // });
+                        }
+                        if (nextIndex == 3 || nextIndex == 5) {
+                            $('.site-header').addClass('gray');
+                        } else {
+                            $('.site-header').removeClass('gray');
+                        }
+                    },
+                    onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex) {
+                        console.log('onSlideLeave:' + anchorLink + '-' + index + '-' + slideIndex + '-' + direction + '-' + nextSlideIndex);
+                        slideIndicator.setIndex(nextSlideIndex);
+                    },
+                    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
+                        console.log('afterSlideLoad:' + anchorLink + '-' + index + '-' + slideAnchor + '-' + slideIndex);
+                        // slideIndicator.setIndex(slideIndex);
+                    },
+
+
+                });
+            }
         }
 
+        if($(window).width() >= 768) {
+            fpRebuild();
+        } 
+
+        $(window).on('resize', function(){
+            if($(window).width() >= 768) {
+                fpRebuild();
+            } else {
+                $.fn.fullpage.destroy('all');
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true
+                });
+            }
+        });
 
     });
     </script>

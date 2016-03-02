@@ -21,6 +21,8 @@
     -webkit-transform-style: preserve-3d;
 }
 
+body {}
+
 .site-header {
     .menu {
         svg {
@@ -29,14 +31,19 @@
             }
         }
     }
+    &.black {
+        background-color: rgba(9, 7, 0, 0.6);
+    }
     @media (max-width: $screen-md-min) {
         position: fixed;
         width: 100%;
         z-index: 100;
-
+        &.black {
+            background-color: rgba(9, 7, 0, 0.6);
+        }
         &.active {
             transition: background-color 1s;
-            background-color: rgba(9, 7, 0, 0.9);
+            background-color: rgba(9, 7, 0, 0.6);
             height: 100%;
             .nav {
                 display: block;
@@ -195,8 +202,13 @@
             }
         }
         &.black {
-            background-color: #000;
         }
+    }
+}
+
+.fp-enabled {
+    .site-header {
+        background-color: transparent;
     }
 }
 

@@ -1,6 +1,6 @@
 .page-home {
     //在full-page显示模式下的样式
-    @media (max-width: $screen-xs-min) {
+    @media (max-width: $screen-sm-min) {
         .section {
             &.banner {
                 background: url(../images/j02.jpg) no-repeat center center;
@@ -99,6 +99,9 @@
                                         }
                                     }
                                 }
+                                .dot {
+                                    display: none;
+                                }
                                 #sigleMask {
                                     rect.mask {
                                         animation: single-mask 2s linear infinite;
@@ -151,8 +154,8 @@
                 .col-news {
                     float: left;
                     width: 50%;
-                    max-height: 240px;
-                    min-height: 240px;
+                    max-height: 180px;
+                    min-height: 180px;
                     position: relative;
                     background: rgba(0, 0, 0, 0.75);
                     border-right: 1px solid rgba(255, 255, 255, 0.4);
@@ -165,9 +168,9 @@
                         background-color: #ffcf0d;
                         color: #fff;
                         text-align: center;
-                        font-size: 64px;
+                        font-size: 72px;
                         font-family: sans-serif;
-                        line-height: 260px;
+                        line-height: 180px; 
                         transition: transform 1.2s 1s, opacity 1s 0.8s, color 0.5s, background-color 0.5s;
                         overflow: hidden;
                         .vmc {
@@ -182,8 +185,9 @@
                     }
                     .day {
                         color: rgba(255, 255, 255, 0.3);
-                        font-size: 80px;
+                        font-size: 56px;
                         transition: color 0.5s;
+                        margin-bottom: 10px;
                     }
                     .year-month,
                     .detail {
@@ -1126,6 +1130,11 @@
                     margin-bottom: 0;
                 }
             }
+        }
+    }
+    .fp-destroyed {
+        .slide-nav {
+            display: none;
         }
     }
 }

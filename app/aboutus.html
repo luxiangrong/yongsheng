@@ -20,34 +20,45 @@
     <!-- endbuild -->
 </head>
 
-<body class="page-aboutus">
-    <section class="site-header">
-        <img src="images/p03.png" alt="" class="logo">
+<body class="page-aboutus fixed-top">
+    <section class="site-header black">
+        <a class="logo-wrap" href=""><img src="images/p03.png" alt="" class="logo"></a>
         <ul class="nav">
-            <li class=""><a href="#">金润首页</a></li>
-            <li class=""><a href="#">案例展示</a></li>
-            <li class=""><a href="#">服务优势</a></li>
-            <li class=""><a href="#">新闻中心</a></li>
-            <li class="active"><a href="#">关于金润</a></li>
-            <li class=""><a href="#">联系我们</a></li>
+            <li class="active"><a href="#"><i class="iconfont pull-right">&#xe615;</i><i class="iconfont">&#xe612;</i>金润首页</a></li>
+            <li class=""><a href="#"><i class="iconfont pull-right">&#xe615;</i><i class="iconfont">&#xe611;</i>案例展示</a></li>
+            <li class=""><a href="#"><i class="iconfont pull-right">&#xe615;</i><i class="iconfont">&#xe614;</i>服务优势</a></li>
+            <li class=""><a href="#"><i class="iconfont pull-right">&#xe615;</i><i class="iconfont">&#xe610;</i>新闻中心</a></li>
+            <li class=""><a href="#"><i class="iconfont pull-right">&#xe615;</i><i class="iconfont">&#xe613;</i>关于金润</a></li>
+            <li class=""><a href="#"><i class="iconfont pull-right">&#xe615;</i><i class="iconfont">&#xe60f;</i>联系我们</a></li>
         </ul>
-        <div class="pull-right menu"><i class="iconfont">&#xe601;</i></div>
-        <div class="pull-right tel"><i class="iconfont">&#xe600;</i>：010-88665268</div>
+        <div class="pull-right menu">
+            <svg id="icon-menu" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                <g id="icon-menu-1">
+                    <path fill="#272635" d="M63.83,5.595L58.308,0L31.821,26.445L5.353,0.098L-0.17,5.693L26.259,32L-0.17,58.405L5.353,64
+        l26.486-26.445l26.469,26.348l5.522-5.596L37.401,32L63.83,5.595z M63.83,5.595" />
+                </g>
+                <g id="icon-menu-2">
+                    <path fill="#272635" d="M0.912,0.941v10.333h62V0.941H0.912L0.912,0.941z M0.912,37.107h62V26.774h-62V37.107L0.912,37.107z
+         M0.912,62.941h62V52.607h-62V62.941L0.912,62.941z M0.912,62.941" />
+                </g>
+            </svg>
+            <!-- <i class="iconfont">&#xe601;</i> --></div>
+        <div class="pull-right tel visible-lg-block"><i class="iconfont">&#xe600;</i>：010-88665268</div>
     </section>
-    <div id="fullpage">
+    <div id="fullpage" class="fp-destroyed">
         <div class="section section-1 text-center">
-            <img src="images/p30.png" alt="">
+            <img class="img-responsive" src="images/p30.png" alt="">
             <div class="arrow arrow-down"></div>
         </div>
     </div>
     <div class="section section-2 fp-auto-height">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 text-right">
+                <div class="col-lg-4 text-right col-logo">
                     <img src="images/p31.png" class="logo" alt="">
                 </div>
-                <div class="col-sm-8">
-                    <div><img src="images/p32.png"></div>
+                <div class="col-lg-8 col-company-info">
+                    <div><img class="img-responsive" src="images/p32.png"></div>
                     <h2>北京金润勇胜科技有限公司</h2>
                     <p>成立于2008年，是专注于高品质品牌设计和互动推广的整合营销公司。2008年成立广州派点设计工作室，组建广州派点广告有限公司。公司以高端品牌网站、品牌设计、品牌策略、品牌推广为业务核心，为拥有国际雄心的中国民营企业提供品牌策划及设计业务。
                         <br/>专长于品牌设计与营销推广服务，包括在高端品牌网站建设（Brand Website）、企业视觉设计VIS Design电商策划运营（Shop Operations）、网站推广营销（SEO Search Ranking）、移动端应用定制（Int三维互动系统（3D Interactive）等互动营销服务。</p>
@@ -72,7 +83,7 @@
     <div class=" section-3">
         <div class="container">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-lg-5">
                     <h1>TEAMROOM</h1>
                     <h2>团队空间</h2>
                     <p>
@@ -80,8 +91,8 @@
                         <br/> 进入我们的公司，您将会遇到这样一些人物，他们是这个行业的专家、设计师、策略专家、整合专家、网络写手、游戏高手。每周我们都会有一个debidebi会议，分享那些不同领域，不同形态的全新的玩艺。
                     </p>
                 </div>
-                <div class="col-sm-7">
-                    <img src="images/p33.png" alt="">
+                <div class="col-lg-7">
+                    <img class="img-responsive" src="images/p33.png" alt="">
                 </div>
             </div>
         </div>
@@ -152,14 +163,35 @@
     <!-- endbuild -->
     <script>
     jQuery(function($) {
-        var fp = $('#fullpage').fullpage({
-            controlArrows: false,
-            slidesNavigation: false,
-            animateAnchor: false,
-            verticalCentered: true,
-            scrollingSpeed: 1200,
-            autoScrolling: false,
-            fitToSection: false
+
+        var animateManager = new LXR.Animate();
+        var fpRebuild = function() {
+            if ($("#fullpage").hasClass('fp-destroyed')) {
+                var fp = $('#fullpage').fullpage({
+                    controlArrows: false,
+                    slidesNavigation: false,
+                    animateAnchor: false,
+                    verticalCentered: true,
+                    scrollingSpeed: 1200,
+                    autoScrolling: false,
+                    fitToSection: false
+                });
+
+            }
+        }
+
+        if ($(window).width() >= 1200) {
+            fpRebuild();
+        }
+
+        $(window).on('resize', function() {
+            if ($(window).width() >= 1200) {
+                fpRebuild();
+                $('body').removeClass('fixd-top');
+            } else {
+                $.fn.fullpage.destroy('all');
+                $('body').addClass('fixd-top');
+            }
         });
     });
     </script>

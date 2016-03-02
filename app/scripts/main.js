@@ -299,6 +299,7 @@ LXR.Animate = Class.extend({
         var self = this;
         $('.menu').click(function() {
             if ($('.nav li').css('opacity') != 1) {
+
                 self.menuIcon.to('icon-menu-1');
                 $('.site-header').addClass('active');
                 $('.nav li').velocity('transition.slideRightIn', {
@@ -339,7 +340,9 @@ LXR.Animate = Class.extend({
     },
     //导航菜单往右侧消失
     'navRightOut': function() {
-        this.menuIcon.to('icon-menu-2');
+        if ($(window).width() >= 992) {
+            this.menuIcon.to('icon-menu-2');
+        }
         $('.nav li, .tel').velocity('transition.slideRightBigOut', {
             duration: 500,
             stagger: 150,
@@ -353,9 +356,10 @@ LXR.Animate = Class.extend({
     },
     //导航菜单从右侧进入
     'navRightIn': function(hideMenu) {
-        this.menuIcon.to('icon-menu-1');
+        
         // if(!hideMenu) {
         if ($(window).width() >= 992) {
+            this.menuIcon.to('icon-menu-1');
             $('.menu').velocity('transition.fadeOut', {
                 delay: 0,
                 display: 'block'
