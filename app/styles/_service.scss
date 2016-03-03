@@ -1,7 +1,11 @@
 .page-service {
+    padding-top: 80px;
+    @media (max-width: $screen-md-min) {
+        padding-top: 50px;
+    }
     .title {
         background: url(../images/j24.jpg) no-repeat center 0px;
-        background-attachment: fixed; 
+        background-attachment: fixed;
         h1 {
             line-height: 322px;
             text-align: center;
@@ -9,6 +13,14 @@
             color: #ffcf0d;
             margin: 0;
             opacity: 0;
+        }
+        @media (max-width: $screen-md-min) {
+            background: url(../images/j33.jpg) no-repeat center 0px;
+            background-size: cover;
+            h1 {
+                line-height: 160px;
+                font-size: 18px;
+            }
         }
     }
     .service {
@@ -36,32 +48,52 @@
             width: 100%;
             text-align: right;
         }
+        @media (max-width: $screen-md-min) {
+            h2 {
+                font-size: 18px;
+                font-weight: normal;
+                small {
+                    font-size: 15px;
+                    display: block;
+                    margin: 0;
+                }
+            }
+            h3 {
+                font-weight: normal;
+                font-size: 16px;
+            }
+            p {
+                font-size: 14px;
+                margin: 10px 0;
+            }
+        }
     }
     .service-1,
     .service-3 {
         background: url(../images/j27.jpg) no-repeat center top fixed;
     }
-    
     .service-2,
     .service-4 {
         background: url(../images/j25.jpg) center top fixed;
-        h2,h3,p {
-        	color: #fff;
+        h2,
+        h3,
+        p {
+            color: #fff;
         }
         .list-inline {
-        	color: rgba(255,255,255,0.5);
-        	li {
-        		text-align: center;
-        	}
-        	.iconfont {
-        		display: block;
-        		color: rgba(255,255,255,0.5);
-        		font-size: 36px;
-        	}
+            color: rgba(255, 255, 255, 0.5);
+            li {
+                text-align: center;
+            }
+            .iconfont {
+                display: block;
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 36px;
+            }
         }
     }
     .service-4 {
-    	background: url(../images/j26.jpg) center 1481px fixed;
+        background: url(../images/j26.jpg) center 1481px fixed;
     }
     //垂直居中,通过透明图片的方式
     .vma {
@@ -78,13 +110,34 @@
     }
     //垂直居中，通过table-cell的方式
     .vmt-wrap {
-    	display: table;
-    	width: 100%;
+        display: table;
+        width: 100%;
     }
     .vmt {
         display: table-cell;
         vertical-align: middle;
         height: 500px;
         width: 100%;
+    }
+    @media (max-width: $screen-md-min) {
+        .vma {
+            height: auto;
+            position: relative;
+            img {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+        }
+        .vmt-wrap {
+            display: block;
+
+        }
+        .vmt {
+            display: block;
+            height: auto;
+            padding: 20px 0;
+        }
     }
 }

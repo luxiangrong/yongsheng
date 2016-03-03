@@ -301,7 +301,7 @@ LXR.Animate = Class.extend({
             if ($('.nav li').css('opacity') != 1) {
 
                 self.menuIcon.to('icon-menu-1');
-                $('.site-header').addClass('active');
+                $('.site-header, .site-header-other').addClass('active');
                 $('.nav li').velocity('transition.slideRightIn', {
                     duration: 500,
                     stagger: 150,
@@ -316,7 +316,7 @@ LXR.Animate = Class.extend({
                     display: $(window).width() >= 992 ? 'inline-block' : 'table',
                     backwards: $(window).width() >= 992,
                     complete: function() {
-                        $('.site-header').toggleClass('active');
+                        $('.site-header,.site-header-other').toggleClass('active');
                     }
                 });
             }
