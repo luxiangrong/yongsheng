@@ -19,7 +19,7 @@
             background-size: cover;
             h1 {
                 line-height: 160px;
-                font-size: 18px;
+                font-size: 16px;
             }
         }
     }
@@ -60,10 +60,10 @@
             }
             h3 {
                 font-weight: normal;
-                font-size: 16px;
+                font-size: 12px;
             }
             p {
-                font-size: 14px;
+                font-size: 12px;
                 margin: 10px 0;
             }
         }
@@ -119,25 +119,31 @@
         height: 500px;
         width: 100%;
     }
+    .table {
+        display: table;
+        .table-cell {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 100px 0;
+        }
+    }
     @media (max-width: $screen-md-min) {
-        .vma {
-            height: auto;
-            position: relative;
-            img {
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translate(0, -50%);
+        .table {
+            .table-cell {
+                padding: 20px 0;
+                &.icon-wrap {
+                    padding: 10px;
+                    .icon {
+                        width: 20vw;
+                    }
+                    &.icon-wrap-left {
+                        padding-left: 0;
+                    }
+                    &.icon-wrap-right {
+                        padding-right: 0px;
+                    }
+                }
             }
-        }
-        .vmt-wrap {
-            display: block;
-
-        }
-        .vmt {
-            display: block;
-            height: auto;
-            padding: 20px 0;
         }
     }
 }
