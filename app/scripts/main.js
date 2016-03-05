@@ -299,8 +299,10 @@ LXR.Animate = Class.extend({
         var self = this;
         $('.menu').click(function() {
             if ($('.nav li').css('opacity') != 1) {
-
                 self.menuIcon.to('icon-menu-1');
+                $(document).on('touchmove.menu', function(e){
+                    event.preventDefault();
+                });
                 $('.site-header, .site-header-other').addClass('active');
                 $('.nav li').velocity('transition.slideRightIn', {
                     duration: 500,
@@ -309,6 +311,7 @@ LXR.Animate = Class.extend({
                     backwards: $(window).width() >= 992
                 });
             } else {
+                $(document).off('touchmove.menu');
                 self.menuIcon.to('icon-menu-2');
                 $('.nav li').velocity('transition.slideRightBigOut', {
                     duration: 500,

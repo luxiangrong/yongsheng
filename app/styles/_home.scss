@@ -154,13 +154,16 @@
                 .col-news {
                     float: left;
                     width: 50%;
-                    max-height: 180px;
-                    min-height: 180px;
+                    position: relative;
+                    @media (max-width: $screen-xs-min) {
+                        max-height: 120px;
+                        min-height: 120px;
+                    }
                     position: relative;
                     background: rgba(0, 0, 0, 0.75);
                     border-right: 1px solid rgba(255, 255, 255, 0.4);
                     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-                    padding: 0 15px 20px;
+                    padding: 5px;
                     text-align: right;
                     cursor: pointer;
                     overflow: hidden;
@@ -170,8 +173,18 @@
                         text-align: center;
                         font-size: 72px;
                         font-family: sans-serif;
-                        line-height: 180px; 
-                        transition: transform 1.2s 1s, opacity 1s 0.8s, color 0.5s, background-color 0.5s;
+                        line-height: 180px;
+                        a {
+                            color: #fff;
+                        }
+                        @media (max-width: $screen-xs-min) {
+                            line-height: 120px;
+                            font-size: 48px;
+                        }
+                        transition: transform 1.2s 1s,
+                        opacity 1s 0.8s,
+                        color 0.5s,
+                        background-color 0.5s;
                         overflow: hidden;
                         .vmc {
                             display: table;
@@ -185,7 +198,7 @@
                     }
                     .day {
                         color: rgba(255, 255, 255, 0.3);
-                        font-size: 56px;
+                        font-size: 32px;
                         transition: color 0.5s;
                         margin-bottom: 10px;
                     }
@@ -200,10 +213,19 @@
                         color: #fff;
                         font-size: 16px;
                         transition: color 0.5s;
+                        @media (max-width: $screen-xs-min) {
+                            font-size: 12px;
+                        }
                     }
                     .detail {
                         margin-top: 10px;
                         transition: color 0.5s;
+                        position: absolute;
+                        bottom: 5px;
+                        right: 15px;
+                        @media (max-width: $screen-xs-min) {
+                            right: 5px;
+                        }
                     }
                 }
             }
@@ -883,7 +905,7 @@
                 float: left;
                 width: 20%;
                 position: relative;
-                height: 25%;
+                height: 33%;
                 @media (min-width: $screen-sm-min) and (max-width: $screen-md-min) {
                     width: 50%;
                     height: 25%;
@@ -905,7 +927,7 @@
                 }
                 @media (min-width: $screen-lg-min) {
                     width: 20%;
-                    height: 25%;
+                    height: 33%;
                 }
                 background: rgba(0, 0, 0, 0.75);
                 border-right: 1px solid rgba(255, 255, 255, 0.4);
@@ -937,7 +959,10 @@
                 }
                 @media (min-width: $screen-lg-min) {
                     width: 20%;
-                    height: 25%;
+                    height: 33.33333%;
+                    @media (min-height: 900px) {
+                        height: 25%;
+                    }
                     &:nth-child(5n + 1) {
                         border-right: none;
                     }
@@ -964,6 +989,9 @@
                     font-family: sans-serif;
                     transition: transform 1.2s 1s, opacity 1s 0.8s, color 0.5s, background-color 0.5s;
                     ;
+                    a {
+                        color: #fff;
+                    }
                     .vmc {
                         display: table;
                         width: 100%;
@@ -976,8 +1004,11 @@
                 }
                 .day {
                     color: rgba(255, 255, 255, 0.3);
-                    font-size: 100px;
+                    font-size: 64px;
                     transition: color 0.5s;
+                    @media (min-height: 900px) {
+                        font-size: 100px;
+                    }
                 }
                 .year-month,
                 .detail {

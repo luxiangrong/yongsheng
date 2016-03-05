@@ -21,7 +21,14 @@
     -webkit-transform-style: preserve-3d;
 }
 
-body {}
+body {
+    &.modal-open {
+        @media (max-width: $screen-sm-min) {
+            overflow: hidden;
+            position: fixed;
+        }
+    }
+}
 
 .site-header {
     .menu {
@@ -501,7 +508,6 @@ body {}
         @media (max-width: $screen-xs-min) {
             text-align: center;
         }
-        
     }
     .copyright-wrap {
         color: #747474;
