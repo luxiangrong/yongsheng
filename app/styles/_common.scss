@@ -96,6 +96,9 @@ body {
                     .iconfont {
                         font-size: 24px;
                         margin-right: 10px;
+                        &.pull-right {
+                            margin-right: -6px;
+                        }
                     }
                     &:hover,
                     &:focus {
@@ -321,11 +324,11 @@ body {
         text-align: left;
         padding-left: 10px;
         &.black {
-            background-color: rgba(9, 7, 0, 0.6);
+            background-color: rgba(9, 7, 0, 0.9);
         }
         &.active {
             transition: background-color 1s;
-            background-color: rgba(9, 7, 0, 0.6);
+            background-color: rgba(9, 7, 0, 0.9);
             height: 100%;
             .nav {
                 display: block;
@@ -376,6 +379,9 @@ body {
                         font-size: 24px;
                         margin-right: 10px;
                         display: inline-block;
+                        &.pull-right {
+                            margin-right: -6px;
+                        }
                     }
                     &:hover,
                     &:focus {
@@ -538,6 +544,41 @@ body {
                     }
                 }
             }
+        }
+    }
+}
+
+.elevator {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 100;
+    margin-top: -100px;
+    .wrap {
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 50px;
+        border-radius: 8px 0 0 8px;
+        a {
+            color: #fff;
+            display: block;
+            line-height: 50px;
+            width: 50px;
+            text-align: center;
+            .iconfont {
+                font-size: 32px;
+            }
+            &:hover {
+                color: #ffcf0d;
+            }
+        }
+    }
+    a.close {
+        display: block;
+        width: 50px;
+        line-height: 50px;
+        text-align: center;
+        .iconfont {
+            font-size: 28px;
         }
     }
 }

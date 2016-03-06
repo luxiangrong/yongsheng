@@ -608,5 +608,9 @@ jQuery(function($) {
         container: 'body'
     });
 
+    $('.elevator .top').on('click', function(e){
+        e.preventDefault();
+        $('body').velocity('scroll');
+    });
     
 });

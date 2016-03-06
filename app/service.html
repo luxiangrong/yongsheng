@@ -22,7 +22,7 @@
 
 <body class="page-service">
     <section class="site-header-other">
-        <a class="logo-wrap" href="home.html"><img src="images/p14.png" alt="" class="logo"></a>
+        <a class="logo-wrap" href="home.html"><img src="images/p03.png" alt="" class="logo"></a>
         <ul class="nav">
             <li class="active"><a href="home.html"><i class="iconfont pull-right">&#xe615;</i><i class="iconfont">&#xe612;</i>金润首页</a></li>
             <li class=""><a href="case-list.html"><i class="iconfont pull-right">&#xe615;</i><i class="iconfont">&#xe611;</i>案例展示</a></li>
@@ -33,7 +33,7 @@
         </ul>
         <div class="pull-right menu visible-xs-block visible-sm-block">
             <svg id="icon-menu" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-                <g id="icon-menu-1">
+                <g id="icon-menu-1" style="display: none;">
                     <path fill="#272635" d="M63.83,5.595L58.308,0L31.821,26.445L5.353,0.098L-0.17,5.693L26.259,32L-0.17,58.405L5.353,64
         l26.486-26.445l26.469,26.348l5.522-5.596L37.401,32L63.83,5.595z M63.83,5.595" />
                 </g>
@@ -213,19 +213,22 @@
     jQuery(function($) {
         var animateManager = new LXR.Animate();
 
-        $('#waypoint-1').waypoint(function(direction) {
-            $(this.element).find('.animated').addClass('fadeIn');
-        }, {
-            offset: '50%'
-        });
+        if ($(window).width() >= 768) {
 
-        $('.waypoint').waypoint(function(direction) {
-            var ani = $(this.element).attr('ani');
-            console.log(ani);
-            $(this.element).addClass(ani);
-        }, {
-            offset: '90%'
-        });
+            $('#waypoint-1').waypoint(function(direction) {
+                $(this.element).find('.animated').addClass('fadeIn');
+            }, {
+                offset: '50%'
+            });
+
+            $('.waypoint').waypoint(function(direction) {
+                var ani = $(this.element).attr('ani');
+                console.log(ani);
+                $(this.element).addClass(ani);
+            }, {
+                offset: '90%'
+            });
+        }
 
     });
     </script>

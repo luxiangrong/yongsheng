@@ -28,16 +28,16 @@
             }
             &.content-a {
                 //A类描述，最大940宽度，居中显示
+                margin: 30px auto;
+                margin-bottom: 0;
                 @media (min-width: $screen-lg-min) {
                     max-width: 940px;
                 }
-                margin: 30px auto;
-                margin-bottom: 0;
                 h2 {
                     font-size: 36px;
                     small {
                         font-size: 18px;
-                        margin-left: 10px;
+                        display: block;
                     }
                 }
             }
@@ -55,8 +55,8 @@
                     font-size: 36px;
                     small {
                         font-size: 18px;
-                        margin-left: 10px;
                         color: #fff;
+                        display: block;
                     }
                 }
             }

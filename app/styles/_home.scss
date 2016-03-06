@@ -155,6 +155,8 @@
                     float: left;
                     width: 50%;
                     position: relative;
+                    max-height: 150px;
+                    min-height: 150px;
                     @media (max-width: $screen-xs-min) {
                         max-height: 120px;
                         min-height: 120px;
