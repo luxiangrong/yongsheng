@@ -42,9 +42,10 @@ body {
         background-color: rgba(9, 7, 0, 0.8);
     }
     @media (max-width: $screen-md-min) {
+        transform: translate3d(0px, 0px, 0px);
         position: fixed;
         width: 100%;
-        z-index: 100;
+        z-index: 101;
         top: 0px;
         &.black {
             background-color: rgba(9, 7, 0, 0.8);
@@ -219,6 +220,11 @@ body {
 .fp-enabled {
     .site-header {
         background-color: transparent;
+        &.active {
+            @media (max-width: $screen-md-min) {
+                background-color: rgba(9, 7, 0, 0.8);
+            }
+        }
     }
 }
 

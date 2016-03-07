@@ -33,6 +33,23 @@
                         cursor: pointer;
                         overflow: visible;
                         margin: 0 auto;
+                        @media (max-width: $screen-xs-min) {
+                            &.svg-wrap-1 {
+                                background: url(../images/p10.png) no-repeat center center;
+                            }
+                            &.svg-wrap-2 {
+                                background: url(../images/p11.png) no-repeat center center;
+                            }
+                            &.svg-wrap-3 {
+                                background: url(../images/p12.png) no-repeat center center;
+                            }
+                            &.svg-wrap-4 {
+                                background: url(../images/p13.png) no-repeat center center;
+                            }
+                            img.icon {
+                                display: none;
+                            }
+                        }
                         .translate-wrap {
                             background: url(../images/p11.png) repeat-x;
                             background-position: 50% 50%;

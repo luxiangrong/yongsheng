@@ -128,7 +128,7 @@
             padding: 100px 0;
         }
     }
-    @media (max-width: $screen-xs-min) {
+    @media (max-width: $screen-sm-min) {
         .service-1,
         .service-3,
         .service-2,
@@ -140,7 +140,7 @@
             .table-cell {
                 padding: 20px 0;
                 &.icon-wrap {
-                    padding: 10px;
+                    padding: 20px;
                     width: 30%;
                     .icon {
                         max-width: 100%;
