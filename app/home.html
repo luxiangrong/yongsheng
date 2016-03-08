@@ -569,7 +569,7 @@
                         }
 
                         //创建层移动
-                        layerMove1 = new LXR.LayerMove($('.layer-1'), -0.15, document).start();
+                        // layerMove1 = new LXR.LayerMove($('.layer-1'), -0.15, document).start();
                         layerMove2 = new LXR.LayerMove($('.layer-2'), -0.10, document).start();
                         layerMove3 = new LXR.LayerMove($('.layer-3'), -0.05, document).start();
 
@@ -598,7 +598,7 @@
                         console.log('onleave:' + index + '-' + nextIndex + '-' + direction);
                         //离开第一屏时，结束层移动句柄，减少不必要的性能开销
                         if (index == 1) {
-                            layerMove1.stop();
+                            // layerMove1.stop();
                             layerMove2.stop();
                             layerMove3.stop();
                             animateManager.navRightOut();
@@ -614,7 +614,7 @@
                         }
                         //进入第一屏时
                         if (nextIndex == 1) {
-                            layerMove1.start();
+                            // layerMove1.start();
                             layerMove2.start();
                             layerMove3.start();
 

@@ -827,6 +827,9 @@
                 }
                 p {
                     font-size: 14px;
+                    @media (min-width: $screen-lg-min) {
+                        font-size: 16px;
+                    }
                     color: #fff;
                     line-height: 1.8;
                 }
@@ -1115,6 +1118,7 @@
                 }
                 p {
                     line-height: 2;
+                    font-size: 16px;
                 }
                 .list-inline {
                     li {
