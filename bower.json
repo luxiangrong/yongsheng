@@ -10,7 +10,8 @@
     "svg-morpheus": "~0.1.8",
     "Snap.svg": "snap.svg#~0.4.1",
     "waypoints": "~4.0.0",
-    "Swiper": "swiper#~3.3.1"
+    "Swiper": "swiper#~3.3.1",
+    "art-dialog": "artDialog#^6.0.4"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -23,6 +24,12 @@
     "waypoints": {
       "main": [
         "lib/jquery.waypoints.js"
+      ]
+    },
+    "art-dialog": {
+      "main": [
+        "dist/dialog.js",
+        "css/ui-dialog.css"
       ]
     }
   }

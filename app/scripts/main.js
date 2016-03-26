@@ -612,5 +612,29 @@ jQuery(function($) {
         e.preventDefault();
         $('body').velocity('scroll');
     });
+
+    $('#mobile-site, #weixin-site').on('click', function(e) {
+        var target = e.target;
+        e.preventDefault();
+        var content = $(this).find('img').clone().removeClass('hidden').get(0);
+        var d = dialog({
+            align: 'top',
+            content: content,
+            quickClose: true // 点击空白处快速关闭
+        });
+        d.show(e.target);
+    });
+
+    $('#share').on('click', function(e){
+        e.preventDefault();
+        var content = $('#jiathis-site').removeClass('hidden').get(0);
+        var d = dialog({
+            align: 'top',
+            content: content,
+            quickClose: true // 点击空白处快速关闭
+        });
+        d.show(e.target);
+    });
     
 });
+

@@ -30,7 +30,18 @@ body {
     }
 }
 
+a {
+    outline: none;
+    &:focus {
+        outline: none;
+    }
+}
+
 .site-header {
+    .logo-wrap {
+        position: relative;
+        z-index: 1;
+    }
     .menu {
         svg {
             path {
@@ -121,7 +132,11 @@ body {
         @media (max-width: $screen-xs-min) {
             padding: 0 15px;
             line-height: 50px;
-            .logo {}
+            .logo-wrap {
+                position: relative;
+                z-index: 1;
+                display: block;
+            }
         }
         .tel,
         .menu {
@@ -238,6 +253,10 @@ body {
     left: 0;
     right: 0;
     background-color: #fff;
+    .logo-wrap {
+        position: relative;
+        z-index: 1;
+    }
     .tel,
     .menu {
         font-size: 20px;
@@ -346,6 +365,8 @@ body {
             line-height: 50px;
             padding-left: 15px;
             display: block;
+            position: relative;
+            z-index: 1;
             .logo {
                 height: 30px;
             }

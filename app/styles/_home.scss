@@ -178,6 +178,9 @@
                         max-height: 120px;
                         min-height: 120px;
                     }
+                    a {
+                        display: block;
+                    }
                     position: relative;
                     background: rgba(0, 0, 0, 0.75);
                     border-right: 1px solid rgba(255, 255, 255, 0.4);

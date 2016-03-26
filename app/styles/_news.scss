@@ -149,7 +149,37 @@
             color: #999;
             margin: 15px 20px;
             li {
-                margin: 0 20px;
+                height: 25px;
+                margin: 0px 20px;
+                &.share {
+                    position: relative;
+                    .wrap {
+                        border: 1px solid transparent;
+                        cursor: pointer;
+                        overflow: visiable;
+                        padding-bottom: 5px;
+                        padding-left: 5px;
+                        padding-right: 5px;
+                        width: 100px;
+                        .jiathis_style {
+                            display: none;
+                            a {
+                                display: block;
+                                padding: 6px 0px;
+                                @include clearfix();
+                            }
+                        }
+                        &:hover {
+                            color: #2c73de;
+                            background-color: #f0f1f1;
+                            border: 1px solid #cccccc;
+                            display: block;
+                            .jiathis_style {
+                                display: block;
+                            }
+                        }
+                    }
+                }
             }
         }
         .content {
@@ -207,7 +237,6 @@
             margin-top: 20px;
             padding-bottom: 10px;
             margin-bottom: 20px;
-
         }
         .address {
             font-size: 16px;

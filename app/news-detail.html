@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/bower_components/fullpage.js/jquery.fullPage.css" />
     <link rel="stylesheet" href="/bower_components/animate.css/animate.css" />
     <link rel="stylesheet" href="/bower_components/Swiper/dist/css/swiper.css" />
+    <link rel="stylesheet" href="/bower_components/art-dialog/css/ui-dialog.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -54,7 +55,27 @@
                         <li>来源：金润勇胜科技</li>
                         <li class="hidden-xs">作者：张立彬</li>
                         <li>时间：2016.01.19</li>
-                        <li>分享：<i class="iconfont">&#xe604;</i></li>
+                        <li class="share">
+                            <div class="wrap">
+                                分 享 ： <i class="iconfont">&#xe604;</i>
+                                <!-- JiaThis Button BEGIN -->
+                                <div class="jiathis_style">
+                                    <a class="jiathis_button_tsina">新浪微博</a>
+                                    <a class="jiathis_button_weixin">微信</a>
+                                    <a class="jiathis_button_qzone">QQ空间</a>
+                                    <a class="jiathis_button_tqq">腾讯微博</a>
+                                </div>
+                                <script type="text/javascript">
+                                var jiathis_config = {
+                                    summary: "",
+                                    shortUrl: false,
+                                    hideMore: false
+                                }
+                                </script>
+                                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                                <!-- JiaThis Button END -->
+                            </div>
+                        </li>
                     </ul>
                     <div class="content">
                         <p>营销型网站建设是对网站的发展，整合了各种网络营销理念和网站运营管理方法，不仅注重网站建设的专业性，更加注重网站运营管理的整个过程，是企业网站建设与运营维护一体化的全程网络营销模式。中小企业拥有独立企业网站的比例达到了43%，整体上看，中小企业网站的运营水平偏低。绝大部分中小企业网站更新频率超过一个月，仅仅是一个形象工程而已，并没有很好的促进企业网络营销效益。和君设计根据以往的经验为大家总结了以下几点关于营销型企业网站建设从哪几个方面着手。</p>
@@ -102,19 +123,34 @@
             </div>
         </div>
     </section>
-    <div class="site-footer white">
+    <div class="site-footer ">
         <div class="container">
-            <ul class="list-inline pull-right tools visible-sm-block visible-md-block">
+            <ul class="list-inline pull-right tools">
                 <li>
                     <!-- 解决bootstrap的popover插件在显示图片时的错位问题，如果图片已经加载完成则不会出现问题 -->
-                    <img src='images/j19.jpg' class="hidden" />
-                    <a tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="<img src='images/j19.jpg' />"><i class="iconfont">&#xe603;</i></a>
+                    <a id="mobile-site"><img src='images/j19.jpg' class="hidden" /><i class="iconfont">&#xe603;</i></a>
                 </li>
                 <li>
-                    <a href=""><i class="iconfont">&#xe602;</i></a>
+                    <a id="weixin-site"><img src='images/j19.jpg' class="hidden" /><i class="iconfont">&#xe602;</i></a>
                 </li>
                 <li>
-                    <a href=""><i class="iconfont">&#xe604;</i></a>
+                    <a id="share"><i class="iconfont">&#xe604;</i></a>
+                    <!-- JiaThis Button BEGIN -->
+                    <div id="jiathis-site" class="jiathis_style_32x32 hidden">
+                        <a class="jiathis_button_tsina"></a>
+                        <a class="jiathis_button_weixin"></a>
+                        <a class="jiathis_button_qzone"></a>
+                        <a class="jiathis_button_tqq"></a>
+                    </div>
+                    <script type="text/javascript">
+                    var jiathis_config = {
+                        summary: "",
+                        shortUrl: false,
+                        hideMore: true
+                    }
+                    </script>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                    <!-- JiaThis Button END -->
                 </li>
             </ul>
             <ul class="list-inline links">
@@ -146,6 +182,7 @@
     <script src="/bower_components/Snap.svg/dist/snap.svg-min.js"></script>
     <script src="/bower_components/waypoints/lib/jquery.waypoints.js"></script>
     <script src="/bower_components/Swiper/dist/js/swiper.js"></script>
+    <script src="/bower_components/art-dialog/dist/dialog.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.) scripts/plugins.js -->
@@ -168,6 +205,29 @@
     <script>
     jQuery(function($) {
         var animateManager = new LXR.Animate();
+
+        $('#mobile-site, #weixin-site').on('click', function(e) {
+            var target = e.target;
+            e.preventDefault();
+            var content = $(this).find('img').clone().removeClass('hidden').get(0);
+            var d = dialog({
+                align: 'top',
+                content: content,
+                quickClose: true // 点击空白处快速关闭
+            });
+            d.show(e.target);
+        });
+
+        $('#share').on('click', function(e){
+            e.preventDefault();
+            var content = $('#jiathis-site').removeClass('hidden').get(0);
+            var d = dialog({
+                align: 'top',
+                content: content,
+                quickClose: true // 点击空白处快速关闭
+            });
+            d.show(e.target);
+        });
     });
     </script>
 </body>
