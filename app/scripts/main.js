@@ -294,11 +294,13 @@ LXR.LayerMove = Class.extend({
 
 LXR.Animate = Class.extend({
     'ctor': function() {
-        // var _this = this;
+        var animate = this;
         this.menuIcon = new SVGMorpheus('#icon-menu');
         var self = this;
+        this.status = 'in';
         $('.menu').click(function() {
-            if ($('.nav li').css('opacity') != 1) {
+            if (animate.status == 'out') {
+                animate.status = 'in';
                 self.menuIcon.to('icon-menu-1');
                 $(document).on('touchmove.menu', function(e){
                     event.preventDefault();
@@ -311,6 +313,7 @@ LXR.Animate = Class.extend({
                     backwards: $(window).width() >= 992
                 });
             } else {
+                animate.status = 'out';
                 $(document).off('touchmove.menu');
                 self.menuIcon.to('icon-menu-2');
                 $('.nav li').velocity('transition.slideRightBigOut', {
@@ -339,28 +342,31 @@ LXR.Animate = Class.extend({
                 delay: 0,
                 display: 'block'
             });
+            this.status = 'in';
         }
     },
     //导航菜单往右侧消失
-    'navRightOut': function() {
-        if ($(window).width() >= 992) {
-            this.menuIcon.to('icon-menu-2');
+    'navRightOut': function(index) {
+        console.log(this.status);
+        if(this.status == 'in') {
+            if ($(window).width() >= 992) {
+                this.menuIcon.to('icon-menu-2');
+            }
+            $('.nav li, .tel').velocity('transition.slideRightBigOut', {
+                duration: 500,
+                stagger: 150,
+                display: 'inline-block',
+                backwards: true
+            });
+            $('.menu').velocity('transition.fadeIn', {
+                delay: 500,
+                display: 'block'
+            });
+            this.status = 'out';
         }
-        $('.nav li, .tel').velocity('transition.slideRightBigOut', {
-            duration: 500,
-            stagger: 150,
-            display: 'inline-block',
-            backwards: true
-        });
-        $('.menu').velocity('transition.fadeIn', {
-            delay: 500,
-            display: 'block'
-        });
     },
     //导航菜单从右侧进入
     'navRightIn': function(hideMenu) {
-        
-        // if(!hideMenu) {
         if ($(window).width() >= 992) {
             this.menuIcon.to('icon-menu-1');
             $('.menu').velocity('transition.fadeOut', {
@@ -368,13 +374,13 @@ LXR.Animate = Class.extend({
                 display: 'block'
             });
         }
-        // }
         $('.nav li, .tel').velocity('transition.slideRightIn', {
             duration: 500,
             stagger: 150,
             display: 'inline-block',
             backwards: true
         });
+        this.status = 'in';
     }
 });
 

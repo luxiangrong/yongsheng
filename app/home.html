@@ -600,34 +600,19 @@
                         console.log('onleave:' + index + '-' + nextIndex + '-' + direction);
                         //离开第一屏时，结束层移动句柄，减少不必要的性能开销
                         if (index == 1) {
-                            // layerMove1.stop();
                             layerMove2.stop();
                             layerMove3.stop();
-                            animateManager.navRightOut();
                             if (slideIndicator) {
                                 slideIndicator.stop();
                             }
-                            // $('.layer').velocity('transition.bounceOut', {
-                            //     duration: 1000,
-                            //     stagger: 200,
-                            //     display: 'none',
-                            //     backwards: true
-                            // });
                         }
                         //进入第一屏时
                         if (nextIndex == 1) {
-                            // layerMove1.start();
                             layerMove2.start();
                             layerMove3.start();
-
                             animateManager.navRightIn();
-
-                            // $('.layer').velocity('transition.bounceIn', {
-                            //     duration: 1000,
-                            //     stagger: 200,
-                            //     display: 'none',
-                            //     backwards: true
-                            // });
+                        } else {
+                            animateManager.navRightOut(nextIndex);
                         }
                         if (nextIndex == 3 || nextIndex == 5) {
                             $('.site-header').addClass('gray');
