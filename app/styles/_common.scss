@@ -473,39 +473,44 @@ a {
     }
 }
 
-.fp-section {
-    .footer {
-        background-color: #1e1c01;
-        position: absolute;
-        width: 100%;
-        left: 0;
-        bottom: 0;
-        padding: 10px 0;
-        .list-inline {
-            margin-bottom: 0;
-        }
-        .tools {
-            padding-right: 20px;
-            a {
-                color: #fff;
-                .iconfont {
-                    font-size: 28px;
-                    font-weight: normal;
-                }
-                &:hover {
-                    color: #ffcf0d;
-                }
+.footer {
+    background-color: #1e1c01;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 10px 0;
+    .list-inline {
+        text-align: center;
+        @media (min-width: $screen-sm-min) {
+        text-align: left;
+    }
+        margin-bottom: 0;
+    }
+    .tools {
+        padding-right: 20px;
+        a {
+            color: #fff;
+            .iconfont {
+                font-size: 28px;
+                font-weight: normal;
+            }
+            &:hover {
+                color: #ffcf0d;
             }
         }
-        .links {
-            a {
-                color: #ffffff;
-            }
+    }
+    .links {
+        a {
+            color: #ffffff;
         }
-        .copyright-wrap {
-            color: #747474;
-            margin-top: 10px;
-            margin-bottom: 0;
+    }
+    .copyright-wrap {
+        color: #747474;
+        margin-top: 10px;
+        margin-bottom: 0;
+        text-align: center;
+        @media (min-width: $screen-sm-min) {
+            text-align: left;
         }
     }
 }
@@ -515,6 +520,10 @@ a {
     padding: 10px 0;
     position: relative;
     .list-inline {
+        text-align: center;
+        @media (min-width: $screen-sm-min) {
+            text-align: left;
+        }
         margin-bottom: 0;
     }
     .tools {
@@ -546,8 +555,9 @@ a {
         color: #747474;
         margin-top: 10px;
         margin-bottom: 0;
-        @media (max-width: $screen-xs-min) {
-            text-align: center;
+        text-align: center;
+        @media (min-width: $screen-sm-min) {
+            text-align: left;
         }
     }
     &.white {

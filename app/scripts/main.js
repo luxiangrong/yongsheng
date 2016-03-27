@@ -594,7 +594,11 @@ LXR.CountUp = Class.extend({
         $(container).text(from);
         var self = this;
         var intervalHandler = window.setInterval(function() {
-            var num = Math.ceil((self.easeInOutQuad(null, Date.now() - start, from, to - from, duration)));
+            if(Date.now() - start > duration) {
+                var num = to;
+            } else {
+                var num = Math.ceil((self.easeInOutQuad(null, Date.now() - start, from, to - from, duration)));
+            }
             if (num >= to) {
                 clearInterval(intervalHandler);
             }
