@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>金润勇胜-首页</title>
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -43,12 +45,12 @@
          M0.912,62.941h62V52.607h-62V62.941L0.912,62.941z M0.912,62.941" />
                 </g>
             </svg>
-            <!-- <i class="iconfont">&#xe601;</i> --></div>
+        </div>
         <div class="pull-right tel visible-lg-block"><i class="iconfont">&#xe600;</i>：010-88665268</div>
     </section>
     <div id="fullpage" class="fp-destroyed">
         <div class="section banner">
-            <div class="swiper-container visible-xs-block">
+            <div class="swiper-container visible-xs-block" >
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <img src="images/j31.jpg" alt="" class="img-responsive">
@@ -517,7 +519,7 @@
     <script src="/bower_components/fullpage.js/vendors/jquery.slimscroll.min.js"></script>
     <script src="/bower_components/velocity/velocity.js"></script>
     <script src="/bower_components/velocity/velocity.ui.js"></script>
-    <script src="/bower_components/svg-morpheus/compile/minified/svg-morpheus.js"></script>
+    <script src="/bower_components/svg-morpheus/compile/unminified/svg-morpheus.js"></script>
     <script src="/bower_components/Snap.svg/dist/snap.svg-min.js"></script>
     <script src="/bower_components/waypoints/lib/jquery.waypoints.js"></script>
     <script src="/bower_components/Swiper/dist/js/swiper.js"></script>
@@ -637,6 +639,7 @@
         if ($(document).width() >= 768) {
             fpRebuild();
         } else {
+            $('.swiper-container').height($(window).height());
             var swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
                 paginationClickable: true
@@ -648,6 +651,7 @@
                 fpRebuild();
             } else {
                 $.fn.fullpage.destroy('all');
+                $('.swiper-container').height($(window).height());
                 var swiper = new Swiper('.swiper-container', {
                     pagination: '.swiper-pagination',
                     paginationClickable: true

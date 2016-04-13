@@ -189,7 +189,7 @@ module.exports = function (grunt) {
         processors: [
           // Add vendor prefixed styles
           require('autoprefixer')({
-            browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']
+            browsers: ['ie >= 8', 'last 4 versions', 'Firefox ESR']
           })
         ]
       },

@@ -295,13 +295,17 @@ LXR.LayerMove = Class.extend({
 LXR.Animate = Class.extend({
     'ctor': function() {
         var animate = this;
-        this.menuIcon = new SVGMorpheus('#icon-menu');
+        if (window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame) {
+            this.menuIcon = new SVGMorpheus('#icon-menu');
+        } 
         var self = this;
-        this.status = 'in';
+        this.status = 'out';
         $('.menu').click(function() {
             if (animate.status == 'out') {
                 animate.status = 'in';
-                self.menuIcon.to('icon-menu-1');
+                if (window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame) {
+                    self.menuIcon.to('icon-menu-1');
+                } 
                 $(document).on('touchmove.menu', function(e){
                     event.preventDefault();
                 });
@@ -315,7 +319,9 @@ LXR.Animate = Class.extend({
             } else {
                 animate.status = 'out';
                 $(document).off('touchmove.menu');
-                self.menuIcon.to('icon-menu-2');
+                if (window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame) {
+                    self.menuIcon.to('icon-menu-2');
+                } 
                 $('.nav li').velocity('transition.slideRightBigOut', {
                     duration: 500,
                     stagger: 150,
@@ -331,7 +337,9 @@ LXR.Animate = Class.extend({
     //导航菜单顶部依次落下
     'navSlideDownIn': function() {
         if ($(window).width() >= 992) {
-            this.menuIcon.to('icon-menu-2');
+            if (window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame) {
+                this.menuIcon.to('icon-menu-2');
+            } 
             $('.nav li').velocity('transition.slideDownBigIn', {
                 duration: 800,
                 stagger: 250,
@@ -347,10 +355,11 @@ LXR.Animate = Class.extend({
     },
     //导航菜单往右侧消失
     'navRightOut': function(index) {
-        console.log(this.status);
         if(this.status == 'in') {
             if ($(window).width() >= 992) {
-                this.menuIcon.to('icon-menu-2');
+                if (window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame) {
+                    this.menuIcon.to('icon-menu-2');
+                } 
             }
             $('.nav li, .tel').velocity('transition.slideRightBigOut', {
                 duration: 500,
@@ -368,7 +377,9 @@ LXR.Animate = Class.extend({
     //导航菜单从右侧进入
     'navRightIn': function(hideMenu) {
         if ($(window).width() >= 992) {
-            this.menuIcon.to('icon-menu-1');
+            if (window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame) {
+                this.menuIcon.to('icon-menu-1');
+            } 
             $('.menu').velocity('transition.fadeOut', {
                 delay: 0,
                 display: 'block'
@@ -609,6 +620,18 @@ LXR.CountUp = Class.extend({
     'easeInOutQuad': function(x, t, b, c, d) {
         if ((t /= d / 2) < 1) return c / 2 * t * t + b;
         return -c / 2 * ((--t) * (t - 2) - 1) + b;
+    }
+});
+
+LXR.HeaderRoom = Class.extend({
+    'ctor': function() {
+        $(window).on('scroll', function(e){
+            if($(this).scrollTop() > 80) {
+                $('body').addClass('header-room');
+            } else {
+                $('body').removeClass('header-room');
+            }
+        });
     }
 });
 

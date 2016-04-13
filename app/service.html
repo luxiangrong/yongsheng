@@ -22,7 +22,7 @@
 </head>
 
 <body class="page-service">
-    <section class="site-header-other">
+    <section class="site-header-other small">
         <a class="logo-wrap" href="home.html"><img src="images/p03.png" alt="" class="logo"></a>
         <ul class="nav">
             <li class="active"><a href="home.html"><i class="iconfont pull-right">&#xe615;</i><i class="iconfont">&#xe612;</i>金润首页</a></li>
@@ -187,7 +187,7 @@
     <script src="/bower_components/fullpage.js/vendors/jquery.slimscroll.min.js"></script>
     <script src="/bower_components/velocity/velocity.js"></script>
     <script src="/bower_components/velocity/velocity.ui.js"></script>
-    <script src="/bower_components/svg-morpheus/compile/minified/svg-morpheus.js"></script>
+    <script src="/bower_components/svg-morpheus/compile/unminified/svg-morpheus.js"></script>
     <script src="/bower_components/Snap.svg/dist/snap.svg-min.js"></script>
     <script src="/bower_components/waypoints/lib/jquery.waypoints.js"></script>
     <script src="/bower_components/Swiper/dist/js/swiper.js"></script>
@@ -213,6 +213,7 @@
     <!-- endbuild -->
     <script>
     jQuery(function($) {
+        var headerRoom = new LXR.HeaderRoom();
         var animateManager = new LXR.Animate();
 
         if ($(window).width() >= 768) {

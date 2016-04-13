@@ -22,10 +22,31 @@
 }
 
 body {
+    transition: padding-top 0.5s;
     &.modal-open {
         @media (max-width: $screen-sm-min) {
             overflow: hidden;
             position: fixed;
+        }
+    }
+    @media (min-width: $screen-md-min) {
+        &.header-room {
+            padding-top: 50px;
+            .site-header,
+            .site-header-other {
+                line-height: 50px;
+                height: 50px;
+                .logo-wrap {
+                    img {
+                        max-height: 80%;
+                    }
+                }
+            }
+        }
+    }
+    &.body-contacts {
+        @media (max-width: $screen-sm-min) {
+            padding-top: 50px;
         }
     }
 }
@@ -38,6 +59,7 @@ a {
 }
 
 .site-header {
+    transition: all 0.5s;
     .logo-wrap {
         position: relative;
         z-index: 1;
@@ -74,7 +96,9 @@ a {
             line-height: 50px;
             padding-left: 15px;
             .logo {
-                height: 30px;
+                @media (max-width: $screen-sm-min) {
+                    height: 30px;
+                }
             }
         }
         .menu {
@@ -105,11 +129,15 @@ a {
                     vertical-align: middle;
                     color: #efba00;
                     font-size: 18px;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
                     .iconfont {
                         font-size: 24px;
                         margin-right: 10px;
+                        margin-top: -4px;
+                        position: absolute;
+                        right: 6px;
                         &.pull-right {
-                            margin-right: -6px;
                         }
                     }
                     &:hover,
@@ -127,7 +155,7 @@ a {
         line-height: 78px;
         top: 0;
         left: 0;
-        z-index: 100;
+        z-index: 101;
         padding: 0 50px;
         @media (max-width: $screen-xs-min) {
             padding: 0 15px;
@@ -242,6 +270,11 @@ a {
         }
     }
 }
+.header-room {
+    .site-header {
+        background-color: rgba(9, 7, 0, 0.7);
+    }
+}
 
 .site-header-other {
     line-height: 80px;
@@ -253,6 +286,7 @@ a {
     left: 0;
     right: 0;
     background-color: #fff;
+    transition: all 0.5s;
     .logo-wrap {
         position: relative;
         z-index: 1;
@@ -389,6 +423,7 @@ a {
             display: none;
             height: calc(100% - 50px);
             padding-right: 0;
+            line-height: 1;
             li {
                 height: 16.66667%;
                 display: table;
@@ -402,12 +437,16 @@ a {
                     color: #efba00;
                     font-size: 18px;
                     background: transparent;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
                     .iconfont {
                         font-size: 24px;
                         margin-right: 10px;
-                        display: inline-block;
+                        margin-top: -4px;
+                        position: absolute;
+                        right: 6px;
+                        display: block;
                         &.pull-right {
-                            margin-right: -6px;
                         }
                     }
                     &:hover,
@@ -482,8 +521,8 @@ a {
     .list-inline {
         text-align: center;
         @media (min-width: $screen-sm-min) {
-        text-align: left;
-    }
+            text-align: left;
+        }
         margin-bottom: 0;
     }
     .tools {

@@ -31,6 +31,11 @@
         "dist/dialog.js",
         "css/ui-dialog.css"
       ]
+    },
+    "svg-morpheus": {
+      "main": [
+        "compile/unminified/svg-morpheus.js"
+      ]
     }
   }
 }

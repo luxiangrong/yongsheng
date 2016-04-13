@@ -14,7 +14,7 @@
             margin: 0;
             opacity: 0;
         }
-        @media (max-width: $screen-md-min) {
+        @media (max-width: $screen-sm-min) {
             background: url(../images/j33.jpg) no-repeat center 0px;
             background-size: cover;
             h1 {
@@ -43,7 +43,7 @@
         }
         p {
             line-height: 1.8;
-            margin: 30px 0;
+            margin: 10px 0;
             font-size: 16px;
         }
         .vm {
@@ -72,7 +72,6 @@
     }
     .service-1,
     .service-3 {
-        background: url(../images/j27.jpg) no-repeat center top fixed;
     }
     .service-2,
     .service-4 {
@@ -95,7 +94,7 @@
         }
     }
     .service-4 {
-        background: url(../images/j26.jpg) center 1481px fixed;
+        background: url(../images/j26.jpg) center 1000px fixed;
     }
     //垂直居中,通过透明图片的方式
     .vma {
@@ -134,7 +133,7 @@
         .service-3,
         .service-2,
         .service-4 {
-            background-attachment: scroll;
+            background-position: center top;
         }
         .table {
             table-layout: fixed;
